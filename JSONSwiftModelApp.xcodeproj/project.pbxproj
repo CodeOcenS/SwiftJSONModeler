@@ -12,7 +12,35 @@
 		C9ED9CCA23D7F9B3004567A1 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED9CC923D7F9B3004567A1 /* Document.swift */; };
 		C9ED9CCC23D7F9B4004567A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9ED9CCB23D7F9B4004567A1 /* Assets.xcassets */; };
 		C9ED9CCF23D7F9B4004567A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9ED9CCD23D7F9B4004567A1 /* Main.storyboard */; };
+		C9ED9CDE23D7F9D0004567A1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9ED9CDD23D7F9D0004567A1 /* Cocoa.framework */; };
+		C9ED9CE123D7F9D0004567A1 /* SourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED9CE023D7F9D0004567A1 /* SourceEditorExtension.swift */; };
+		C9ED9CE323D7F9D0004567A1 /* SourceEditorCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED9CE223D7F9D0004567A1 /* SourceEditorCommand.swift */; };
+		C9ED9CE823D7F9D0004567A1 /* JSONSwiftModel.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C9ED9CDB23D7F9D0004567A1 /* JSONSwiftModel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C9ED9CE623D7F9D0004567A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9ED9CBA23D7F9B3004567A1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C9ED9CDA23D7F9D0004567A1;
+			remoteInfo = JSONSwiftModel;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C9ED9CEC23D7F9D0004567A1 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C9ED9CE823D7F9D0004567A1 /* JSONSwiftModel.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		C9ED9CC223D7F9B3004567A1 /* JSONSwiftModelApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSONSwiftModelApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -23,6 +51,12 @@
 		C9ED9CCE23D7F9B4004567A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C9ED9CD023D7F9B4004567A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9ED9CD123D7F9B4004567A1 /* JSONSwiftModelApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JSONSwiftModelApp.entitlements; sourceTree = "<group>"; };
+		C9ED9CDB23D7F9D0004567A1 /* JSONSwiftModel.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = JSONSwiftModel.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9ED9CDD23D7F9D0004567A1 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		C9ED9CE023D7F9D0004567A1 /* SourceEditorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorExtension.swift; sourceTree = "<group>"; };
+		C9ED9CE223D7F9D0004567A1 /* SourceEditorCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorCommand.swift; sourceTree = "<group>"; };
+		C9ED9CE423D7F9D0004567A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9ED9CE523D7F9D0004567A1 /* JSONSwiftModel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JSONSwiftModel.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +67,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C9ED9CD823D7F9D0004567A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9ED9CDE23D7F9D0004567A1 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -40,6 +82,8 @@
 			isa = PBXGroup;
 			children = (
 				C9ED9CC423D7F9B3004567A1 /* JSONSwiftModelApp */,
+				C9ED9CDF23D7F9D0004567A1 /* JSONSwiftModel */,
+				C9ED9CDC23D7F9D0004567A1 /* Frameworks */,
 				C9ED9CC323D7F9B3004567A1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				C9ED9CC223D7F9B3004567A1 /* JSONSwiftModelApp.app */,
+				C9ED9CDB23D7F9D0004567A1 /* JSONSwiftModel.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -66,6 +111,25 @@
 			path = JSONSwiftModelApp;
 			sourceTree = "<group>";
 		};
+		C9ED9CDC23D7F9D0004567A1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C9ED9CDD23D7F9D0004567A1 /* Cocoa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C9ED9CDF23D7F9D0004567A1 /* JSONSwiftModel */ = {
+			isa = PBXGroup;
+			children = (
+				C9ED9CE023D7F9D0004567A1 /* SourceEditorExtension.swift */,
+				C9ED9CE223D7F9D0004567A1 /* SourceEditorCommand.swift */,
+				C9ED9CE423D7F9D0004567A1 /* Info.plist */,
+				C9ED9CE523D7F9D0004567A1 /* JSONSwiftModel.entitlements */,
+			);
+			path = JSONSwiftModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -76,15 +140,34 @@
 				C9ED9CBE23D7F9B3004567A1 /* Sources */,
 				C9ED9CBF23D7F9B3004567A1 /* Frameworks */,
 				C9ED9CC023D7F9B3004567A1 /* Resources */,
+				C9ED9CEC23D7F9D0004567A1 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C9ED9CE723D7F9D0004567A1 /* PBXTargetDependency */,
 			);
 			name = JSONSwiftModelApp;
 			productName = JSONSwiftModelApp;
 			productReference = C9ED9CC223D7F9B3004567A1 /* JSONSwiftModelApp.app */;
 			productType = "com.apple.product-type.application";
+		};
+		C9ED9CDA23D7F9D0004567A1 /* JSONSwiftModel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9ED9CE923D7F9D0004567A1 /* Build configuration list for PBXNativeTarget "JSONSwiftModel" */;
+			buildPhases = (
+				C9ED9CD723D7F9D0004567A1 /* Sources */,
+				C9ED9CD823D7F9D0004567A1 /* Frameworks */,
+				C9ED9CD923D7F9D0004567A1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JSONSwiftModel;
+			productName = JSONSwiftModel;
+			productReference = C9ED9CDB23D7F9D0004567A1 /* JSONSwiftModel.appex */;
+			productType = "com.apple.product-type.xcode-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -97,6 +180,9 @@
 				ORGANIZATIONNAME = Sven;
 				TargetAttributes = {
 					C9ED9CC123D7F9B3004567A1 = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+					C9ED9CDA23D7F9D0004567A1 = {
 						CreatedOnToolsVersion = 11.2.1;
 					};
 				};
@@ -115,6 +201,7 @@
 			projectRoot = "";
 			targets = (
 				C9ED9CC123D7F9B3004567A1 /* JSONSwiftModelApp */,
+				C9ED9CDA23D7F9D0004567A1 /* JSONSwiftModel */,
 			);
 		};
 /* End PBXProject section */
@@ -126,6 +213,13 @@
 			files = (
 				C9ED9CCC23D7F9B4004567A1 /* Assets.xcassets in Resources */,
 				C9ED9CCF23D7F9B4004567A1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9ED9CD923D7F9D0004567A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,7 +236,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C9ED9CD723D7F9D0004567A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9ED9CE123D7F9D0004567A1 /* SourceEditorExtension.swift in Sources */,
+				C9ED9CE323D7F9D0004567A1 /* SourceEditorCommand.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C9ED9CE723D7F9D0004567A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C9ED9CDA23D7F9D0004567A1 /* JSONSwiftModel */;
+			targetProxy = C9ED9CE623D7F9D0004567A1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C9ED9CCD23D7F9B4004567A1 /* Main.storyboard */ = {
@@ -272,6 +383,7 @@
 		C9ED9CD523D7F9B4004567A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = JSONSwiftModelApp/JSONSwiftModelApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -292,6 +404,7 @@
 		C9ED9CD623D7F9B4004567A1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = JSONSwiftModelApp/JSONSwiftModelApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -305,6 +418,48 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.lifu.JSONSwiftModelApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		C9ED9CEA23D7F9D0004567A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = JSONSwiftModel/JSONSwiftModel.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = K9DS6XKGWL;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = JSONSwiftModel/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lifu.JSONSwiftModelApp.JSONSwiftModel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		C9ED9CEB23D7F9D0004567A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = JSONSwiftModel/JSONSwiftModel.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = K9DS6XKGWL;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = JSONSwiftModel/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lifu.JSONSwiftModelApp.JSONSwiftModel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -326,6 +481,15 @@
 			buildConfigurations = (
 				C9ED9CD523D7F9B4004567A1 /* Debug */,
 				C9ED9CD623D7F9B4004567A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C9ED9CE923D7F9D0004567A1 /* Build configuration list for PBXNativeTarget "JSONSwiftModel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9ED9CEA23D7F9D0004567A1 /* Debug */,
+				C9ED9CEB23D7F9D0004567A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
