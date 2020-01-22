@@ -1,3 +1,8 @@
+JSONSwiftModel是一个Xcode插件，可以将json 转为模型
+* 支持struct, class 
+* 所有值为可选
+* 支持自定义遵循 和 import 
+
 ## 效果图
 
 ![运行效果](./Sources/example.gif)
@@ -14,7 +19,7 @@
 
 ![](./Sources/showfinder.png)
 
-再将应用移动应用程序即可使用。
+再将应用移动到应用程序, 重启Xcode即可使用。
 
 ### 设置快捷键
 
@@ -26,6 +31,7 @@
 
 记得双击key下面那个区域才可以编辑，这里我使用的是alt + s 和alt + c 避免与系统的冲突
 
+### 自定义操作confrom 和import
 
 
 ## 使用
@@ -68,3 +74,6 @@ struct <#Model#>: HandyJSON {
 ```
 
 ![效果图](./Sources/result.png)
+
+## 待优化
+* 直接解析出子json 或者 数组内子json
