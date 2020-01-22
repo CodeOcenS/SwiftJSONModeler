@@ -9,23 +9,38 @@
 import AppKit
 import XcodeKit
 
-
-private let importModle = ["HandyJSON"]
-// 遵循
-private let parent = "HandyJSON"
+private let configCommand = "config"
 private let structCommand = "struct"
 private let classCommand = "class"
-private let domain = "LFExtension"
+private let domain = "JSONSwiftModel"
 private let keyImport = "import"
 
 private typealias CommandId = String
 
 class SourceEditorCommand: NSObject, XCSourceEditorCommand {
+    private lazy var parent: String = {
+        let config = ConfigUserDefault.shared.getConfig()
+        let confrom = config.confrom
+        if confrom.isEmpty {
+            return ""
+        }else {
+            return confrom.joined(separator: ", ")
+        }
+    }()
+    /// 遵循
+    private lazy var importModule: [String] = {
+        return ConfigUserDefault.shared.getConfig().module
+    }()
     
     func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void ) -> Void {
-        
         print("启动插件")
-        handleInvocation(invocation, handler: completionHandler)
+        
+        if invocation.commandIdentifier == configCommand {
+            NSWorkspace.shared.open(URL.init(fileURLWithPath: "/Applications/JSONSwiftModel.app"))
+            completionHandler(nil)
+        }else {
+             handleInvocation(invocation, handler: completionHandler)
+        }
        
     }
     
@@ -92,7 +107,7 @@ private extension SourceEditorCommand {
     }
     /// 过滤已添加的Modle
     func filterModle( lines: inout NSMutableArray) -> [String]{
-        let waitImport = importModle
+        let waitImport = importModule
         let imported: [String] = lines.filter { ($0 as! String).contains(keyImport)} as! [String]
         let needImport = waitImport.filter { (modle) -> Bool in
             for line in imported {
@@ -147,7 +162,7 @@ private extension SourceEditorCommand {
         var objctLines: [String] = []
         objctLines.append("\(keyword) <#Model#>: \(parent) {")
         objctLines.append(contentsOf: line)
-        if commandIdentifier == classCommand, importModle.contains("HandyJSON") {
+        if commandIdentifier == classCommand, importModule.contains("HandyJSON") {
             objctLines.append("")
             objctLines.append("\trequired init() { }")
         }

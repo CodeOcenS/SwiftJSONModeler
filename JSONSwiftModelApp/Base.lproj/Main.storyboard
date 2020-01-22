@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="5gI-5U-AMq">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15505"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -673,7 +675,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="JSONSwiftModelApp" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -700,28 +702,92 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--View Controller-->
+        <!--Config-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="5gI-5U-AMq" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Config" storyboardIdentifier="ConfigViewController" id="5gI-5U-AMq" customClass="ConfigViewController" customModule="JSONSwiftModelApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="ERx-hH-rdd">
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" preferredMaxLayoutWidth="246" translatesAutoresizingMaskIntoConstraints="NO" id="TyV-c9-G0C">
-                                <rect key="frame" x="115" y="124" width="250" height="22"/>
-                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Your document contents here" id="Cc7-nU-5Mv">
-                                    <font key="font" metaFont="system" size="18"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wf5-gB-SJa">
+                                <rect key="frame" x="28" y="201" width="84" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="d4P-8t-FRZ"/>
+                                </constraints>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="confrom:" id="4pL-cK-xpO">
+                                    <font key="font" metaFont="systemMedium" size="16"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="a5h-sk-bjS">
+                                <rect key="frame" x="118" y="196" width="332" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ZB5-S8-m8z"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" placeholderString="遵守/继承，多个以英文逗号分割" bezelStyle="round" id="Cmw-8K-fBM">
+                                    <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bDa-kJ-Mhx">
+                                <rect key="frame" x="28" y="142" width="84" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="EY2-8c-lDI"/>
+                                </constraints>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Module：" id="Kwx-wh-js3">
+                                    <font key="font" metaFont="systemMedium" size="16"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vSj-38-HG4">
+                                <rect key="frame" x="364" y="33" width="92" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="IgU-pX-0Ab"/>
+                                    <constraint firstAttribute="height" constant="40" id="L1E-c2-3gR"/>
+                                </constraints>
+                                <buttonCell key="cell" type="push" title="save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IQP-yP-yrb">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system" size="15"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="saveButtonTap:" target="5gI-5U-AMq" id="yhq-Ui-nvB"/>
+                                </connections>
+                            </button>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TgM-de-NPF">
+                                <rect key="frame" x="118" y="137" width="332" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="QWB-wt-W46"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" placeholderString="import模块，多个以英文逗号分割" bezelStyle="round" id="WFN-fX-IbW">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="centerY" secondItem="TyV-c9-G0C" secondAttribute="centerY" id="Rxv-Yd-F43"/>
-                            <constraint firstAttribute="centerX" secondItem="TyV-c9-G0C" secondAttribute="centerX" id="Zn4-Y4-lbg"/>
+                            <constraint firstAttribute="trailing" secondItem="a5h-sk-bjS" secondAttribute="trailing" constant="30" id="0WB-3W-COT"/>
+                            <constraint firstItem="wf5-gB-SJa" firstAttribute="top" secondItem="ERx-hH-rdd" secondAttribute="top" constant="50" id="Cru-Pc-WKy"/>
+                            <constraint firstItem="bDa-kJ-Mhx" firstAttribute="top" secondItem="wf5-gB-SJa" secondAttribute="bottom" constant="40" id="DUG-3B-kQm"/>
+                            <constraint firstItem="TgM-de-NPF" firstAttribute="leading" secondItem="bDa-kJ-Mhx" secondAttribute="trailing" constant="8" id="F1p-jz-aRa"/>
+                            <constraint firstItem="TgM-de-NPF" firstAttribute="centerY" secondItem="bDa-kJ-Mhx" secondAttribute="centerY" id="KeH-C1-gk2"/>
+                            <constraint firstItem="a5h-sk-bjS" firstAttribute="centerY" secondItem="wf5-gB-SJa" secondAttribute="centerY" id="NfI-lb-pf1"/>
+                            <constraint firstAttribute="trailing" secondItem="vSj-38-HG4" secondAttribute="trailing" constant="30" id="ZLc-N7-aTr"/>
+                            <constraint firstAttribute="trailing" secondItem="TgM-de-NPF" secondAttribute="trailing" constant="30" id="ccX-KR-uIA"/>
+                            <constraint firstAttribute="bottom" secondItem="vSj-38-HG4" secondAttribute="bottom" constant="40" id="efW-1D-QSD"/>
+                            <constraint firstItem="bDa-kJ-Mhx" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" constant="30" id="efd-GX-YfT"/>
+                            <constraint firstItem="a5h-sk-bjS" firstAttribute="leading" secondItem="wf5-gB-SJa" secondAttribute="trailing" constant="8" id="qGF-9f-JRO"/>
+                            <constraint firstItem="wf5-gB-SJa" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" constant="30" id="tWd-eT-x7t"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="confromTextField" destination="a5h-sk-bjS" id="pka-iP-L8P"/>
+                        <outlet property="moduleTextField" destination="TgM-de-NPF" id="kVP-SK-EKH"/>
+                    </connections>
                 </viewController>
                 <customObject id="2Tp-Fl-jBw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

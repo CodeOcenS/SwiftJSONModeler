@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C961C1DE23D82A8D008D0DE6 /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C961C1DD23D82A8D008D0DE6 /* ConfigViewController.swift */; };
+		C961C1E023D83181008D0DE6 /* ConfigUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = C961C1DF23D83181008D0DE6 /* ConfigUserDefault.swift */; };
+		C961C1E123D83185008D0DE6 /* ConfigUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = C961C1DF23D83181008D0DE6 /* ConfigUserDefault.swift */; };
 		C9ED9CC623D7F9B3004567A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED9CC523D7F9B3004567A1 /* AppDelegate.swift */; };
-		C9ED9CC823D7F9B3004567A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED9CC723D7F9B3004567A1 /* ViewController.swift */; };
 		C9ED9CCA23D7F9B3004567A1 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED9CC923D7F9B3004567A1 /* Document.swift */; };
 		C9ED9CCC23D7F9B4004567A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9ED9CCB23D7F9B4004567A1 /* Assets.xcassets */; };
 		C9ED9CCF23D7F9B4004567A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9ED9CCD23D7F9B4004567A1 /* Main.storyboard */; };
@@ -43,9 +45,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C961C1DD23D82A8D008D0DE6 /* ConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
+		C961C1DF23D83181008D0DE6 /* ConfigUserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigUserDefault.swift; sourceTree = "<group>"; };
 		C9ED9CC223D7F9B3004567A1 /* JSONSwiftModelApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSONSwiftModelApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9ED9CC523D7F9B3004567A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C9ED9CC723D7F9B3004567A1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C9ED9CC923D7F9B3004567A1 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		C9ED9CCB23D7F9B4004567A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9ED9CCE23D7F9B4004567A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -101,12 +104,13 @@
 			isa = PBXGroup;
 			children = (
 				C9ED9CC523D7F9B3004567A1 /* AppDelegate.swift */,
-				C9ED9CC723D7F9B3004567A1 /* ViewController.swift */,
 				C9ED9CC923D7F9B3004567A1 /* Document.swift */,
 				C9ED9CCB23D7F9B4004567A1 /* Assets.xcassets */,
 				C9ED9CCD23D7F9B4004567A1 /* Main.storyboard */,
 				C9ED9CD023D7F9B4004567A1 /* Info.plist */,
 				C9ED9CD123D7F9B4004567A1 /* JSONSwiftModelApp.entitlements */,
+				C961C1DD23D82A8D008D0DE6 /* ConfigViewController.swift */,
+				C961C1DF23D83181008D0DE6 /* ConfigUserDefault.swift */,
 			);
 			path = JSONSwiftModelApp;
 			sourceTree = "<group>";
@@ -230,9 +234,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9ED9CC823D7F9B3004567A1 /* ViewController.swift in Sources */,
+				C961C1E023D83181008D0DE6 /* ConfigUserDefault.swift in Sources */,
 				C9ED9CC623D7F9B3004567A1 /* AppDelegate.swift in Sources */,
 				C9ED9CCA23D7F9B3004567A1 /* Document.swift in Sources */,
+				C961C1DE23D82A8D008D0DE6 /* ConfigViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C961C1E123D83185008D0DE6 /* ConfigUserDefault.swift in Sources */,
 				C9ED9CE123D7F9D0004567A1 /* SourceEditorExtension.swift in Sources */,
 				C9ED9CE323D7F9D0004567A1 /* SourceEditorCommand.swift in Sources */,
 			);
