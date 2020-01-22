@@ -160,7 +160,12 @@ private extension SourceEditorCommand {
         }
         
         var objctLines: [String] = []
-        objctLines.append("\(keyword) <#Model#>: \(parent) {")
+        if parent.isEmpty {
+             objctLines.append("\(keyword)  <#Model#> {")
+        }else {
+            objctLines.append("\(keyword) <#Model#>: \(parent) {")
+        }
+       
         objctLines.append(contentsOf: line)
         if commandIdentifier == classCommand, importModule.contains("HandyJSON") {
             objctLines.append("")
