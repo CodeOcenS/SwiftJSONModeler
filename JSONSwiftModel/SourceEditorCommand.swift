@@ -67,7 +67,7 @@ private extension SourceEditorCommand {
     /// 添加引入模块
     func importModel( lines: inout NSMutableArray) {
         
-        var firstImportIndex: Int = 9;
+        var firstImportIndex: Int = 8;
         if lines.count < 9 {
             firstImportIndex = 0
         }
@@ -115,6 +115,14 @@ private extension SourceEditorCommand {
         
         if insertIndex > 0 {
             let insertLastLineValue = origin[insertIndex-1]
+           
+            if origin.count > insertIndex {
+                let currentLineValue = origin[insertIndex]
+                if (currentLineValue as! String) != "\n" {
+                     let currentLineValue = origin[insertIndex]
+                    insertIndex += 1
+                }
+            }
             if let value = insertLastLineValue as? String, value == "\n" {
                 
             }else {
