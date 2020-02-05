@@ -48,7 +48,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
         
         let buffer = invacation.buffer
         var line =  buffer.lines
-        importModel(lines: &line)
+        //importModel(lines: &line)
         // 获取复制内容
         guard let paste = NSPasteboard.general.string(forType: .string) else {
            handler(error(msg: "复制内容异常"))
@@ -65,6 +65,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
         case .success(let l):
             let objectLines = objectLine(commandIdentifier: invacation.commandIdentifier, line: l)
             addLines(origin: &line, new: objectLines, invocation: invacation)
+            importModel(lines: &line)
             handler(nil)
         }
         
