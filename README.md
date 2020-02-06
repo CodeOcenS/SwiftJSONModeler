@@ -6,7 +6,7 @@ JSONSwiftModel是一个Xcode插件，可以将json 转为模型
 ## 效果图
 
 ![运行效果](./Sources/example.gif)
-
+如果无法预览查看Sources/example.gif
 ## 安装
 
 下载项目工程，修改为自己的bundleId
