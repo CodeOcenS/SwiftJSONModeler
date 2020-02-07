@@ -36,12 +36,12 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
         print("启动插件")
         
         if invocation.commandIdentifier == configCommand {
-            NSWorkspace.shared.open(URL.init(fileURLWithPath: "/Applications/JSONSwiftModel.app"))
-            completionHandler(nil)
+            NSWorkspace.shared.open(URL.init(fileURLWithPath: "/Applications/JSONSwiftModelApp.app"))
+           
         }else {
              handleInvocation(invocation, handler: completionHandler)
         }
-       
+        completionHandler(nil)
     }
     
     private func handleInvocation(_ invacation: XCSourceEditorCommandInvocation ,handler:(Error?) -> Void) -> Void {
