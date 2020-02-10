@@ -33,6 +33,12 @@ JSONSwiftModel是一个Xcode插件，可以将json 转为模型
 
 ### 自定义操作confrom 和import
 
+可以通过点击应用或者选择扩展的config选项，自定义填写import模块和继承
+
+比如我需要继承HandyJSON
+
+![自定义遵循](./Sources/customConfig.png)
+
 
 ## 使用
 
