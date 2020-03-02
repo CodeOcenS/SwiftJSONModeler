@@ -46,7 +46,7 @@ class ConfigViewController: NSViewController {
     
     @IBAction func saveButtonTap(_ sender: NSButton) {
         saveToUserDefault()
-        // FIXME: - 怎么关闭窗口
+        view.window?.close()
     }
     
 }

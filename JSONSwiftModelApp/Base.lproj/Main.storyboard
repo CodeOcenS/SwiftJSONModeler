@@ -679,7 +679,7 @@
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="75" y="-54"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -700,7 +700,7 @@
                 </windowController>
                 <customObject id="6f7-a7-6o1" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="75" y="199"/>
         </scene>
         <!--Config-->
         <scene sceneID="hIz-AP-VOD">
@@ -715,7 +715,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="d4P-8t-FRZ"/>
                                 </constraints>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="confrom:" id="4pL-cK-xpO">
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Confrom:" id="4pL-cK-xpO">
                                     <font key="font" metaFont="systemMedium" size="16"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
