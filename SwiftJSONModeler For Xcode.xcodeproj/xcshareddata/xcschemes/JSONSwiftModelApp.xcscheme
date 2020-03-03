@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C9ED9CC123D7F9B3004567A1"
-               BuildableName = "JSONSwiftModelApp.app"
-               BlueprintName = "JSONSwiftModelApp"
-               ReferencedContainer = "container:JSONSwiftModelApp.xcodeproj">
+               BuildableName = "SwiftJSONModeler For Xcode.app"
+               BlueprintName = "SwiftJSONModeler For Xcode"
+               ReferencedContainer = "container:SwiftJSONModeler For Xcode.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,9 +45,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C9ED9CC123D7F9B3004567A1"
-            BuildableName = "JSONSwiftModelApp.app"
-            BlueprintName = "JSONSwiftModelApp"
-            ReferencedContainer = "container:JSONSwiftModelApp.xcodeproj">
+            BuildableName = "SwiftJSONModeler For Xcode.app"
+            BlueprintName = "SwiftJSONModeler For Xcode"
+            ReferencedContainer = "container:SwiftJSONModeler For Xcode.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C9ED9CC123D7F9B3004567A1"
-            BuildableName = "JSONSwiftModelApp.app"
-            BlueprintName = "JSONSwiftModelApp"
-            ReferencedContainer = "container:JSONSwiftModelApp.xcodeproj">
+            BuildableName = "SwiftJSONModeler For Xcode.app"
+            BlueprintName = "SwiftJSONModeler For Xcode"
+            ReferencedContainer = "container:SwiftJSONModeler For Xcode.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

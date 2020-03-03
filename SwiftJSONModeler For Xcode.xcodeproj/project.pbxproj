@@ -47,13 +47,13 @@
 /* Begin PBXFileReference section */
 		C961C1DD23D82A8D008D0DE6 /* ConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
 		C961C1DF23D83181008D0DE6 /* ConfigUserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigUserDefault.swift; sourceTree = "<group>"; };
-		C9ED9CC223D7F9B3004567A1 /* JSONSwiftModelApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSONSwiftModelApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9ED9CC223D7F9B3004567A1 /* SwiftJSONModeler For Xcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftJSONModeler For Xcode.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9ED9CC523D7F9B3004567A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9ED9CC923D7F9B3004567A1 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		C9ED9CCB23D7F9B4004567A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9ED9CCE23D7F9B4004567A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C9ED9CD023D7F9B4004567A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C9ED9CD123D7F9B4004567A1 /* JSONSwiftModelApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JSONSwiftModelApp.entitlements; sourceTree = "<group>"; };
+		C9ED9CD123D7F9B4004567A1 /* SwiftJSONModeler For Xcode.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SwiftJSONModeler For Xcode.entitlements"; sourceTree = "<group>"; };
 		C9ED9CDB23D7F9D0004567A1 /* JSONSwiftModel.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = JSONSwiftModel.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9ED9CDD23D7F9D0004567A1 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		C9ED9CE023D7F9D0004567A1 /* SourceEditorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorExtension.swift; sourceTree = "<group>"; };
@@ -84,8 +84,8 @@
 		C9ED9CB923D7F9B3004567A1 = {
 			isa = PBXGroup;
 			children = (
-				C9ED9CC423D7F9B3004567A1 /* JSONSwiftModelApp */,
-				C9ED9CDF23D7F9D0004567A1 /* JSONSwiftModel */,
+				C9ED9CC423D7F9B3004567A1 /* SwiftJSONModeler For Xcode */,
+				C9ED9CDF23D7F9D0004567A1 /* SwiftJSONModeler */,
 				C9ED9CDC23D7F9D0004567A1 /* Frameworks */,
 				C9ED9CC323D7F9B3004567A1 /* Products */,
 			);
@@ -94,13 +94,13 @@
 		C9ED9CC323D7F9B3004567A1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C9ED9CC223D7F9B3004567A1 /* JSONSwiftModelApp.app */,
+				C9ED9CC223D7F9B3004567A1 /* SwiftJSONModeler For Xcode.app */,
 				C9ED9CDB23D7F9D0004567A1 /* JSONSwiftModel.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C9ED9CC423D7F9B3004567A1 /* JSONSwiftModelApp */ = {
+		C9ED9CC423D7F9B3004567A1 /* SwiftJSONModeler For Xcode */ = {
 			isa = PBXGroup;
 			children = (
 				C9ED9CC523D7F9B3004567A1 /* AppDelegate.swift */,
@@ -108,11 +108,11 @@
 				C9ED9CCB23D7F9B4004567A1 /* Assets.xcassets */,
 				C9ED9CCD23D7F9B4004567A1 /* Main.storyboard */,
 				C9ED9CD023D7F9B4004567A1 /* Info.plist */,
-				C9ED9CD123D7F9B4004567A1 /* JSONSwiftModelApp.entitlements */,
+				C9ED9CD123D7F9B4004567A1 /* SwiftJSONModeler For Xcode.entitlements */,
 				C961C1DD23D82A8D008D0DE6 /* ConfigViewController.swift */,
 				C961C1DF23D83181008D0DE6 /* ConfigUserDefault.swift */,
 			);
-			path = JSONSwiftModelApp;
+			path = "SwiftJSONModeler For Xcode";
 			sourceTree = "<group>";
 		};
 		C9ED9CDC23D7F9D0004567A1 /* Frameworks */ = {
@@ -123,7 +123,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C9ED9CDF23D7F9D0004567A1 /* JSONSwiftModel */ = {
+		C9ED9CDF23D7F9D0004567A1 /* SwiftJSONModeler */ = {
 			isa = PBXGroup;
 			children = (
 				C9ED9CE023D7F9D0004567A1 /* SourceEditorExtension.swift */,
@@ -131,15 +131,15 @@
 				C9ED9CE423D7F9D0004567A1 /* Info.plist */,
 				C9ED9CE523D7F9D0004567A1 /* JSONSwiftModel.entitlements */,
 			);
-			path = JSONSwiftModel;
+			path = SwiftJSONModeler;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C9ED9CC123D7F9B3004567A1 /* JSONSwiftModelApp */ = {
+		C9ED9CC123D7F9B3004567A1 /* SwiftJSONModeler For Xcode */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C9ED9CD423D7F9B4004567A1 /* Build configuration list for PBXNativeTarget "JSONSwiftModelApp" */;
+			buildConfigurationList = C9ED9CD423D7F9B4004567A1 /* Build configuration list for PBXNativeTarget "SwiftJSONModeler For Xcode" */;
 			buildPhases = (
 				C9ED9CBE23D7F9B3004567A1 /* Sources */,
 				C9ED9CBF23D7F9B3004567A1 /* Frameworks */,
@@ -151,9 +151,9 @@
 			dependencies = (
 				C9ED9CE723D7F9D0004567A1 /* PBXTargetDependency */,
 			);
-			name = JSONSwiftModelApp;
+			name = "SwiftJSONModeler For Xcode";
 			productName = JSONSwiftModelApp;
-			productReference = C9ED9CC223D7F9B3004567A1 /* JSONSwiftModelApp.app */;
+			productReference = C9ED9CC223D7F9B3004567A1 /* SwiftJSONModeler For Xcode.app */;
 			productType = "com.apple.product-type.application";
 		};
 		C9ED9CDA23D7F9D0004567A1 /* JSONSwiftModel */ = {
@@ -191,7 +191,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C9ED9CBD23D7F9B3004567A1 /* Build configuration list for PBXProject "JSONSwiftModelApp" */;
+			buildConfigurationList = C9ED9CBD23D7F9B3004567A1 /* Build configuration list for PBXProject "SwiftJSONModeler For Xcode" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -204,7 +204,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C9ED9CC123D7F9B3004567A1 /* JSONSwiftModelApp */,
+				C9ED9CC123D7F9B3004567A1 /* SwiftJSONModeler For Xcode */,
 				C9ED9CDA23D7F9D0004567A1 /* JSONSwiftModel */,
 			);
 		};
@@ -391,18 +391,18 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = JSONSwiftModelApp/JSONSwiftModelApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "SwiftJSONModeler For Xcode/SwiftJSONModeler For Xcode.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = FAUSS8ZY29;
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = JSONSwiftModelApp/Info.plist;
+				INFOPLIST_FILE = "SwiftJSONModeler For Xcode/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.lifu.JSONSwiftModelApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lifu.SwiftJSONModeler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -413,18 +413,18 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = JSONSwiftModelApp/JSONSwiftModelApp.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "SwiftJSONModeler For Xcode/SwiftJSONModeler For Xcode.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = FAUSS8ZY29;
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = JSONSwiftModelApp/Info.plist;
+				INFOPLIST_FILE = "SwiftJSONModeler For Xcode/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.lifu.JSONSwiftModelApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lifu.SwiftJSONModeler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -475,7 +475,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C9ED9CBD23D7F9B3004567A1 /* Build configuration list for PBXProject "JSONSwiftModelApp" */ = {
+		C9ED9CBD23D7F9B3004567A1 /* Build configuration list for PBXProject "SwiftJSONModeler For Xcode" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C9ED9CD223D7F9B4004567A1 /* Debug */,
@@ -484,7 +484,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C9ED9CD423D7F9B4004567A1 /* Build configuration list for PBXNativeTarget "JSONSwiftModelApp" */ = {
+		C9ED9CD423D7F9B4004567A1 /* Build configuration list for PBXNativeTarget "SwiftJSONModeler For Xcode" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C9ED9CD523D7F9B4004567A1 /* Debug */,

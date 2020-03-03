@@ -1,6 +1,6 @@
 //
 //  SourceEditorExtension.swift
-//  JSONSwiftModel
+//  SwiftJSONModeler For Xcode
 //
 //  Created by Sven on 2020/1/22.
 //  Copyright © 2020 Sven. All rights reserved.

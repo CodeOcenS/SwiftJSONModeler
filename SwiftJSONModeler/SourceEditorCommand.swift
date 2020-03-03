@@ -12,7 +12,7 @@ import XcodeKit
 private let configCommand = "config"
 private let structCommand = "struct"
 private let classCommand = "class"
-private let domain = "JSONSwiftModel"
+private let domain = "SwiftJSONModeler"
 private let keyImport = "import"
 
 private typealias CommandId = String
@@ -36,7 +36,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
         print("启动插件")
         
         if invocation.commandIdentifier == configCommand {
-            NSWorkspace.shared.open(URL.init(fileURLWithPath: "/Applications/JSONSwiftModelApp.app"))
+            NSWorkspace.shared.open(URL.init(fileURLWithPath: "/Applications/SwiftJSONModeler For Xcode.app"))
            
         }else {
              handleInvocation(invocation, handler: completionHandler)

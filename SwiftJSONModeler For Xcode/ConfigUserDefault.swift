@@ -1,6 +1,6 @@
 //
 //  ConfigUserDefault.swift
-//  JSONSwiftModelApp
+//  SwiftJSONModeler For Xcode
 //
 //  Created by Sven on 2020/1/22.
 //  Copyright © 2020 Sven. All rights reserved.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-private let appGroupe = "com.lifu.JSONSwiftModel"
+private let appGroupe = "SwiftJSONModeler"
 
 class ConfigUserDefault: NSObject {
     static let shared: ConfigUserDefault = ConfigUserDefault()
