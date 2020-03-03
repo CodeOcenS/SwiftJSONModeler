@@ -14,7 +14,7 @@ class ConfigUserDefault: NSObject {
     static let shared: ConfigUserDefault = ConfigUserDefault()
     var userDefault: UserDefaults
     private override init() {
-        userDefault = UserDefaults(suiteName: appGroupe)!
+        userDefault = UserDefaults(suiteName: appGroupe)! // if suiteName the same as bundleId or "NSGloabDomain", wil be nil
     }
     
     func set(confrom: [String], module: [String]) {

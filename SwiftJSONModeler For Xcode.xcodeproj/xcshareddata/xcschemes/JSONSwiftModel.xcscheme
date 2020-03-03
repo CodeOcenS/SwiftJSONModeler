@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C9ED9CDA23D7F9D0004567A1"
-               BuildableName = "JSONSwiftModel.appex"
-               BlueprintName = "JSONSwiftModel"
+               BuildableName = "SwiftJSONModeler.appex"
+               BlueprintName = "SwiftJSONModeler"
                ReferencedContainer = "container:SwiftJSONModeler For Xcode.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

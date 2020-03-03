@@ -17,7 +17,7 @@
 		C9ED9CDE23D7F9D0004567A1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9ED9CDD23D7F9D0004567A1 /* Cocoa.framework */; };
 		C9ED9CE123D7F9D0004567A1 /* SourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED9CE023D7F9D0004567A1 /* SourceEditorExtension.swift */; };
 		C9ED9CE323D7F9D0004567A1 /* SourceEditorCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED9CE223D7F9D0004567A1 /* SourceEditorCommand.swift */; };
-		C9ED9CE823D7F9D0004567A1 /* JSONSwiftModel.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C9ED9CDB23D7F9D0004567A1 /* JSONSwiftModel.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C9ED9CE823D7F9D0004567A1 /* SwiftJSONModeler.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C9ED9CDB23D7F9D0004567A1 /* SwiftJSONModeler.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				C9ED9CE823D7F9D0004567A1 /* JSONSwiftModel.appex in Embed App Extensions */,
+				C9ED9CE823D7F9D0004567A1 /* SwiftJSONModeler.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -54,12 +54,12 @@
 		C9ED9CCE23D7F9B4004567A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C9ED9CD023D7F9B4004567A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9ED9CD123D7F9B4004567A1 /* SwiftJSONModeler For Xcode.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "SwiftJSONModeler For Xcode.entitlements"; sourceTree = "<group>"; };
-		C9ED9CDB23D7F9D0004567A1 /* JSONSwiftModel.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = JSONSwiftModel.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9ED9CDB23D7F9D0004567A1 /* SwiftJSONModeler.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SwiftJSONModeler.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9ED9CDD23D7F9D0004567A1 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		C9ED9CE023D7F9D0004567A1 /* SourceEditorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorExtension.swift; sourceTree = "<group>"; };
 		C9ED9CE223D7F9D0004567A1 /* SourceEditorCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorCommand.swift; sourceTree = "<group>"; };
 		C9ED9CE423D7F9D0004567A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C9ED9CE523D7F9D0004567A1 /* JSONSwiftModel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JSONSwiftModel.entitlements; sourceTree = "<group>"; };
+		C9ED9CE523D7F9D0004567A1 /* SwiftJSONModeler.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftJSONModeler.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				C9ED9CC223D7F9B3004567A1 /* SwiftJSONModeler For Xcode.app */,
-				C9ED9CDB23D7F9D0004567A1 /* JSONSwiftModel.appex */,
+				C9ED9CDB23D7F9D0004567A1 /* SwiftJSONModeler.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,7 +129,7 @@
 				C9ED9CE023D7F9D0004567A1 /* SourceEditorExtension.swift */,
 				C9ED9CE223D7F9D0004567A1 /* SourceEditorCommand.swift */,
 				C9ED9CE423D7F9D0004567A1 /* Info.plist */,
-				C9ED9CE523D7F9D0004567A1 /* JSONSwiftModel.entitlements */,
+				C9ED9CE523D7F9D0004567A1 /* SwiftJSONModeler.entitlements */,
 			);
 			path = SwiftJSONModeler;
 			sourceTree = "<group>";
@@ -156,9 +156,9 @@
 			productReference = C9ED9CC223D7F9B3004567A1 /* SwiftJSONModeler For Xcode.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C9ED9CDA23D7F9D0004567A1 /* JSONSwiftModel */ = {
+		C9ED9CDA23D7F9D0004567A1 /* SwiftJSONModeler */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C9ED9CE923D7F9D0004567A1 /* Build configuration list for PBXNativeTarget "JSONSwiftModel" */;
+			buildConfigurationList = C9ED9CE923D7F9D0004567A1 /* Build configuration list for PBXNativeTarget "SwiftJSONModeler" */;
 			buildPhases = (
 				C9ED9CD723D7F9D0004567A1 /* Sources */,
 				C9ED9CD823D7F9D0004567A1 /* Frameworks */,
@@ -168,9 +168,9 @@
 			);
 			dependencies = (
 			);
-			name = JSONSwiftModel;
+			name = SwiftJSONModeler;
 			productName = JSONSwiftModel;
-			productReference = C9ED9CDB23D7F9D0004567A1 /* JSONSwiftModel.appex */;
+			productReference = C9ED9CDB23D7F9D0004567A1 /* SwiftJSONModeler.appex */;
 			productType = "com.apple.product-type.xcode-extension";
 		};
 /* End PBXNativeTarget section */
@@ -205,7 +205,7 @@
 			projectRoot = "";
 			targets = (
 				C9ED9CC123D7F9B3004567A1 /* SwiftJSONModeler For Xcode */,
-				C9ED9CDA23D7F9D0004567A1 /* JSONSwiftModel */,
+				C9ED9CDA23D7F9D0004567A1 /* SwiftJSONModeler */,
 			);
 		};
 /* End PBXProject section */
@@ -256,7 +256,7 @@
 /* Begin PBXTargetDependency section */
 		C9ED9CE723D7F9D0004567A1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C9ED9CDA23D7F9D0004567A1 /* JSONSwiftModel */;
+			target = C9ED9CDA23D7F9D0004567A1 /* SwiftJSONModeler */;
 			targetProxy = C9ED9CE623D7F9D0004567A1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -433,18 +433,20 @@
 		C9ED9CEA23D7F9D0004567A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = JSONSwiftModel/JSONSwiftModel.entitlements;
+				CODE_SIGN_ENTITLEMENTS = SwiftJSONModeler/SwiftJSONModeler.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = FAUSS8ZY29;
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = JSONSwiftModel/Info.plist;
+				INFOPLIST_FILE = SwiftJSONModeler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lifu.JSONSwiftModelApp;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lifu.SwiftJSONModeler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -454,18 +456,20 @@
 		C9ED9CEB23D7F9D0004567A1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = JSONSwiftModel/JSONSwiftModel.entitlements;
+				CODE_SIGN_ENTITLEMENTS = SwiftJSONModeler/SwiftJSONModeler.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = FAUSS8ZY29;
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = JSONSwiftModel/Info.plist;
+				INFOPLIST_FILE = SwiftJSONModeler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.lifu.JSONSwiftModelApp;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.lifu.SwiftJSONModeler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -493,7 +497,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C9ED9CE923D7F9D0004567A1 /* Build configuration list for PBXNativeTarget "JSONSwiftModel" */ = {
+		C9ED9CE923D7F9D0004567A1 /* Build configuration list for PBXNativeTarget "SwiftJSONModeler" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C9ED9CEA23D7F9D0004567A1 /* Debug */,
