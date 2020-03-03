@@ -23,35 +23,34 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
         let confrom = config.confrom
         if confrom.isEmpty {
             return ""
-        }else {
+        } else {
             return confrom.joined(separator: ", ")
         }
     }()
+    
     /// 遵循
     private lazy var importModule: [String] = {
-        return ConfigUserDefault.shared.getConfig().module
+        ConfigUserDefault.shared.getConfig().module
     }()
     
-    func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void ) -> Void {
+    func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void) {
         print("启动插件")
         
         if invocation.commandIdentifier == configCommand {
-            NSWorkspace.shared.open(URL.init(fileURLWithPath: "/Applications/SwiftJSONModeler For Xcode.app"))
-           
-        }else {
-             handleInvocation(invocation, handler: completionHandler)
+            NSWorkspace.shared.open(URL(fileURLWithPath: "/Applications/SwiftJSONModeler For Xcode.app"))
+        } else {
+            handleInvocation(invocation, handler: completionHandler)
         }
         completionHandler(nil)
     }
     
-    private func handleInvocation(_ invacation: XCSourceEditorCommandInvocation ,handler:(Error?) -> Void) -> Void {
-        
+    private func handleInvocation(_ invacation: XCSourceEditorCommandInvocation, handler: (Error?) -> Void) {
         let buffer = invacation.buffer
-        var line =  buffer.lines
-        //importModel(lines: &line)
+        var line = buffer.lines
+        // importModel(lines: &line)
         // 获取复制内容
         guard let paste = NSPasteboard.general.string(forType: .string) else {
-           handler(error(msg: "复制内容异常"))
+            handler(error(msg: "复制内容异常"))
             return
         }
         guard !paste.isEmpty else {
@@ -61,29 +60,26 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
         let lines = linesFrom(paste: paste)
         switch lines {
         case .failure(let error):
-             handler(error)
+            handler(error)
         case .success(let l):
             let objectLines = objectLine(commandIdentifier: invacation.commandIdentifier, line: l)
             addLines(origin: &line, new: objectLines, invocation: invacation)
             importModel(lines: &line)
             handler(nil)
         }
-        
     }
-    
-   
-    
 }
+
 // MARK: - Helper
+
 private extension SourceEditorCommand {
     func error(msg: String) -> Error {
-        return NSError(domain: domain, code: 300, userInfo: [NSLocalizedDescriptionKey: msg,
-        ])
+        return NSError(domain: domain, code: 300, userInfo: [NSLocalizedDescriptionKey: msg])
     }
+    
     /// 添加引入模块
-    func importModel( lines: inout NSMutableArray) {
-        
-        var firstImportIndex: Int = 8;
+    func importModel(lines: inout NSMutableArray) {
+        var firstImportIndex: Int = 8
         if lines.count < 9 {
             firstImportIndex = 0
         }
@@ -92,11 +88,11 @@ private extension SourceEditorCommand {
             guard let value = value as? String else {
                 return
             }
-            if value.contains(keyImport){
+            if value.contains(keyImport) {
                 if value.contains("Foundation") || value.contains("UIKit") {
                     aimIndex = index + 1
-                }else {
-                    aimIndex =  index
+                } else {
+                    aimIndex = index
                 }
                 break
             }
@@ -106,10 +102,11 @@ private extension SourceEditorCommand {
             lines.insert("\(keyImport) \(modle)\n", at: aimIndex)
         }
     }
+    
     /// 过滤已添加的Modle
-    func filterModle( lines: inout NSMutableArray) -> [String]{
+    func filterModle(lines: inout NSMutableArray) -> [String] {
         let waitImport = importModule
-        let imported: [String] = lines.filter { ($0 as! String).contains(keyImport)} as! [String]
+        let imported: [String] = lines.filter { ($0 as! String).contains(keyImport) } as! [String]
         let needImport = waitImport.filter { (modle) -> Bool in
             for line in imported {
                 if line.contains(modle) {
@@ -120,53 +117,54 @@ private extension SourceEditorCommand {
         }
         return needImport
     }
+    
     /// 进行新增行整合
     func addLines(origin: inout NSMutableArray, new line: [String], invocation: XCSourceEditorCommandInvocation) {
         let buffer = invocation.buffer
         let sections = buffer.selections as! [XCSourceTextRange]
         var insertIndex = -1
         if let first = sections.first {
-           insertIndex = first.start.line
+            insertIndex = first.start.line
         }
         
         if insertIndex > 0 {
-            let insertLastLineValue = origin[insertIndex-1]
-           
+            let insertLastLineValue = origin[insertIndex - 1]
+            
             if origin.count > insertIndex {
                 let currentLineValue = origin[insertIndex]
                 if (currentLineValue as! String) != "\n" {
-                     let currentLineValue = origin[insertIndex]
+                    _ = origin[insertIndex]
                     insertIndex += 1
                 }
             }
             if let value = insertLastLineValue as? String, value == "\n" {
-                
-            }else {
+            } else {
                 origin.insert("\n", at: insertIndex)
                 insertIndex += 1
             }
             let insertSet = NSIndexSet(indexesIn: NSRange(location: insertIndex, length: line.count))
             origin.insert(line, at: insertSet as IndexSet)
-        }else {
+        } else {
             origin.addObjects(from: line)
         }
     }
+    
     /// 生成对象
     func objectLine(commandIdentifier: CommandId, line: [String]) -> [String] {
         var keyword = "struct"
         if commandIdentifier == classCommand {
             keyword = classCommand
-        }else if commandIdentifier == structCommand {
+        } else if commandIdentifier == structCommand {
             keyword = structCommand
         }
         
         var objctLines: [String] = []
         if parent.isEmpty {
-             objctLines.append("\(keyword)  <#Model#> {")
-        }else {
+            objctLines.append("\(keyword)  <#Model#> {")
+        } else {
             objctLines.append("\(keyword) <#Model#>: \(parent) {")
         }
-       
+        
         objctLines.append(contentsOf: line)
         if commandIdentifier == classCommand, importModule.contains("HandyJSON") {
             objctLines.append("")
@@ -178,59 +176,59 @@ private extension SourceEditorCommand {
 }
 
 // MARK: - Transform
+
 extension SourceEditorCommand {
-    
     /// 类型判断
     /// - Parameter value: 值
     func typeOf(value: Any) -> String {
-            if value is NSNull {
-                print("存在null")
-                return "<#NSNull#>"
-            }else if value is String {
-                print("存在字符串:\(value)")
-                return "String"
-            }else if value is Int {
-                // 需要先判断int
-                print("存在Int:\(value)")
-                 return "Int"
-            }else if value is Double {
-                print("存在Doble:\(value)")
-                 return "Double"
-            }else if value is [Any] {
-                print("存在数组:\(value)")
-                if let arr = value as? [Any], let first = arr.first {
-                    return "[\(typeOf(value: first))]"
-                }else {
-                    return "unknow"
-                }
-                
-            }else if value is [String: Any] {
-                print("存在子类型：\(value)")
-                 return "<#SubModel#>"
-            }else {
-                print("存在未定义项")
-                 return "unknow"
+        if value is NSNull {
+            print("存在null")
+            return "<#NSNull#>"
+        } else if value is String {
+            print("存在字符串:\(value)")
+            return "String"
+        } else if value is Int {
+            // 需要先判断int
+            print("存在Int:\(value)")
+            return "Int"
+        } else if value is Double {
+            print("存在Doble:\(value)")
+            return "Double"
+        } else if value is [Any] {
+            print("存在数组:\(value)")
+            if let arr = value as? [Any], let first = arr.first {
+                return "[\(typeOf(value: first))]"
+            } else {
+                return "unknow"
             }
-        
+            
+        } else if value is [String: Any] {
+            print("存在子类型：\(value)")
+            return "<#SubModel#>"
+        } else {
+            print("存在未定义项")
+            return "unknow"
+        }
     }
-
-    func linesFrom(paste: String) -> Result<[String],Error> {
+    
+    func linesFrom(paste: String) -> Result<[String], Error> {
         do {
             let object = try JSONSerialization.jsonObject(with: paste.data(using: .utf8)!, options: .mutableLeaves)
             guard let dic = object as? [String: Any] else {
-               return Result.failure(error(msg: "json 对象转换为字典失败！"))
+                return Result.failure(error(msg: "json 对象转换为字典失败！"))
             }
             var lines: [String] = []
             for (label, value) in dic {
                 lines.append("\(label): \(typeOf(value: value))")
             }
-            lines = lines.map{"\tvar "+$0 + "?"}
+            lines = lines.map { "\tvar " + $0 + "?" }
+            let aimLines = Array.init(lines.reversed())
             print("目标模板")
-            print(lines)
-            return Result.success(lines)
+            print(aimLines)
+            return Result.success(aimLines)
         } catch let e {
             print(e)
-             return Result.failure(error(msg: "json序列化出错！"))
+            return Result.failure(error(msg: "json序列化出错！"))
         }
     }
 }
