@@ -4,12 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>JSONSwiftModel.xcscheme_^#shared#^_</key>
+		<key>SwiftJSONModeler For Xcode.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>0</integer>
 		</dict>
-		<key>SwiftJSONModeler For Xcode.xcscheme_^#shared#^_</key>
+		<key>SwiftJSONModeler.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
