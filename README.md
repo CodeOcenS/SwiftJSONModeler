@@ -1,4 +1,4 @@
-JSONSwiftModel是一个Xcode插件，可以将json 转为模型
+SwiftJSONModeler是一个Xcode插件，可以将json 转为模型
 * 支持struct, class 
 * 所有值为可选
 * 支持自定义遵循 和 import 
@@ -11,15 +11,17 @@ JSONSwiftModel是一个Xcode插件，可以将json 转为模型
 
 下载项目工程，修改为自己的bundleId
 
-运行主项目JSONSwiftModelApp
+运行主项目SwiftJSONModeler For Xcode
 
-再运行JSONSwiftModel
+再运行SwiftJSONModeler
 
-确保没有报错的情况下，选择Products下的JSONSwfitModelApp.app点击右键， 选择show in finder如下图
+确保没有报错的情况下，选择Products下的运行主项目SwiftJSONModeler For Xcode.app点击右键， 选择show in finder如下图
 
 ![](./Sources/showfinder.png)
 
 再将应用移动到应用程序, 重启Xcode即可使用。
+
+> Tip:如果重启Xcode之后在Editor中还没看见插件选项，请选择系统设置-> 扩展->Xcode Source Editor中对应插件是否导入
 
 ### 设置快捷键
 
