@@ -6,7 +6,7 @@ SwiftJSONModeler是一个Xcode插件，可以将json 转为模型
 ## 效果图
 
 ![运行效果](./Sources/example.gif)
-如果无法预览查看Sources/example.gif
+如果无法预览查看[传输门](https://github.com/yumengqing/SwiftJSONModeler/blob/master/Sources/example.gif)
 ## 安装
 1.你可以选择[Release](https://github.com/yumengqing/SwiftJSONModeler/releases) 直接下载应用安装
 
