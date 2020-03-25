@@ -16,7 +16,8 @@ enum YApiType: String {
     case number = "number"
 }
 struct YApiObject {
-    var parantKey: String = ""
+    /// 只有当type为object时提供
+    var parentKey: String?
     var key: String!
     var mock: String = ""
     var type: YApiType!

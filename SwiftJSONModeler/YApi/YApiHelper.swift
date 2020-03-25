@@ -15,6 +15,8 @@ enum Keys: String {
 
 class YApiHelper {
     var object: YApiObject?
+    var aimPath: String = "data.reserve"
+    
     init(paste: String) {
         self.object = data(from: paste)
     }
@@ -33,66 +35,114 @@ class YApiHelper {
             ErrorCenter.shared.message = "json 转为字典失败"
             return nil
         }
-        
-        // type 类型 如果不含type则为完整模型
-        func apiType(of dic:[String: Any]) -> YApiType? {
-            guard let typeStr = dic["type"] as? String, let type = YApiType(rawValue: typeStr) else {
+        if apiType(of: jsonDic) != nil {
+            guard let compleObject = object(json: jsonDic) else {
                 return nil
             }
-            return type
+            let pathObject =  getPathObjects(path: aimPath, from: compleObject)
+            return pathObject
+        } else {
+            var ob = YApiObject()
+            ob.childs = objectsOf(key:"", properties: jsonDic)
+            return ob
         }
+    }
+    
+    private func getPathObjects(path: String, from object: YApiObject) -> YApiObject? {
+        guard !path.isEmpty else { return object }
+        let pathArr = path.components(separatedBy: ".")
         
-        func objects(key: String = "",  properties: [String: Any]) -> [YApiObject] {
-            var objectArr: [YApiObject] = []
-            if apiType(of: properties) == .object {
-                var object = YApiObject()
-                let childs = objects(key: key, properties: properties[Keys.properties.rawValue] as! [String: Any])
-                object.type = .object
-                object.key = key
-                object.des = (properties[Keys.des.rawValue] as? String) ?? ""
-                object.childs = childs
-                return [object]
-            }
-            for item in properties {
-                var object = YApiObject()
-                let key = item.key
-                object.key = key
-                if let sub = item.value as? [String: Any] {
-                    let type = apiType(of: sub)
-                    if type == .object {
-                        let properties = sub[Keys.properties.rawValue] as! [String: Any]
-                        object.childs.append(contentsOf: objects(key: key, properties: properties))
-                    } else if type == .array {
-                        // 存在不是对象的数组
-                        let properties = (sub["items"] as! [String: Any])["properties"] as! [String: Any]
-                        object.childs.append(contentsOf: objects(key: key, properties: properties))
-                    } else {
-                        if let mockDic = sub["mock"] as? [String: Any], let mock = mockDic["mock"] as? String {
-                            object.mock = mock
-                        }
-                    }
-                    if let typeStr = sub["type"] as? String, let type = YApiType(rawValue: typeStr) {
-                        object.type = type
-                    }
-                    if let desStr = sub[Keys.des.rawValue] as? String {
-                        object.des = desStr
+        func searchObject(key:String, in object: YApiObject)  -> YApiObject? {
+            if object.key == key  {
+                return object
+            }else {
+                var subObjec: YApiObject?
+                for child in object.childs {
+                    if let sub = searchObject(key: key, in: child) {
+                        subObjec = sub
                     }
                 }
-                objectArr.append(object)
+                return subObjec
             }
-            return objectArr
         }
-        ///
-
-        
-        if let type = apiType(of: jsonDic) {
-            
-        } else {
-            
+        var search = object
+        for path in pathArr {
+            if let aimObject = searchObject(key: path, in: search) {
+                search = aimObject
+            }else {
+                ErrorCenter.shared.message = "寻找\(path)目标失败"
+                return nil
+            }
         }
-        
-        let apiData = objects(key: "", properties: jsonDic).first
-        print("____获得apiData:\(apiData)")
-        return apiData
+        return search
     }
+    
+    // type 类型 如果不含type则为完整模型
+    private func apiType(of dic:[String: Any]) -> YApiType? {
+        guard let typeStr = dic["type"] as? String, let type = YApiType(rawValue: typeStr) else {
+            return nil
+        }
+        return type
+    }
+    private func objectsOf(key parent: String,  properties: [String: Any]) -> [YApiObject] {
+        var objectArr: [YApiObject] = []
+        for item in properties {
+            if let value = item.value as? [String: Any]{
+                if let object = self.object(key: item.key, json: value) {
+                    var temp = object
+                    temp.parentKey = parent
+                    objectArr.append(temp)
+                }
+            } else {
+                ErrorCenter.shared.message = "存在不确定类型"
+            }
+        }
+        return objectArr
+    }
+    private func object(key: String = "",  json: [String: Any]) -> YApiObject? {
+        guard let type = apiType(of: json) else {
+            ErrorCenter.shared.message = "key数据格式异常"
+            return nil
+        }
+        var object = YApiObject()
+        object.key = key
+        object.type = type
+        switch type {
+        case .object:
+            if let properties = json["properties"] as? [String: Any] {
+                object.childs = self.objectsOf(key: key, properties: properties)
+            }else {
+                ErrorCenter.shared.message = "json 对象\(key) properties异常"
+                return nil
+            }
+            
+        case .array:
+            if let items = json["items"] as? [String: Any], let type = items["type"] as? String, let apiType = YApiType(rawValue: type) {
+                object.des = json["description"] as? String ?? ""
+                if apiType == .object {
+                    object.childs = self.objectsOf(key: key, properties: json)
+                } else {
+                    let childs = self.object(json: items)
+                    object.childs = childs == nil ? [] : [childs!]
+                }
+                
+                
+            } else {
+                ErrorCenter.shared.message = "数组\(key)异常，可能不存在items或type"
+                return nil
+            }
+        case .integer, .boolean, .string, .number:
+            if let mockJson = json["mock"] as? [String: Any], let mock = mockJson["mock"] as? String {
+                object.mock = mock
+            }
+            
+        }
+        if let des = json["description"] as? String {
+            object.des = des
+        }
+        return object
+    }
+    
+    
+    
 }
