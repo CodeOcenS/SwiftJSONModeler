@@ -9,6 +9,20 @@
 import AppKit
 import XcodeKit
 
+extension String {
+     func upperCaseFirst() -> String {
+        var temp = self
+        guard !self.isEmpty else {
+            return temp
+        }
+        let firstIndex = temp.startIndex
+        let firstLetter = temp.prefix(1)
+        temp.remove(at: firstIndex)
+        let upper = firstLetter.uppercased()
+        temp.insert(upper.first!, at: firstIndex)
+        return temp
+    }
+}
 
 /// 将YApiObject生成row lines
 class YApiCreator {
@@ -102,7 +116,7 @@ class YApiCreator {
                 let subObjectType = subObject.type!
                 if subObjectType == .object {
                     creatObjects.insert(subObject)
-                    swiftType = "[\(subObject.parentKey?.capitalized ?? "<#Undefiend#>")]"
+                    swiftType = "[\(subObject.parentKey?.upperCaseFirst() ?? "<#Undefiend#>")]"
                 } else {
                     swiftType = "[\(subObjectType.swiftType())]"
                 }
@@ -111,7 +125,7 @@ class YApiCreator {
             }
         case .object:
             creatObjects.insert(object)
-            swiftType = object.key!.capitalized
+            swiftType = object.key!.upperCaseFirst()
         case .integer, .string, .number, .boolean:
             break
         }
@@ -130,7 +144,7 @@ class YApiCreator {
      private func model(commandIdentifier: CommandId, yapiObject: YApiObject, yapiLines: [String]) -> [String] {
         var name: String = "<#Model#>"
         if yapiObject.key != nil {
-            name = yapiObject.key!.capitalized
+            name = yapiObject.key!.upperCaseFirst()
         }
         var des: String = "<#描述#>"
         if !yapiObject.des.isEmpty {
