@@ -9,13 +9,13 @@
 import AppKit
 import XcodeKit
 
-private let configCommand = "config"
-private let structCommand = "struct"
-private let classCommand = "class"
-private let domain = "SwiftJSONModeler"
-private let keyImport = "import"
+ let configCommand = "config"
+ let structCommand = "struct"
+ let classCommand = "class"
+ let domain = "SwiftJSONModeler"
+ let keyImport = "import"
 
-private typealias CommandId = String
+ typealias CommandId = String
 
 class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     private lazy var parent: String = {
@@ -36,12 +36,15 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void) {
         print("启动插件")
         
-        let object = YApiHelper(paste: yapiData).object
         
         if invocation.commandIdentifier == configCommand {
             NSWorkspace.shared.open(URL(fileURLWithPath: "/Applications/SwiftJSONModeler For Xcode.app"))
         } else {
-            handleInvocation(invocation, handler: completionHandler)
+           let yapiCreator = YApiCreator(invocation: invocation)
+           let models = yapiCreator.getModels()
+            let lines = invocation.buffer.lines
+            lines.addObjects(from: models)
+            //handleInvocation(invocation, handler: completionHandler)
         }
         completionHandler(nil)
     }

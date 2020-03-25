@@ -59,6 +59,7 @@ class YApiHelper {
         } else {
             var ob = YApiObject()
             ob.childs = objectsOf(key:"", properties: dic)
+            ob.type = .object
             apiObj = ob
         }
         guard let object = apiObj else {
@@ -113,7 +114,7 @@ class YApiHelper {
                     objectArr.append(temp)
                 }
             } else {
-                ErrorCenter.shared.message = "存在不确定类型"
+                ErrorCenter.shared.message = "存在不确定类型\(parent)"
             }
         }
         return objectArr
@@ -139,13 +140,11 @@ class YApiHelper {
             if let items = json["items"] as? [String: Any], let type = items["type"] as? String, let apiType = YApiType(rawValue: type) {
                 object.des = json["description"] as? String ?? ""
                 if apiType == .object {
-                    object.childs = self.objectsOf(key: key, properties: json)
+                    object.childs = self.objectsOf(key: key, properties: items["properties"] as! [String: Any])
                 } else {
                     let childs = self.object(json: items)
                     object.childs = childs == nil ? [] : [childs!]
                 }
-                
-                
             } else {
                 ErrorCenter.shared.message = "数组\(key)异常，可能不存在items或type"
                 return nil

@@ -11,7 +11,11 @@ import Foundation
 class ErrorCenter {
     static let shared: ErrorCenter = ErrorCenter()
     
-    var message: String = ""
+    var message: String = "" {
+        didSet {
+            print(message)
+        }
+    }
     private init() {
         
     }
