@@ -12,16 +12,26 @@ enum Keys: String {
     case properties = "properties"
     case des = "description"
 }
-
+/// 将Yapi RAW数据解析为目标YApiObject
 class YApiHelper {
-    var object: YApiObject?
-    var aimPath: String = "data.reserve"
+    private var pasteJSON: String
+    var pathObject: YApiObject? {
+        return object(from: aimPath, dic: originJOSN)
+    }
+    /// 按照path解析
+    var aimPath: String = ""
+    var compleObject: YApiObject? {
+        return object(from: "", dic: originJOSN)
+    }
+    var originJOSN: [String: Any]? {
+        return check(from: pasteJSON)
+    }
     
     init(paste: String) {
-        self.object = data(from: paste)
+        self.pasteJSON = paste
     }
     /// 从
-    private func data(from paste: String) -> YApiObject? {
+    private func check(from paste: String) -> [String: Any]? {
         guard let data = paste.data(using: .utf8) else {
             ErrorCenter.shared.message = "string 转换 data 异常"
             return nil
@@ -35,17 +45,26 @@ class YApiHelper {
             ErrorCenter.shared.message = "json 转为字典失败"
             return nil
         }
-        if apiType(of: jsonDic) != nil {
-            guard let compleObject = object(json: jsonDic) else {
-                return nil
-            }
-            let pathObject =  getPathObjects(path: aimPath, from: compleObject)
-            return pathObject
+        return jsonDic
+        
+    }
+    /// 获取目标路径下的 YapiOject
+    private func object(from path: String ,dic: [String: Any]?) -> YApiObject? {
+        guard let dic = dic else {
+            return nil
+        }
+        var apiObj: YApiObject?
+        if apiType(of: dic) != nil {
+            apiObj = object(json: dic)
         } else {
             var ob = YApiObject()
-            ob.childs = objectsOf(key:"", properties: jsonDic)
-            return ob
+            ob.childs = objectsOf(key:"", properties: dic)
+            apiObj = ob
         }
+        guard let object = apiObj else {
+            return nil
+        }
+        return getPathObjects(path: path, from: object)
     }
     
     private func getPathObjects(path: String, from object: YApiObject) -> YApiObject? {
