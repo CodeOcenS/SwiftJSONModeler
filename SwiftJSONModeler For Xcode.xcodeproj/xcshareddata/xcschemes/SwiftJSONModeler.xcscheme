@@ -43,6 +43,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C9CB2484241F7F1400F4D5CE"
+               BuildableName = "SwiftJSONModeler For XcodeTests.xctest"
+               BlueprintName = "SwiftJSONModeler For XcodeTests"
+               ReferencedContainer = "container:SwiftJSONModeler For Xcode.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "C9CB2496241F832C00F4D5CE"
+               BuildableName = "SwiftJSONModelerTests.xctest"
+               BlueprintName = "SwiftJSONModelerTests"
+               ReferencedContainer = "container:SwiftJSONModeler For Xcode.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

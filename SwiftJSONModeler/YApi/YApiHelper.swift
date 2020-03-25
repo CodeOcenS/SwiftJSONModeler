@@ -60,9 +60,10 @@ class YApiHelper {
                 if let sub = item.value as? [String: Any] {
                     let type = apiType(of: sub)
                     if type == .object {
-                        let properties = sub[Keys.des.rawValue] as! [String: Any]
+                        let properties = sub[Keys.properties.rawValue] as! [String: Any]
                         object.childs.append(contentsOf: objects(key: key, properties: properties))
                     } else if type == .array {
+                        // 存在不是对象的数组
                         let properties = (sub["items"] as! [String: Any])["properties"] as! [String: Any]
                         object.childs.append(contentsOf: objects(key: key, properties: properties))
                     } else {
@@ -81,6 +82,15 @@ class YApiHelper {
             }
             return objectArr
         }
+        ///
+
+        
+        if let type = apiType(of: jsonDic) {
+            
+        } else {
+            
+        }
+        
         let apiData = objects(key: "", properties: jsonDic).first
         print("____获得apiData:\(apiData)")
         return apiData

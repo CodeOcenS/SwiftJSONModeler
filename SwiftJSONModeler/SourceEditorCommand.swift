@@ -36,6 +36,8 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void) {
         print("启动插件")
         
+        let object = YApiHelper(paste: yapiData).object
+        
         if invocation.commandIdentifier == configCommand {
             NSWorkspace.shared.open(URL(fileURLWithPath: "/Applications/SwiftJSONModeler For Xcode.app"))
         } else {
