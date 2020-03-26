@@ -11,16 +11,16 @@ import XcodeKit
 
 extension String {
      func upperCaseFirst() -> String {
-        var temp = self
+        let temp = self
         guard !self.isEmpty else {
             return temp
         }
         let firstIndex = temp.startIndex
+        let replaceEndIndex = temp.index(after: startIndex)
         let firstLetter = temp.prefix(1)
-        temp.remove(at: firstIndex)
         let upper = firstLetter.uppercased()
-        temp.insert(upper.first!, at: firstIndex)
-        return temp
+        let new =  temp.replacingCharacters(in: firstIndex...replaceEndIndex, with: upper)
+        return new
     }
 }
 
