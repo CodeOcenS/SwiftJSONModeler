@@ -45,11 +45,11 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
         if commandIdentifier == configCommand {
             NSWorkspace.shared.open(URL(fileURLWithPath: "/Applications/SwiftJSONModeler For Xcode.app"))
         } else if commandIdentifier == classFromRAWCommand || commandIdentifier == structFromRAWCommand {
-           let yapiCreator = YApiCreator(invocation: invocation)
-           let models = yapiCreator.getModels()
-            let lines = invocation.buffer.lines
+            let yapiCreator = YApiCreator(invocation: invocation)
+            let models = yapiCreator.getModels()
+            var lines = invocation.buffer.lines
             lines.addObjects(from: models)
-           
+            importModel(lines: &lines)
         } else if commandIdentifier == classFromJSONCommand || commandIdentifier == structFromJSONCommand {
             handleInvocation(invocation, handler: completionHandler)
         }
