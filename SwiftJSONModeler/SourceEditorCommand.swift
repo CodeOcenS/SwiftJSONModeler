@@ -9,13 +9,18 @@
 import AppKit
 import XcodeKit
 
- let configCommand = "config"
- let structCommand = "struct"
- let classCommand = "class"
- let domain = "SwiftJSONModeler"
- let keyImport = "import"
+let configCommand = "config"
+let structFromJSONCommand = "structFromJSON"
+let classFromJSONCommand = "classFromJSON"
+let structFromRAWCommand = "structFromRAW"
+let classFromRAWCommand = "classFromRAW"
 
- typealias CommandId = String
+let domain = "SwiftJSONModeler"
+let keyImport = "import"
+let keyClass = "class"
+let keyStruct = "struct"
+
+typealias CommandId = String
 
 class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     private lazy var parent: String = {
@@ -36,15 +41,17 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void) {
         print("启动插件")
         
-        
-        if invocation.commandIdentifier == configCommand {
+        let commandIdentifier = invocation.commandIdentifier
+        if commandIdentifier == configCommand {
             NSWorkspace.shared.open(URL(fileURLWithPath: "/Applications/SwiftJSONModeler For Xcode.app"))
-        } else {
+        } else if commandIdentifier == classFromRAWCommand || commandIdentifier == structFromRAWCommand {
            let yapiCreator = YApiCreator(invocation: invocation)
            let models = yapiCreator.getModels()
             let lines = invocation.buffer.lines
             lines.addObjects(from: models)
-            //handleInvocation(invocation, handler: completionHandler)
+           
+        } else if commandIdentifier == classFromJSONCommand || commandIdentifier == structFromJSONCommand {
+            handleInvocation(invocation, handler: completionHandler)
         }
         completionHandler(nil)
     }
@@ -156,11 +163,11 @@ private extension SourceEditorCommand {
     
     /// 生成对象
     func objectLine(commandIdentifier: CommandId, line: [String]) -> [String] {
-        var keyword = "struct"
-        if commandIdentifier == classCommand {
-            keyword = classCommand
-        } else if commandIdentifier == structCommand {
-            keyword = structCommand
+        var keyword = keyStruct
+        if commandIdentifier == classFromJSONCommand {
+            keyword = keyClass
+        } else if commandIdentifier == structFromJSONCommand {
+            keyword = keyStruct
         }
         
         var objctLines: [String] = []
@@ -171,7 +178,7 @@ private extension SourceEditorCommand {
         }
         
         objctLines.append(contentsOf: line)
-        if commandIdentifier == classCommand, importModule.contains("HandyJSON") {
+        if commandIdentifier == classFromJSONCommand, parent.contains("HandyJSON") {
             objctLines.append("")
             objctLines.append("\trequired init() { }")
         }

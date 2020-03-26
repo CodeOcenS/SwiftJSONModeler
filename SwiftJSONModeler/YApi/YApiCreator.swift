@@ -19,7 +19,7 @@ extension String {
         let replaceEndIndex = temp.index(after: startIndex)
         let firstLetter = temp.prefix(1)
         let upper = firstLetter.uppercased()
-        let new =  temp.replacingCharacters(in: firstIndex...replaceEndIndex, with: upper)
+        let new =  temp.replacingCharacters(in: firstIndex..<replaceEndIndex, with: upper)
         return new
     }
 }
@@ -150,11 +150,11 @@ class YApiCreator {
         if !yapiObject.des.isEmpty {
             des = yapiObject.des
         }
-        var keyword = structCommand
-        if commandIdentifier == classCommand {
-            keyword = classCommand
-        } else if commandIdentifier == structCommand {
-            keyword = structCommand
+        var keyword = keyStruct
+        if commandIdentifier == classFromRAWCommand {
+            keyword = keyClass
+        } else if commandIdentifier == classFromRAWCommand {
+            keyword = keyStruct
         }
         
         var objctLines: [String] = []
@@ -166,7 +166,7 @@ class YApiCreator {
         }
         let lines = yapiLines.map{ "\t\($0)" }
         objctLines.append(contentsOf: lines)
-        if commandIdentifier == classCommand, importModule.contains("HandyJSON") {
+        if commandIdentifier == classFromRAWCommand, parent.contains("HandyJSON") {
             objctLines.append("")
             objctLines.append("\trequired init() { }")
         }
