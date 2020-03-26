@@ -14,6 +14,8 @@
 		C961C1E123D83185008D0DE6 /* ConfigUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = C961C1DF23D83181008D0DE6 /* ConfigUserDefault.swift */; };
 		C9CB2480241F559C00F4D5CE /* ErrorCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CB247F241F559C00F4D5CE /* ErrorCenter.swift */; };
 		C9CEE26D242B382900A04EA9 /* YApiCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEE26C242B382900A04EA9 /* YApiCreator.swift */; };
+		C9DE045F242C8535008A0070 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE045E242C8535008A0070 /* Config.swift */; };
+		C9DE0460242C853F008A0070 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE045E242C8535008A0070 /* Config.swift */; };
 		C9ED9CC623D7F9B3004567A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED9CC523D7F9B3004567A1 /* AppDelegate.swift */; };
 		C9ED9CCA23D7F9B3004567A1 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED9CC923D7F9B3004567A1 /* Document.swift */; };
 		C9ED9CCC23D7F9B4004567A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9ED9CCB23D7F9B4004567A1 /* Assets.xcassets */; };
@@ -55,6 +57,7 @@
 		C961C1DF23D83181008D0DE6 /* ConfigUserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigUserDefault.swift; sourceTree = "<group>"; };
 		C9CB247F241F559C00F4D5CE /* ErrorCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCenter.swift; sourceTree = "<group>"; };
 		C9CEE26C242B382900A04EA9 /* YApiCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YApiCreator.swift; sourceTree = "<group>"; };
+		C9DE045E242C8535008A0070 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		C9ED9CC223D7F9B3004567A1 /* SwiftJSONModeler For Xcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftJSONModeler For Xcode.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9ED9CC523D7F9B3004567A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9ED9CC923D7F9B3004567A1 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
@@ -129,6 +132,7 @@
 				C9ED9CD123D7F9B4004567A1 /* SwiftJSONModeler For Xcode.entitlements */,
 				C961C1DD23D82A8D008D0DE6 /* ConfigViewController.swift */,
 				C961C1DF23D83181008D0DE6 /* ConfigUserDefault.swift */,
+				C9DE045E242C8535008A0070 /* Config.swift */,
 			);
 			path = "SwiftJSONModeler For Xcode";
 			sourceTree = "<group>";
@@ -256,6 +260,7 @@
 			files = (
 				C961C1E023D83181008D0DE6 /* ConfigUserDefault.swift in Sources */,
 				C9ED9CC623D7F9B3004567A1 /* AppDelegate.swift in Sources */,
+				C9DE045F242C8535008A0070 /* Config.swift in Sources */,
 				C9ED9CCA23D7F9B3004567A1 /* Document.swift in Sources */,
 				C961C1DE23D82A8D008D0DE6 /* ConfigViewController.swift in Sources */,
 			);
@@ -270,6 +275,7 @@
 				C9ED9CE123D7F9D0004567A1 /* SourceEditorExtension.swift in Sources */,
 				C94AFC01241F4AE600389AF3 /* YApiHelper.swift in Sources */,
 				C94AFC04241F4E8A00389AF3 /* YApiObject.swift in Sources */,
+				C9DE0460242C853F008A0070 /* Config.swift in Sources */,
 				C9ED9CE323D7F9D0004567A1 /* SourceEditorCommand.swift in Sources */,
 				C9CEE26D242B382900A04EA9 /* YApiCreator.swift in Sources */,
 			);
