@@ -161,7 +161,7 @@ private extension SourceEditorCommand {
         var modelName = "<#Model#>"
         modelName = config.prefix + modelName + config.subffix
         if parent.isEmpty {
-            objctLines.append("\(keyword)  \(modelName) {")
+            objctLines.append("\(keyword) \(modelName) {")
         } else {
             objctLines.append("\(keyword) \(modelName): \(parent) {")
         }
@@ -222,13 +222,15 @@ extension SourceEditorCommand {
             for (label, value) in dic {
                 lines.append("\(label): \(typeOf(value: value))")
             }
-            if config.
-            if config.isImplicitlyOptional {
-                lines = lines.map { "\tvar " + $0 + "!" }
+            if !config.isNotOptional {
+                if config.isImplicitlyOptional {
+                    lines = lines.map { "\tvar " + $0 + "!" }
+                } else {
+                    lines = lines.map { "\tvar " + $0 + "?" }
+                }
             } else {
-                lines = lines.map { "\tvar " + $0 + "?" }
+                 lines = lines.map { "\tvar " + $0 }
             }
-            
             let aimLines = Array.init(lines.reversed())
             print("目标模板")
             print(aimLines)

@@ -102,7 +102,12 @@ class YApiCreator {
                 let subObjectType = subObject.type!
                 if subObjectType == .object {
                     creatObjects.insert(subObject)
-                    swiftType = "[\(subObject.key?.upperCaseFirst() ?? "<#Undefiend#>")]"
+                    if let temp = subObject.key?.upperCaseFirst() {
+                        swiftType = "[\(config.prefix + temp + config.subffix)]"
+                    } else {
+                        swiftType = "[<#Undefiend#>]"
+                    }
+                    
                 } else {
                     swiftType = "[\(subObjectType.swiftType())]"
                 }
@@ -112,24 +117,26 @@ class YApiCreator {
         case .object:
             creatObjects.insert(object)
             swiftType = object.key!.upperCaseFirst()
+            swiftType = config.prefix + swiftType + config.subffix
         case .integer, .string, .number, .boolean:
             break
         }
        
         isShowMock = config.isShowYApiMock
-        let comment = "/// \(object.des)\(isShowMock ? "\tMock:\(object.mock)" : "")"
+        let comment = "/// \(object.des)\(isShowMock && !object.mock.isEmpty ? "\tMock:\(object.mock)" : "")"
         var line = "var \(object.key!): \(swiftType)"
-        let optionalType: Config.OptionalType = config.optionalType
-        switch optionalType {
-        case .all, .some:
+        let isOptional = !config.isNotOptional
+        if isOptional {
             if type == .array, !config.arrayIsDefaultNotEmpty {
                 line.append(contentsOf: " = []")
             } else {
                 let optionalStr = config.isImplicitlyOptional ? "!" : "?"
                 line.append(contentsOf: optionalStr)
             }
-        case .not:
-           break
+        } else {
+            if !config.arrayIsDefaultNotEmpty {
+                line.append(contentsOf: " = []")
+            }
         }
         return [comment,line]
     }

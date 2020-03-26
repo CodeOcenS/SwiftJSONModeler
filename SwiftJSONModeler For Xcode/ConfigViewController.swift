@@ -19,10 +19,7 @@ class ConfigViewController: NSViewController {
     @IBOutlet weak var moduleTextField: NSTextField!
     @IBOutlet weak var prefixTextField: NSTextField!
     @IBOutlet weak var subffixTextField: NSTextField!
-    
-    @IBOutlet weak var typeOptionalBtn0: NSButton!
-    @IBOutlet weak var typeOptionalBtn1: NSButton!
-    @IBOutlet weak var typeOptionalBtn2: NSButton!
+    @IBOutlet weak var isAllowOptionalBtn: NSButton!
     @IBOutlet weak var isShowOptionalBtn: NSButton!
     @IBOutlet weak var isArrayEmptyBtn: NSButton!
     @IBOutlet weak var isShowYApiMockBtn: NSButton!
@@ -36,39 +33,23 @@ class ConfigViewController: NSViewController {
         moduleTextField.stringValue = config.module
         prefixTextField.stringValue = config.prefix
         subffixTextField.stringValue = config.subffix
-        updateOptionalType(config.optionalType)
+        isAllowOptionalBtn.state = config.isNotOptional ? .off : .on
         isShowOptionalBtn.state = config.isImplicitlyOptional ? .off : .on
         isArrayEmptyBtn.state = config.arrayIsDefaultNotEmpty ? .off : .on
         isShowYApiMockBtn.state = config.isShowYApiMock ? .on : .off
     }
     
-    private func updateOptionalType(_ type: Config.OptionalType) {
-        switch type {
-        case .all:
-            typeOptionalBtn0.state = .on
-            typeOptionalBtn1.state = .off
-            typeOptionalBtn2.state = .off
-        case .some:
-            typeOptionalBtn0.state = .off
-            typeOptionalBtn1.state = .on
-            typeOptionalBtn2.state = .off
-        case .not:
-            typeOptionalBtn0.state = .off
-            typeOptionalBtn1.state = .off
-            typeOptionalBtn2.state = .on
-        }
-    }
     
     @IBAction func saveButtonTap(_ sender: NSButton) {
+        config.conform = confromTextField.stringValue
+        config.module = moduleTextField.stringValue
+        config.prefix = prefixTextField.stringValue
+        config.subffix = subffixTextField.stringValue
         view.window?.close()
     }
     
     @IBAction func typeOptionalBtnTap(_ sender: NSButton) {
-        let baseTag = 10
-        let tag = sender.tag - baseTag
-        let type = Config.OptionalType(rawValue: tag) ?? Config.OptionalType.all
-        updateOptionalType(type)
-        config.optionalType = type
+        config.isNotOptional = !(sender.state == .on)
     }
     /// 是否为显示可选
     @IBAction func isShowOptional(_ sender: NSButton) {

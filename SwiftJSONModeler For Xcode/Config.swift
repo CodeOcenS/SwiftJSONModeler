@@ -70,16 +70,11 @@ class Config {
             }
         }
     }
-    var optionalType: OptionalType {
+    var isNotOptional: Bool {
         set{
-            userDefault.set(newValue.rawValue, forKey: Key.optionalType.rawValue)
+            userDefault.set(newValue, forKey: Key.isNotOptional.rawValue)
         } get {
-            let value = userDefault.integer(forKey: Key.optionalType.rawValue)
-            if let type = OptionalType(rawValue: value) {
-                return type
-            } else {
-                return .all
-            }
+           return userDefault.bool(forKey: Key.isNotOptional.rawValue)
         }
     }
     /// 是否隐式可选， 默认为显示可选
@@ -102,7 +97,7 @@ class Config {
     /// 是否显示Mock， 默认不显示
     var isShowYApiMock: Bool {
         set{
-            userDefault.set(newValue, forKey: Key.conform.rawValue)
+            userDefault.set(newValue, forKey: Key.isShowYApiMock.rawValue)
         } get {
             return userDefault.bool(forKey: Key.isShowYApiMock.rawValue)
         }
@@ -115,16 +110,6 @@ class Config {
         return  str.components(separatedBy: ",")
     }
 }
-extension Config {
-    enum OptionalType: Int {
-        /// 所有类型可选
-        case all = 0
-        /// 根据json值决定，有值可选
-        case some = 1
-        /// 所有都不可选
-        case not = 2
-    }
-}
 
 extension Config {
     enum Key: String {
@@ -132,7 +117,7 @@ extension Config {
         case module = "module"
         case prefix = "prefix"
         case subffix = "subffix"
-        case optionalType = "optionalType"
+        case isNotOptional = "isNotOptional"
         case isImplicitlyOptional = "isImplicitlyOptional"
         case arrayIsDefaultNotEmpty = "arrayIsDefaultNotEmpty"
         case isShowYApiMock = "isShowYApiMock"
