@@ -23,6 +23,7 @@ class ConfigViewController: NSViewController {
     @IBOutlet weak var isShowOptionalBtn: NSButton!
     @IBOutlet weak var isArrayEmptyBtn: NSButton!
     @IBOutlet weak var isShowYApiMockBtn: NSButton!
+    @IBOutlet weak var pathTextField: NSTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         updateFromUserDefault()
@@ -33,6 +34,7 @@ class ConfigViewController: NSViewController {
         moduleTextField.stringValue = config.module
         prefixTextField.stringValue = config.prefix
         subffixTextField.stringValue = config.subffix
+        pathTextField.stringValue = config.yapiPath
         isAllowOptionalBtn.state = config.isNotOptional ? .off : .on
         isShowOptionalBtn.state = config.isImplicitlyOptional ? .off : .on
         isArrayEmptyBtn.state = config.arrayIsDefaultNotEmpty ? .off : .on
@@ -45,6 +47,7 @@ class ConfigViewController: NSViewController {
         config.module = moduleTextField.stringValue
         config.prefix = prefixTextField.stringValue
         config.subffix = subffixTextField.stringValue
+        config.yapiPath = pathTextField.stringValue
         view.window?.close()
     }
     

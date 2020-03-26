@@ -56,7 +56,7 @@ class YApiCreator {
     }
     
     private func getPathObject() -> Void {
-        objectHelper.aimPath = "data" //设置获取data下数据
+        objectHelper.aimPath = Config().yapiPath //设置获取data下数据
         guard let object = objectHelper.pathObject else {
             return
         }

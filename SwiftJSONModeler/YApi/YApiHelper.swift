@@ -7,7 +7,7 @@
 //
 
 import Foundation
-enum Keys: String {
+private enum Keys: String {
     case type = "type"
     case properties = "properties"
     case des = "description"
