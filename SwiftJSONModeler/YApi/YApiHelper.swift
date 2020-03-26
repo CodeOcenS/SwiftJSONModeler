@@ -140,7 +140,11 @@ class YApiHelper {
             if let items = json["items"] as? [String: Any], let type = items["type"] as? String, let apiType = YApiType(rawValue: type) {
                 object.des = json["description"] as? String ?? ""
                 if apiType == .object {
-                    object.childs = self.objectsOf(key: key, properties: items["properties"] as! [String: Any])
+                    if let arrObject = self.object(key: key, json: items) {
+                         object.childs = [arrObject]
+                    } else {
+                       object.childs = []
+                    }
                 } else {
                     let childs = self.object(json: items)
                     object.childs = childs == nil ? [] : [childs!]

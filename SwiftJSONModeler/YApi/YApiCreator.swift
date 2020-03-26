@@ -45,7 +45,7 @@ class YApiCreator {
     var invocation: XCSourceEditorCommandInvocation
     var objectHelper: YApiHelper!
     var lines: NSMutableArray!
-    var isShowMock: Bool = true
+    var isShowMock: Bool = false
     
     private var errorCenter = ErrorCenter.shared
     private var pasteText: String {
@@ -116,7 +116,7 @@ class YApiCreator {
                 let subObjectType = subObject.type!
                 if subObjectType == .object {
                     creatObjects.insert(subObject)
-                    swiftType = "[\(subObject.parentKey?.upperCaseFirst() ?? "<#Undefiend#>")]"
+                    swiftType = "[\(subObject.key?.upperCaseFirst() ?? "<#Undefiend#>")]"
                 } else {
                     swiftType = "[\(subObjectType.swiftType())]"
                 }
