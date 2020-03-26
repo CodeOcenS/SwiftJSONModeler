@@ -23,21 +23,7 @@ let keyStruct = "struct"
 typealias CommandId = String
 
 class SourceEditorCommand: NSObject, XCSourceEditorCommand {
-    private lazy var parent: String = {
-        let config = ConfigUserDefault.shared.getConfig()
-        let confrom = config.confrom
-        if confrom.isEmpty {
-            return ""
-        } else {
-            return confrom.joined(separator: ", ")
-        }
-    }()
-    
-    /// 遵循
-    private lazy var importModule: [String] = {
-        ConfigUserDefault.shared.getConfig().module
-    }()
-    
+    let config = Config()
     func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void) {
         print("启动插件")
         
@@ -117,7 +103,7 @@ private extension SourceEditorCommand {
     
     /// 过滤已添加的Modle
     func filterModle(lines: inout NSMutableArray) -> [String] {
-        let waitImport = importModule
+        let waitImport = config.moduleArr
         let imported: [String] = lines.filter { ($0 as! String).contains(keyImport) } as! [String]
         let needImport = waitImport.filter { (modle) -> Bool in
             for line in imported {
@@ -171,10 +157,13 @@ private extension SourceEditorCommand {
         }
         
         var objctLines: [String] = []
+        let parent = config.parent
+        var modelName = "<#Model#>"
+        modelName = config.prefix + modelName + config.subffix
         if parent.isEmpty {
-            objctLines.append("\(keyword)  <#Model#> {")
+            objctLines.append("\(keyword)  \(modelName) {")
         } else {
-            objctLines.append("\(keyword) <#Model#>: \(parent) {")
+            objctLines.append("\(keyword) \(modelName): \(parent) {")
         }
         
         objctLines.append(contentsOf: line)
@@ -233,7 +222,13 @@ extension SourceEditorCommand {
             for (label, value) in dic {
                 lines.append("\(label): \(typeOf(value: value))")
             }
-            lines = lines.map { "\tvar " + $0 + "?" }
+            if config.
+            if config.isImplicitlyOptional {
+                lines = lines.map { "\tvar " + $0 + "!" }
+            } else {
+                lines = lines.map { "\tvar " + $0 + "?" }
+            }
+            
             let aimLines = Array.init(lines.reversed())
             print("目标模板")
             print(aimLines)

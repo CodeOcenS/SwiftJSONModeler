@@ -22,6 +22,21 @@ class Config {
             }
         }
     }
+    var conformArr: [String] {
+        stringToArray(conform)
+    }
+    var parent: String {
+        let parents = conformArr
+        if parents.isEmpty {
+            return ""
+        }else {
+            return parents.joined(separator: ", ")
+        }
+    }
+    var moduleArr: [String] {
+        stringToArray(module)
+    }
+    
     var module: String {
         set{
             userDefault.set(newValue, forKey: Key.module.rawValue)
@@ -75,6 +90,15 @@ class Config {
            return userDefault.bool(forKey: Key.isImplicitlyOptional.rawValue)
         }
     }
+    /// 数组默认是否定义不为空，默认为空即false
+    var arrayIsDefaultNotEmpty: Bool {
+           set{
+               userDefault.set(newValue, forKey: Key.arrayIsDefaultNotEmpty.rawValue)
+           } get {
+              return userDefault.bool(forKey: Key.arrayIsDefaultNotEmpty.rawValue)
+           }
+       }
+    
     /// 是否显示Mock， 默认不显示
     var isShowYApiMock: Bool {
         set{
@@ -85,6 +109,11 @@ class Config {
     }
     
     var userDefault = UserDefaults(suiteName: appGroupe)! // if suiteName the same as bundleId or "NSGloabDomain", wil be nil
+    
+    func stringToArray(_ str: String) -> [String] {
+        guard !str.isEmpty else { return [] }
+        return  str.components(separatedBy: ",")
+    }
 }
 extension Config {
     enum OptionalType: Int {
@@ -105,6 +134,7 @@ extension Config {
         case subffix = "subffix"
         case optionalType = "optionalType"
         case isImplicitlyOptional = "isImplicitlyOptional"
+        case arrayIsDefaultNotEmpty = "arrayIsDefaultNotEmpty"
         case isShowYApiMock = "isShowYApiMock"
     }
 }

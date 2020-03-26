@@ -749,7 +749,7 @@
                                     <constraint firstAttribute="width" constant="80" id="IgU-pX-0Ab"/>
                                     <constraint firstAttribute="height" constant="40" id="L1E-c2-3gR"/>
                                 </constraints>
-                                <buttonCell key="cell" type="push" title="save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IQP-yP-yrb">
+                                <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IQP-yP-yrb">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system" size="15"/>
                                 </buttonCell>
@@ -823,26 +823,35 @@
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ln0-PS-vXa">
+                                    <button verticalHuggingPriority="750" tag="10" translatesAutoresizingMaskIntoConstraints="NO" id="ln0-PS-vXa">
                                         <rect key="frame" x="135" y="111" width="89" height="18"/>
                                         <buttonCell key="cell" type="check" title="全部可选" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="sLN-64-4dV">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" usesAppearanceFont="YES"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="typeOptionalBtnTap:" target="5gI-5U-AMq" id="IIL-hB-QaX"/>
+                                        </connections>
                                     </button>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ipQ-8A-JHE">
+                                    <button verticalHuggingPriority="750" tag="11" translatesAutoresizingMaskIntoConstraints="NO" id="ipQ-8A-JHE">
                                         <rect key="frame" x="240" y="111" width="89" height="18"/>
                                         <buttonCell key="cell" type="check" title="无值可选" bezelStyle="regularSquare" imagePosition="left" inset="2" id="gA2-d9-gT3">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="typeOptionalBtnTap:" target="5gI-5U-AMq" id="HOH-jg-0gk"/>
+                                        </connections>
                                     </button>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EHm-R1-Ay3">
+                                    <button verticalHuggingPriority="750" tag="12" translatesAutoresizingMaskIntoConstraints="NO" id="EHm-R1-Ay3">
                                         <rect key="frame" x="345" y="111" width="89" height="18"/>
                                         <buttonCell key="cell" type="check" title="全部不可选" bezelStyle="regularSquare" imagePosition="left" inset="2" id="hL8-OC-8uq">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="typeOptionalBtnTap:" target="5gI-5U-AMq" id="Ghn-j4-VXZ"/>
+                                        </connections>
                                     </button>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CXz-h2-IF1">
                                         <rect key="frame" x="38" y="66" width="101" height="16"/>
@@ -866,6 +875,9 @@
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="isEmptyArrayBtnTap:" target="5gI-5U-AMq" id="quv-Fa-xOQ"/>
+                                        </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4Ca-td-HhY">
                                         <rect key="frame" x="412" y="65" width="22" height="18"/>
@@ -873,6 +885,9 @@
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="isShowOptional:" target="5gI-5U-AMq" id="vaY-of-B56"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -925,6 +940,9 @@
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="isShowYApiMockBtnTap:" target="5gI-5U-AMq" id="JMQ-jD-ZYm"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -984,7 +1002,16 @@
                     </view>
                     <connections>
                         <outlet property="confromTextField" destination="a5h-sk-bjS" id="pka-iP-L8P"/>
+                        <outlet property="isArrayEmptyBtn" destination="Cn0-Pn-vUD" id="Krz-HD-8fv"/>
+                        <outlet property="isShowOptionalBtn" destination="4Ca-td-HhY" id="b6i-Hc-wLp"/>
+                        <outlet property="isShowYApiMock" destination="pKM-dx-KjW" id="nV3-Qz-wZw"/>
+                        <outlet property="isShowYApiMockBtn" destination="pKM-dx-KjW" id="TA7-t2-Y6F"/>
                         <outlet property="moduleTextField" destination="TgM-de-NPF" id="kVP-SK-EKH"/>
+                        <outlet property="prefixTextField" destination="KDI-lJ-ln3" id="y7k-Y3-phg"/>
+                        <outlet property="subffixTextField" destination="szC-Is-Jzs" id="SXg-12-Bsl"/>
+                        <outlet property="typeOptionalBtn0" destination="ln0-PS-vXa" id="hjf-bU-YAw"/>
+                        <outlet property="typeOptionalBtn1" destination="ipQ-8A-JHE" id="AkP-x1-shP"/>
+                        <outlet property="typeOptionalBtn2" destination="EHm-R1-Ay3" id="Ix8-5X-weD"/>
                     </connections>
                 </viewController>
                 <customObject id="2Tp-Fl-jBw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

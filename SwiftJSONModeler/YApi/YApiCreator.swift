@@ -27,21 +27,6 @@ extension String {
 /// 将YApiObject生成row lines
 class YApiCreator {
     
-    private lazy var parent: String = {
-        let config = ConfigUserDefault.shared.getConfig()
-        let confrom = config.confrom
-        if confrom.isEmpty {
-            return ""
-        } else {
-            return confrom.joined(separator: ", ")
-        }
-    }()
-    
-    /// 遵循
-    private lazy var importModule: [String] = {
-        ConfigUserDefault.shared.getConfig().module
-    }()
-    
     var invocation: XCSourceEditorCommandInvocation
     var objectHelper: YApiHelper!
     var lines: NSMutableArray!
@@ -109,6 +94,7 @@ class YApiCreator {
     /// 返回注释和每一行的
     private func lineRow(from object: YApiObject) -> [String]? {
         let type = object.type!
+        let config = Config()
         var swiftType = type.swiftType()
         switch type {
         case .array:
@@ -129,8 +115,22 @@ class YApiCreator {
         case .integer, .string, .number, .boolean:
             break
         }
+       
+        isShowMock = config.isShowYApiMock
         let comment = "/// \(object.des)\(isShowMock ? "\tMock:\(object.mock)" : "")"
-        let line = "var \(object.key!): \(swiftType)?"
+        var line = "var \(object.key!): \(swiftType)"
+        let optionalType: Config.OptionalType = config.optionalType
+        switch optionalType {
+        case .all, .some:
+            if type == .array, !config.arrayIsDefaultNotEmpty {
+                line.append(contentsOf: " = []")
+            } else {
+                let optionalStr = config.isImplicitlyOptional ? "!" : "?"
+                line.append(contentsOf: optionalStr)
+            }
+        case .not:
+           break
+        }
         return [comment,line]
     }
     func getModels() -> [String] {
@@ -156,7 +156,9 @@ class YApiCreator {
         } else if commandIdentifier == classFromRAWCommand {
             keyword = keyStruct
         }
-        
+        let config = Config()
+        name = config.prefix + name + config.subffix
+        let parent = config.parent
         var objctLines: [String] = []
         objctLines.append("/// \(des)")
         if parent.isEmpty {
