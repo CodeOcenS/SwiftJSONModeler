@@ -702,10 +702,10 @@
             </objects>
             <point key="canvasLocation" x="75" y="199"/>
         </scene>
-        <!--Config-->
+        <!--Model设置-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController title="Config" storyboardIdentifier="ConfigViewController" id="5gI-5U-AMq" customClass="ConfigViewController" customModule="SwiftJSONModeler_For_Xcode" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Model设置" storyboardIdentifier="ConfigViewController" id="5gI-5U-AMq" customClass="ConfigViewController" customModule="SwiftJSONModeler_For_Xcode" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="ERx-hH-rdd">
                         <rect key="frame" x="0.0" y="0.0" width="532" height="800"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -901,7 +901,7 @@
                                 <rect key="frame" x="30" y="146" width="472" height="92"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BE1-j6-twg">
-                                        <rect key="frame" x="38" y="56" width="95" height="16"/>
+                                        <rect key="frame" x="38" y="56" width="94" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="是否显示Mock:" id="3RL-0r-oTh">
                                             <font key="font" usesAppearanceFont="YES"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -919,7 +919,7 @@
                                         </connections>
                                     </button>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lMe-2A-rbQ">
-                                        <rect key="frame" x="38" y="20" width="99" height="16"/>
+                                        <rect key="frame" x="38" y="20" width="98" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="模型路径path：" id="dpr-KJ-mez">
                                             <font key="font" usesAppearanceFont="YES"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -927,11 +927,11 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6ac-fB-Cyc">
-                                        <rect key="frame" x="143" y="13" width="299" height="30"/>
+                                        <rect key="frame" x="142" y="13" width="300" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="jfI-6q-JY1"/>
                                         </constraints>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" placeholderString="请输入路径如：data.object" bezelStyle="round" id="zbV-Ma-ngy">
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" title="Model设置" placeholderString="请输入路径如：data.object" bezelStyle="round" id="zbV-Ma-ngy">
                                             <font key="font" usesAppearanceFont="YES"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
