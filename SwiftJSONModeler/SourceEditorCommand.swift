@@ -49,6 +49,7 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
         let commandIdentifier = invocation.commandIdentifier
         if commandIdentifier == configCommand {
             NSWorkspace.shared.open(URL(fileURLWithPath: "/Applications/SwiftJSONModeler For Xcode.app"))
+            completionHandler(nil)
         } else if commandIdentifier == classFromRAWCommand || commandIdentifier == structFromRAWCommand {
             handleInvocation(invocation, raw: pasteboardTest, completionHandler: completionHandler)
             
@@ -58,6 +59,8 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
             YApiRequest.data(id: pasteboardTest) { [weak self](raw) in
                 if let raw = raw {
                     self?.handleInvocation(invocation, raw: raw, completionHandler: completionHandler)
+                }else {
+                    completionHandler(nil)
                 }
             }
         }
