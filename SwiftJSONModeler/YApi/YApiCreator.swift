@@ -33,22 +33,13 @@ class YApiCreator {
     var isShowMock: Bool = false
     
     private var errorCenter = ErrorCenter.shared
-    private var pasteText: String {
-        guard let paste = NSPasteboard.general.string(forType: .string) else {
-            errorCenter.message = "获取复制内容失败"
-            return ""
-        }
-        guard !paste.isEmpty else {
-            errorCenter.message = "复制内容为空"
-            return ""
-        }
-        return paste
-    }
+    private var pasteText: String = ""
     private var creatObjects: Set<YApiObject> = []
     /// 只包含对象的行，不包含个struct或class关键字
     private var objectLines: [(yapiObject:YApiObject, lines:[String])] = []
-    init(invocation: XCSourceEditorCommandInvocation) {
+    init(invocation: XCSourceEditorCommandInvocation, pasteText: String) {
         self.invocation = invocation
+        self.pasteText = pasteText
         let buffer = invocation.buffer
         lines = buffer.lines
         objectHelper = YApiHelper(paste: pasteText)
@@ -158,10 +149,10 @@ class YApiCreator {
             des = yapiObject.des
         }
         var keyword = keyStruct
-        if commandIdentifier == classFromRAWCommand {
-            keyword = keyClass
-        } else if commandIdentifier == classFromRAWCommand {
+        if commandIdentifier.contains(keyStruct) {
             keyword = keyStruct
+        } else if commandIdentifier.contains(keyClass) {
+            keyword = keyClass
         }
         let config = Config()
         name = config.prefix + name + config.subffix

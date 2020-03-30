@@ -14,6 +14,7 @@ class ErrorCenter {
     var message: String = "" {
         didSet {
             print(message)
+            NotificationCenter.default.post(name: .errorNotification, object: nil)
         }
     }
     private init() {

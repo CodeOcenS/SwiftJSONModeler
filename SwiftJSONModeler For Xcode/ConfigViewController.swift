@@ -24,6 +24,8 @@ class ConfigViewController: NSViewController {
     @IBOutlet weak var isArrayEmptyBtn: NSButton!
     @IBOutlet weak var isShowYApiMockBtn: NSButton!
     @IBOutlet weak var pathTextField: NSTextField!
+    @IBOutlet weak var yapiTokenTextField: NSTextField!
+    @IBOutlet weak var yapiHostTextField: NSTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         updateFromUserDefault()
@@ -35,6 +37,8 @@ class ConfigViewController: NSViewController {
         prefixTextField.stringValue = config.prefix
         subffixTextField.stringValue = config.subffix
         pathTextField.stringValue = config.yapiPath
+        yapiTokenTextField.stringValue = config.yapiToken
+        yapiHostTextField.stringValue = config.yapiHost
         isAllowOptionalBtn.state = config.isNotOptional ? .off : .on
         isShowOptionalBtn.state = config.isImplicitlyOptional ? .off : .on
         isArrayEmptyBtn.state = config.arrayIsDefaultNotEmpty ? .off : .on
@@ -48,6 +52,8 @@ class ConfigViewController: NSViewController {
         config.prefix = prefixTextField.stringValue
         config.subffix = subffixTextField.stringValue
         config.yapiPath = pathTextField.stringValue
+        config.yapiToken = yapiTokenTextField.stringValue
+        config.yapiHost = yapiHostTextField.stringValue
         view.window?.close()
     }
     

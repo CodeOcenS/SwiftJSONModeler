@@ -14,6 +14,8 @@ let structFromJSONCommand = "structFromJSON"
 let classFromJSONCommand = "classFromJSON"
 let structFromRAWCommand = "structFromRAW"
 let classFromRAWCommand = "classFromRAW"
+let structFromYApiIdCommand = "structFromYApiId"
+let classFromYApiIdCommand = "classFromYApiId"
 
 let domain = "SwiftJSONModeler"
 let keyImport = "import"
@@ -22,40 +24,63 @@ let keyStruct = "struct"
 
 typealias CommandId = String
 
+extension Notification.Name {
+    static let errorNotification = Notification.Name("errorNoti")
+}
+
 class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     let config = Config()
+    private var completionHandler: (Error?) -> Void = { _ in  }
+    /// 复制版内容
+    var pasteboardTest: String {
+        guard let paste = NSPasteboard.general.string(forType: .string) else {
+            return ""
+        }
+        guard !paste.isEmpty else {
+            return ""
+        }
+        return paste
+    }
     func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void) {
         print("启动插件")
-        
+        self.completionHandler = completionHandler
+        addErrorNoti()
+        // TODO: json多层解析
         let commandIdentifier = invocation.commandIdentifier
         if commandIdentifier == configCommand {
             NSWorkspace.shared.open(URL(fileURLWithPath: "/Applications/SwiftJSONModeler For Xcode.app"))
         } else if commandIdentifier == classFromRAWCommand || commandIdentifier == structFromRAWCommand {
-            let yapiCreator = YApiCreator(invocation: invocation)
-            let models = yapiCreator.getModels()
-            var lines = invocation.buffer.lines
-            lines.addObjects(from: models)
-            importModel(lines: &lines)
+            handleInvocation(invocation, raw: pasteboardTest, completionHandler: completionHandler)
+            
         } else if commandIdentifier == classFromJSONCommand || commandIdentifier == structFromJSONCommand {
             handleInvocation(invocation, handler: completionHandler)
+        } else if commandIdentifier == classFromYApiIdCommand || commandIdentifier == structFromYApiIdCommand {
+            YApiRequest.data(id: pasteboardTest) { [weak self](raw) in
+                if let raw = raw {
+                    self?.handleInvocation(invocation, raw: raw, completionHandler: completionHandler)
+                }
+            }
         }
+    }
+    /// 通过 YApi RAW数据转模
+    private func handleInvocation(_ invocation: XCSourceEditorCommandInvocation, raw: String, completionHandler: @escaping (Error?) -> Void) {
+        let yapiCreator = YApiCreator(invocation: invocation, pasteText: raw)
+        let models = yapiCreator.getModels()
+        var lines = invocation.buffer.lines
+        lines.addObjects(from: models)
+        importModel(lines: &lines)
         completionHandler(nil)
     }
-    
+    /// 通过json 转模
     private func handleInvocation(_ invacation: XCSourceEditorCommandInvocation, handler: (Error?) -> Void) {
         let buffer = invacation.buffer
         var line = buffer.lines
         // importModel(lines: &line)
-        // 获取复制内容
-        guard let paste = NSPasteboard.general.string(forType: .string) else {
-            handler(error(msg: "复制内容异常"))
+        if pasteboardTest.isEmpty {
+            handler(error(msg: "复制文本不能为空"))
             return
         }
-        guard !paste.isEmpty else {
-            handler(error(msg: "复制内容为空"))
-            return
-        }
-        let lines = linesFrom(paste: paste)
+        let lines = linesFrom(paste: pasteboardTest)
         switch lines {
         case .failure(let error):
             handler(error)
@@ -68,7 +93,23 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     }
 }
 
-// MARK: - Helper
+// MARK: - 添加通知
+
+private extension SourceEditorCommand {
+    func addErrorNoti() {
+        NotificationCenter.default.addObserver(self, selector: #selector(errorNoti(noti:)), name: NSNotification.Name.errorNotification, object: nil)
+    }
+    @objc
+    func errorNoti(noti: Notification) {
+        if ErrorCenter.shared.message.isEmpty {
+            completionHandler(nil)
+        }else {
+            completionHandler(error(msg: ErrorCenter.shared.message))
+        }
+    }
+}
+
+// MARK: - json Helper
 
 private extension SourceEditorCommand {
     func error(msg: String) -> Error {

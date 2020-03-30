@@ -707,11 +707,11 @@
             <objects>
                 <viewController title="Model设置" storyboardIdentifier="ConfigViewController" id="5gI-5U-AMq" customClass="ConfigViewController" customModule="SwiftJSONModeler_For_Xcode" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="ERx-hH-rdd">
-                        <rect key="frame" x="0.0" y="0.0" width="532" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="533" height="827"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wf5-gB-SJa">
-                                <rect key="frame" x="28" y="731" width="84" height="19"/>
+                                <rect key="frame" x="28" y="758" width="84" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="d4P-8t-FRZ"/>
                                 </constraints>
@@ -722,7 +722,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="a5h-sk-bjS">
-                                <rect key="frame" x="118" y="726" width="384" height="30"/>
+                                <rect key="frame" x="118" y="753" width="385" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="ZB5-S8-m8z"/>
                                 </constraints>
@@ -733,7 +733,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bDa-kJ-Mhx">
-                                <rect key="frame" x="28" y="672" width="84" height="19"/>
+                                <rect key="frame" x="28" y="699" width="84" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="EY2-8c-lDI"/>
                                 </constraints>
@@ -744,7 +744,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vSj-38-HG4">
-                                <rect key="frame" x="416" y="33" width="92" height="51"/>
+                                <rect key="frame" x="417" y="33" width="92" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="IgU-pX-0Ab"/>
                                     <constraint firstAttribute="height" constant="40" id="L1E-c2-3gR"/>
@@ -758,7 +758,7 @@
                                 </connections>
                             </button>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TgM-de-NPF">
-                                <rect key="frame" x="118" y="667" width="384" height="30"/>
+                                <rect key="frame" x="118" y="694" width="385" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="QWB-wt-W46"/>
                                 </constraints>
@@ -769,7 +769,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="o35-tq-gm8">
-                                <rect key="frame" x="28" y="613" width="84" height="19"/>
+                                <rect key="frame" x="28" y="640" width="84" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="cy3-XY-hR7"/>
                                 </constraints>
@@ -780,7 +780,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KDI-lJ-ln3">
-                                <rect key="frame" x="118" y="608" width="384" height="30"/>
+                                <rect key="frame" x="118" y="635" width="385" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="jXZ-Kq-niD"/>
                                 </constraints>
@@ -791,7 +791,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cR5-nc-6qZ">
-                                <rect key="frame" x="28" y="554" width="84" height="19"/>
+                                <rect key="frame" x="28" y="581" width="84" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="dew-vC-605"/>
                                 </constraints>
@@ -802,7 +802,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="szC-Is-Jzs">
-                                <rect key="frame" x="118" y="549" width="384" height="30"/>
+                                <rect key="frame" x="118" y="576" width="385" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="sDf-EY-I1S"/>
                                 </constraints>
@@ -813,7 +813,7 @@
                                 </textFieldCell>
                             </textField>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="CYR-Nv-8jk">
-                                <rect key="frame" x="30" y="307" width="472" height="148"/>
+                                <rect key="frame" x="30" y="334" width="473" height="148"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Oac-Ih-7uy">
                                         <rect key="frame" x="38" y="112" width="88" height="16"/>
@@ -824,7 +824,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <button verticalHuggingPriority="750" tag="12" translatesAutoresizingMaskIntoConstraints="NO" id="EHm-R1-Ay3">
-                                        <rect key="frame" x="412" y="111" width="22" height="18"/>
+                                        <rect key="frame" x="413" y="111" width="22" height="18"/>
                                         <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="hL8-OC-8uq">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -850,7 +850,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Cn0-Pn-vUD">
-                                        <rect key="frame" x="412" y="19" width="22" height="18"/>
+                                        <rect key="frame" x="413" y="19" width="22" height="18"/>
                                         <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="5wq-U8-PPe">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -860,7 +860,7 @@
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4Ca-td-HhY">
-                                        <rect key="frame" x="412" y="65" width="22" height="18"/>
+                                        <rect key="frame" x="413" y="65" width="22" height="18"/>
                                         <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="TSZ-Cw-Dq7">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -887,7 +887,7 @@
                                 </constraints>
                             </customView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="S2C-lh-p4C">
-                                <rect key="frame" x="28" y="475" width="84" height="19"/>
+                                <rect key="frame" x="28" y="502" width="84" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="r76-oI-ssb"/>
                                 </constraints>
@@ -898,10 +898,10 @@
                                 </textFieldCell>
                             </textField>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="cf4-vW-LAT">
-                                <rect key="frame" x="30" y="146" width="472" height="92"/>
+                                <rect key="frame" x="30" y="101" width="473" height="164"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BE1-j6-twg">
-                                        <rect key="frame" x="38" y="56" width="94" height="16"/>
+                                        <rect key="frame" x="38" y="128" width="94" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="是否显示Mock:" id="3RL-0r-oTh">
                                             <font key="font" usesAppearanceFont="YES"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -909,7 +909,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pKM-dx-KjW">
-                                        <rect key="frame" x="412" y="55" width="22" height="18"/>
+                                        <rect key="frame" x="413" y="127" width="22" height="18"/>
                                         <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" inset="2" id="KPb-bY-Bpq">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -919,7 +919,7 @@
                                         </connections>
                                     </button>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lMe-2A-rbQ">
-                                        <rect key="frame" x="38" y="20" width="98" height="16"/>
+                                        <rect key="frame" x="38" y="92" width="105" height="16"/>
                                         <textFieldCell key="cell" lineBreakMode="clipping" title="模型路径path：" id="dpr-KJ-mez">
                                             <font key="font" usesAppearanceFont="YES"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -927,11 +927,49 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6ac-fB-Cyc">
-                                        <rect key="frame" x="142" y="13" width="300" height="30"/>
+                                        <rect key="frame" x="149" y="85" width="294" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="jfI-6q-JY1"/>
                                         </constraints>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" title="Model设置" placeholderString="请输入路径如：data.object" bezelStyle="round" id="zbV-Ma-ngy">
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" placeholderString="请输入路径如：data.object" bezelStyle="round" id="zbV-Ma-ngy">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="33u-sp-CUS">
+                                        <rect key="frame" x="38" y="56" width="105" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="YApi项目token：" id="v8s-Ht-HDJ">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4N2-lf-lAi">
+                                        <rect key="frame" x="149" y="49" width="294" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="p5V-3n-LYJ"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" placeholderString="通过Id解析转换模型时必填" bezelStyle="round" id="RvH-G4-6OW">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="c6O-6p-YRV">
+                                        <rect key="frame" x="38" y="20" width="105" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="YApi项目host：" id="ykd-gD-bwv">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="25V-Ky-0tb">
+                                        <rect key="frame" x="149" y="13" width="294" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="cOL-bv-yfT"/>
+                                        </constraints>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="left" placeholderString="通过Id解析转换模型时必填" bezelStyle="round" id="74W-UD-Jqs">
                                             <font key="font" usesAppearanceFont="YES"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -939,20 +977,32 @@
                                     </textField>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="4N2-lf-lAi" firstAttribute="trailing" secondItem="6ac-fB-Cyc" secondAttribute="trailing" id="4cT-ke-lSV"/>
                                     <constraint firstAttribute="trailing" secondItem="6ac-fB-Cyc" secondAttribute="trailing" constant="30" id="762-cT-OPI"/>
+                                    <constraint firstItem="25V-Ky-0tb" firstAttribute="trailing" secondItem="4N2-lf-lAi" secondAttribute="trailing" id="BkX-0U-sHp"/>
+                                    <constraint firstItem="33u-sp-CUS" firstAttribute="leading" secondItem="lMe-2A-rbQ" secondAttribute="leading" id="Dqm-Hw-W91"/>
+                                    <constraint firstItem="25V-Ky-0tb" firstAttribute="leading" secondItem="c6O-6p-YRV" secondAttribute="trailing" constant="8" id="Hch-8n-8UR"/>
                                     <constraint firstItem="pKM-dx-KjW" firstAttribute="centerY" secondItem="BE1-j6-twg" secondAttribute="centerY" id="KAA-ya-BBP"/>
+                                    <constraint firstItem="25V-Ky-0tb" firstAttribute="centerY" secondItem="c6O-6p-YRV" secondAttribute="centerY" id="MbU-pz-JXS"/>
+                                    <constraint firstItem="c6O-6p-YRV" firstAttribute="leading" secondItem="33u-sp-CUS" secondAttribute="leading" id="NFY-cb-RGh"/>
+                                    <constraint firstItem="33u-sp-CUS" firstAttribute="top" secondItem="lMe-2A-rbQ" secondAttribute="bottom" constant="20" id="NWp-9k-hbu"/>
+                                    <constraint firstItem="33u-sp-CUS" firstAttribute="width" secondItem="lMe-2A-rbQ" secondAttribute="width" id="NZo-m7-cBg"/>
+                                    <constraint firstItem="c6O-6p-YRV" firstAttribute="width" secondItem="33u-sp-CUS" secondAttribute="width" id="ODr-eI-kS9"/>
+                                    <constraint firstItem="4N2-lf-lAi" firstAttribute="centerY" secondItem="33u-sp-CUS" secondAttribute="centerY" id="PCh-8k-htV"/>
                                     <constraint firstItem="6ac-fB-Cyc" firstAttribute="centerY" secondItem="lMe-2A-rbQ" secondAttribute="centerY" id="TLC-LW-9k2"/>
                                     <constraint firstItem="BE1-j6-twg" firstAttribute="top" secondItem="cf4-vW-LAT" secondAttribute="top" constant="20" id="Y1O-LV-VdA"/>
                                     <constraint firstAttribute="trailing" secondItem="pKM-dx-KjW" secondAttribute="trailing" constant="40" id="YPH-Gz-ObN"/>
                                     <constraint firstItem="lMe-2A-rbQ" firstAttribute="leading" secondItem="BE1-j6-twg" secondAttribute="leading" id="cnH-Is-nBY"/>
                                     <constraint firstItem="lMe-2A-rbQ" firstAttribute="top" secondItem="BE1-j6-twg" secondAttribute="bottom" constant="20" id="d0o-pz-0Hj"/>
-                                    <constraint firstAttribute="bottom" secondItem="lMe-2A-rbQ" secondAttribute="bottom" constant="20" id="e0y-SV-HbT"/>
+                                    <constraint firstItem="c6O-6p-YRV" firstAttribute="top" secondItem="33u-sp-CUS" secondAttribute="bottom" constant="20" id="j62-vL-Ql1"/>
                                     <constraint firstItem="6ac-fB-Cyc" firstAttribute="leading" secondItem="lMe-2A-rbQ" secondAttribute="trailing" constant="8" id="lME-Jt-hZB"/>
+                                    <constraint firstItem="4N2-lf-lAi" firstAttribute="leading" secondItem="33u-sp-CUS" secondAttribute="trailing" constant="8" id="quv-Dp-H9I"/>
                                     <constraint firstItem="BE1-j6-twg" firstAttribute="leading" secondItem="cf4-vW-LAT" secondAttribute="leading" constant="40" id="tDe-fO-y2i"/>
+                                    <constraint firstAttribute="bottom" secondItem="c6O-6p-YRV" secondAttribute="bottom" constant="20" id="zV1-3B-ypo"/>
                                 </constraints>
                             </customView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="iFK-rh-eoW">
-                                <rect key="frame" x="28" y="258" width="84" height="19"/>
+                                <rect key="frame" x="28" y="285" width="84" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="hqF-dk-Dsb"/>
                                 </constraints>
@@ -1009,11 +1059,13 @@
                         <outlet property="pathTextField" destination="6ac-fB-Cyc" id="7Zl-2T-BXc"/>
                         <outlet property="prefixTextField" destination="KDI-lJ-ln3" id="y7k-Y3-phg"/>
                         <outlet property="subffixTextField" destination="szC-Is-Jzs" id="SXg-12-Bsl"/>
+                        <outlet property="yapiHostTextField" destination="25V-Ky-0tb" id="CZD-42-Aud"/>
+                        <outlet property="yapiTokenTextField" destination="4N2-lf-lAi" id="Vvt-lc-2uY"/>
                     </connections>
                 </viewController>
                 <customObject id="2Tp-Fl-jBw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="101" y="1077"/>
+            <point key="canvasLocation" x="101.5" y="1090.5"/>
         </scene>
     </scenes>
 </document>
