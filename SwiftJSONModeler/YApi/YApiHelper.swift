@@ -36,6 +36,7 @@ class YApiHelper {
             ErrorCenter.shared.message = "string 转换 data 异常"
             return nil
         }
+        
         guard let jsonObject = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) else {
             ErrorCenter.shared.message = "json 序列化异常"
             return nil
@@ -99,7 +100,7 @@ class YApiHelper {
     
     // type 类型 如果不含type则为完整模型
     private func apiType(of dic:[String: Any]) -> YApiType? {
-        guard let typeStr = dic["type"] as? String, let type = YApiType(rawValue: typeStr) else {
+        guard let typeStr = dic["type"] as? String, let type = YApiType.of(typeStr) else {
             return nil
         }
         return type
@@ -121,7 +122,7 @@ class YApiHelper {
     }
     private func object(key: String = "",  json: [String: Any]) -> YApiObject? {
         guard let type = apiType(of: json) else {
-            ErrorCenter.shared.message = "key数据格式异常"
+            ErrorCenter.shared.message = "key数据格式异常\n:\(json)"
             return nil
         }
         var object = YApiObject()
@@ -137,7 +138,7 @@ class YApiHelper {
             }
             
         case .array:
-            if let items = json["items"] as? [String: Any], let type = items["type"] as? String, let apiType = YApiType(rawValue: type) {
+            if let items = json["items"] as? [String: Any], let type = items["type"] as? String, let apiType = YApiType.of(type) {
                 object.des = json["description"] as? String ?? ""
                 if apiType == .object {
                     if let arrObject = self.object(key: key, json: items) {
