@@ -8,11 +8,9 @@
 
 import Foundation
 // 可能存在的YApi类型，通过插件导入的
-private let key_Long = "Long"
-private let key_String = "String"
-private let key_Integer = "Integer"
-private let key_integer = "integer"
-private let key_long = "long"
+private let keyJavaDouble = "double"
+private let keyJavaFloat = "float"
+private let keyJavaLong = "long"
 /// YApi标准数据类型
 /// - Important: 请务必使用类方法 of()进行类型初始化
 enum YApiType: String {
@@ -39,14 +37,15 @@ enum YApiType: String {
     }
     
     static func of(_ string: String) -> Self? {
-        if let apiType = YApiType(rawValue: string) {
+        let lowerStr = string.lowercased()  // 由于java存在基本数据类型和对象类型。
+        if let apiType = YApiType(rawValue: lowerStr) {
             return apiType
         } else {
-            switch string {
-            case key_Long, key_long, key_Integer:
+            switch lowerStr {
+            case keyJavaLong:
                 return .integer
-            case key_String:
-                return .string
+            case keyJavaLong, keyJavaDouble:
+                return .number
             default:
                 return nil
             }
