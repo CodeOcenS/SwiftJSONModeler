@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C92A970A24E512BD00C87CCD /* YApiObjectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A970524E50D5900C87CCD /* YApiObjectTest.swift */; };
+		C92A971424E513EA00C87CCD /* YApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94AFC00241F4AE600389AF3 /* YApiHelper.swift */; };
+		C92A971524E513EA00C87CCD /* YApiObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94AFC03241F4E8A00389AF3 /* YApiObject.swift */; };
+		C92A971624E513EA00C87CCD /* YApiCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEE26C242B382900A04EA9 /* YApiCreator.swift */; };
+		C92A971724E513EA00C87CCD /* YApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D04F20242EF99F00843DC4 /* YApiRequest.swift */; };
+		C92A971824E513F900C87CCD /* ErrorCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CB247F241F559C00F4D5CE /* ErrorCenter.swift */; };
+		C92A971D24E514FB00C87CCD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A971C24E514FB00C87CCD /* Constants.swift */; };
+		C92A971E24E5150600C87CCD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A971C24E514FB00C87CCD /* Constants.swift */; };
 		C94AFC01241F4AE600389AF3 /* YApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94AFC00241F4AE600389AF3 /* YApiHelper.swift */; };
 		C94AFC04241F4E8A00389AF3 /* YApiObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94AFC03241F4E8A00389AF3 /* YApiObject.swift */; };
 		C961C1DE23D82A8D008D0DE6 /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C961C1DD23D82A8D008D0DE6 /* ConfigViewController.swift */; };
@@ -58,6 +66,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C92A970524E50D5900C87CCD /* YApiObjectTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YApiObjectTest.swift; sourceTree = "<group>"; };
+		C92A971C24E514FB00C87CCD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C94AFC00241F4AE600389AF3 /* YApiHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YApiHelper.swift; sourceTree = "<group>"; };
 		C94AFC03241F4E8A00389AF3 /* YApiObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YApiObject.swift; sourceTree = "<group>"; };
 		C961C1DD23D82A8D008D0DE6 /* ConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +119,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C92A971B24E514D700C87CCD /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				C92A971C24E514FB00C87CCD /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		C94AFC02241F4E6D00389AF3 /* YApi */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +151,7 @@
 		C9D04F32242F228400843DC4 /* SwiftJSONModelerTest */ = {
 			isa = PBXGroup;
 			children = (
+				C92A970524E50D5900C87CCD /* YApiObjectTest.swift */,
 			);
 			path = SwiftJSONModelerTest;
 			sourceTree = "<group>";
@@ -161,6 +180,8 @@
 		C9ED9CC423D7F9B3004567A1 /* SwiftJSONModeler For Xcode */ = {
 			isa = PBXGroup;
 			children = (
+				C92A971B24E514D700C87CCD /* Constants */,
+				C94AFC02241F4E6D00389AF3 /* YApi */,
 				C9ED9CC523D7F9B3004567A1 /* AppDelegate.swift */,
 				C9ED9CC923D7F9B3004567A1 /* Document.swift */,
 				C9ED9CCB23D7F9B4004567A1 /* Assets.xcassets */,
@@ -169,6 +190,7 @@
 				C9ED9CD123D7F9B4004567A1 /* SwiftJSONModeler For Xcode.entitlements */,
 				C961C1DD23D82A8D008D0DE6 /* ConfigViewController.swift */,
 				C9DE045E242C8535008A0070 /* Config.swift */,
+				C9CB247F241F559C00F4D5CE /* ErrorCenter.swift */,
 			);
 			path = "SwiftJSONModeler For Xcode";
 			sourceTree = "<group>";
@@ -184,10 +206,8 @@
 		C9ED9CDF23D7F9D0004567A1 /* SwiftJSONModeler */ = {
 			isa = PBXGroup;
 			children = (
-				C94AFC02241F4E6D00389AF3 /* YApi */,
 				C9ED9CE023D7F9D0004567A1 /* SourceEditorExtension.swift */,
 				C9ED9CE223D7F9D0004567A1 /* SourceEditorCommand.swift */,
-				C9CB247F241F559C00F4D5CE /* ErrorCenter.swift */,
 				C9ED9CE423D7F9D0004567A1 /* Info.plist */,
 				C9ED9CE523D7F9D0004567A1 /* SwiftJSONModeler.entitlements */,
 			);
@@ -325,6 +345,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9D04F2B242F218200843DC4 /* SwiftJSONModeler_For_XcodeTests.swift in Sources */,
+				C92A970A24E512BD00C87CCD /* YApiObjectTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,10 +353,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C92A971724E513EA00C87CCD /* YApiRequest.swift in Sources */,
+				C92A971824E513F900C87CCD /* ErrorCenter.swift in Sources */,
 				C9ED9CC623D7F9B3004567A1 /* AppDelegate.swift in Sources */,
+				C92A971624E513EA00C87CCD /* YApiCreator.swift in Sources */,
 				C9DE045F242C8535008A0070 /* Config.swift in Sources */,
+				C92A971D24E514FB00C87CCD /* Constants.swift in Sources */,
+				C92A971424E513EA00C87CCD /* YApiHelper.swift in Sources */,
 				C9ED9CCA23D7F9B3004567A1 /* Document.swift in Sources */,
 				C961C1DE23D82A8D008D0DE6 /* ConfigViewController.swift in Sources */,
+				C92A971524E513EA00C87CCD /* YApiObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,6 +378,7 @@
 				C9DE0460242C853F008A0070 /* Config.swift in Sources */,
 				C9ED9CE323D7F9D0004567A1 /* SourceEditorCommand.swift in Sources */,
 				C9CEE26D242B382900A04EA9 /* YApiCreator.swift in Sources */,
+				C92A971E24E5150600C87CCD /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,24 +9,9 @@
 import AppKit
 import XcodeKit
 
-let configCommand = "config"
-let structFromJSONCommand = "structFromJSON"
-let classFromJSONCommand = "classFromJSON"
-let structFromRAWCommand = "structFromRAW"
-let classFromRAWCommand = "classFromRAW"
-let structFromYApiIdCommand = "structFromYApiId"
-let classFromYApiIdCommand = "classFromYApiId"
 
-let domain = "SwiftJSONModeler"
-let keyImport = "import"
-let keyClass = "class"
-let keyStruct = "struct"
 
-typealias CommandId = String
 
-extension Notification.Name {
-    static let errorNotification = Notification.Name("errorNoti")
-}
 
 class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     let config = Config()

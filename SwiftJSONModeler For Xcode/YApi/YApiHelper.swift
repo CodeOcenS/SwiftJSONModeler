@@ -61,6 +61,7 @@ class YApiHelper {
             var ob = YApiObject()
             ob.childs = objectsOf(key:"", properties: dic)
             ob.type = .object
+            ob.typeRaw = "object"
             apiObj = ob
         }
         guard let object = apiObj else {
@@ -100,10 +101,10 @@ class YApiHelper {
     
     // type 类型 如果不含type则为完整模型
     private func apiType(of dic:[String: Any]) -> YApiType? {
-        guard let typeStr = dic["type"] as? String, let type = YApiType.of(typeStr) else {
+        guard let typeStr = dic["type"] as? String else {
             return nil
         }
-        return type
+        return YApiType.of(typeStr)
     }
     private func objectsOf(key parent: String,  properties: [String: Any]) -> [YApiObject] {
         var objectArr: [YApiObject] = []
@@ -120,6 +121,7 @@ class YApiHelper {
         }
         return objectArr
     }
+    /// 获取某一具体类型的对象
     private func object(key: String = "",  json: [String: Any]) -> YApiObject? {
         guard let type = apiType(of: json) else {
             ErrorCenter.shared.message = "key数据格式异常\n:\(json)"
@@ -128,6 +130,7 @@ class YApiHelper {
         var object = YApiObject()
         object.key = key
         object.type = type
+        object.typeRaw = ((json["type"] as? String) ?? "")
         switch type {
         case .object:
             if let properties = json["properties"] as? [String: Any] {
@@ -138,8 +141,9 @@ class YApiHelper {
             }
             
         case .array:
-            if let items = json["items"] as? [String: Any], let type = items["type"] as? String, let apiType = YApiType.of(type) {
+            if let items = json["items"] as? [String: Any], let type = items["type"] as? String {
                 object.des = json["description"] as? String ?? ""
+                let apiType = YApiType.of(type)
                 if apiType == .object {
                     if let arrObject = self.object(key: key, json: items) {
                          object.childs = [arrObject]
@@ -154,7 +158,7 @@ class YApiHelper {
                 ErrorCenter.shared.message = "数组\(key)异常，可能不存在items或type"
                 return nil
             }
-        case .integer, .boolean, .string, .number:
+        case .integer, .boolean, .string, .number, .undefined:
             if let mockJson = json["mock"] as? [String: Any], let mock = mockJson["mock"] as? String {
                 object.mock = mock
             }

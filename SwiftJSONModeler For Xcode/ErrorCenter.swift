@@ -8,6 +8,10 @@
 
 import Foundation
 
+extension Notification.Name {
+    static let errorNotification = Notification.Name("errorNoti")
+}
+
 class ErrorCenter {
     static let shared: ErrorCenter = ErrorCenter()
     

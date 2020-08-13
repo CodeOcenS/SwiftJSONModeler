@@ -82,7 +82,7 @@ class YApiCreator {
             lineObject(self.creatObjects.first!)
         }
     }
-    /// 返回注释和每一行的
+    /// 返回注释和每个对象的行内容(处理非 array 和 object类型)
     private func lineRow(from object: YApiObject) -> [String]? {
         let type = object.type!
         let config = Config()
@@ -96,9 +96,8 @@ class YApiCreator {
                     if let temp = subObject.key?.upperCaseFirst() {
                         swiftType = "[\(config.prefix + temp + config.subffix)]"
                     } else {
-                        swiftType = "[<#Undefiend#>]"
+                        swiftType = "<#Undefined#>"
                     }
-                    
                 } else {
                     swiftType = "[\(subObjectType.swiftType())]"
                 }
@@ -109,12 +108,18 @@ class YApiCreator {
             creatObjects.insert(object)
             swiftType = object.key!.upperCaseFirst()
             swiftType = config.prefix + swiftType + config.subffix
-        case .integer, .string, .number, .boolean:
+        case .integer, .string, .number, .boolean, .undefined:
             break
         }
        
         isShowMock = config.isShowYApiMock
-        let comment = "/// \(object.des)\(isShowMock && !object.mock.isEmpty ? "\tMock:\(object.mock)" : "")"
+        var comment = ""
+        if let objectDes = object.des {
+            comment = "/// \(objectDes)\(isShowMock && !object.mock.isEmpty ? "\tMock:\(object.mock)" : "")"
+        }
+        if swiftType == "<#Undefined#>" {
+            swiftType = object.typeRaw
+        }
         var line = "var \(object.key!): \(swiftType)"
         let isOptional = !config.isNotOptional
         if isOptional {
@@ -144,10 +149,7 @@ class YApiCreator {
         if yapiObject.key != nil {
             name = yapiObject.key!.upperCaseFirst()
         }
-        var des: String = "<#描述#>"
-        if !yapiObject.des.isEmpty {
-            des = yapiObject.des
-        }
+        let des: String = yapiObject.des ?? "<#描述#>"
         var keyword = keyStruct
         if commandIdentifier.contains(keyStruct) {
             keyword = keyStruct
@@ -166,7 +168,7 @@ class YApiCreator {
         }
         let lines = yapiLines.map{ "\t\($0)" }
         objctLines.append(contentsOf: lines)
-        if commandIdentifier == classFromRAWCommand, parent.contains("HandyJSON") {
+        if (commandIdentifier == classFromRAWCommand && commandIdentifier == classFromYApiIdCommand), parent.contains("HandyJSON") {
             objctLines.append("")
             objctLines.append("\trequired init() { }")
         }
