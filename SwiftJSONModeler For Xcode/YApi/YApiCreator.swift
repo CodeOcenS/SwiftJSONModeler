@@ -118,7 +118,7 @@ class YApiCreator {
             comment = "/// \(objectDes)\(isShowMock && !object.mock.isEmpty ? "\tMock:\(object.mock)" : "")"
         }
         if swiftType == "<#Undefined#>" {
-            swiftType = object.typeRaw
+            swiftType = "<#\(object.typeRaw)#>"
         }
         var line = "var \(object.key!): \(swiftType)"
         let isOptional = !config.isNotOptional
@@ -168,7 +168,7 @@ class YApiCreator {
         }
         let lines = yapiLines.map{ "\t\($0)" }
         objctLines.append(contentsOf: lines)
-        if (commandIdentifier == classFromRAWCommand && commandIdentifier == classFromYApiIdCommand), parent.contains("HandyJSON") {
+        if keyword == keyClass , parent.contains("HandyJSON") {
             objctLines.append("")
             objctLines.append("\trequired init() { }")
         }
