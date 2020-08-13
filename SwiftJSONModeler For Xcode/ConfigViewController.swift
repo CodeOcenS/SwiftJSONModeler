@@ -26,6 +26,7 @@ class ConfigViewController: NSViewController {
     @IBOutlet weak var pathTextField: NSTextField!
     @IBOutlet weak var yapiTokenTextField: NSTextField!
     @IBOutlet weak var yapiHostTextField: NSTextField!
+    @IBOutlet weak var remarkTextField: NSTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         updateFromUserDefault()
@@ -39,6 +40,9 @@ class ConfigViewController: NSViewController {
         pathTextField.stringValue = config.yapiPath
         yapiTokenTextField.stringValue = config.yapiToken
         yapiHostTextField.stringValue = config.yapiHost
+        
+        remarkTextField.stringValue = config.remark
+        
         isAllowOptionalBtn.state = config.isNotOptional ? .off : .on
         isShowOptionalBtn.state = config.isImplicitlyOptional ? .off : .on
         isArrayEmptyBtn.state = config.arrayIsDefaultNotEmpty ? .off : .on
@@ -54,6 +58,7 @@ class ConfigViewController: NSViewController {
         config.yapiPath = pathTextField.stringValue
         config.yapiToken = yapiTokenTextField.stringValue
         config.yapiHost = yapiHostTextField.stringValue
+        config.remark = remarkTextField.stringValue
         view.window?.close()
     }
     

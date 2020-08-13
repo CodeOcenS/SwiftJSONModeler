@@ -136,6 +136,18 @@ class Config {
         }
     }
     
+    var remark: String {
+           set{
+               userDefault.set(newValue, forKey: Key.remark.rawValue)
+           } get {
+               if let value = userDefault.value(forKey: Key.remark.rawValue), let valueStr = value as? String {
+                   return valueStr
+               } else {
+                   return ""
+               }
+           }
+       }
+    
     var userDefault = UserDefaults(suiteName: appGroupe)! // if suiteName the same as bundleId or "NSGloabDomain", wil be nil
     
     func stringToArray(_ str: String) -> [String] {
@@ -157,5 +169,6 @@ extension Config {
         case yapiPath = "yapiPath"
         case yapiToken = "yapiToken"
         case yapiHost = "yapiHost"
+        case remark = "remark"
     }
 }
