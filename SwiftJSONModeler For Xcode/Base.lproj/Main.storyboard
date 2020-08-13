@@ -707,7 +707,7 @@
             <objects>
                 <viewController title="Model设置" storyboardIdentifier="ConfigViewController" id="5gI-5U-AMq" customClass="ConfigViewController" customModule="SwiftJSONModeler_For_Xcode" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="ERx-hH-rdd">
-                        <rect key="frame" x="0.0" y="0.0" width="533" height="972"/>
+                        <rect key="frame" x="0.0" y="0.0" width="790" height="972"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wf5-gB-SJa">
@@ -722,7 +722,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="a5h-sk-bjS">
-                                <rect key="frame" x="118" y="898" width="385" height="30"/>
+                                <rect key="frame" x="118" y="898" width="642" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="ZB5-S8-m8z"/>
                                 </constraints>
@@ -744,7 +744,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vSj-38-HG4">
-                                <rect key="frame" x="417" y="33" width="92" height="51"/>
+                                <rect key="frame" x="674" y="33" width="92" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="IgU-pX-0Ab"/>
                                     <constraint firstAttribute="height" constant="40" id="L1E-c2-3gR"/>
@@ -758,7 +758,7 @@
                                 </connections>
                             </button>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TgM-de-NPF">
-                                <rect key="frame" x="118" y="839" width="385" height="30"/>
+                                <rect key="frame" x="118" y="839" width="642" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="QWB-wt-W46"/>
                                 </constraints>
@@ -780,7 +780,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KDI-lJ-ln3">
-                                <rect key="frame" x="118" y="780" width="385" height="30"/>
+                                <rect key="frame" x="118" y="780" width="642" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="jXZ-Kq-niD"/>
                                 </constraints>
@@ -802,7 +802,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="szC-Is-Jzs">
-                                <rect key="frame" x="118" y="721" width="385" height="30"/>
+                                <rect key="frame" x="118" y="721" width="642" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="sDf-EY-I1S"/>
                                 </constraints>
@@ -813,7 +813,7 @@
                                 </textFieldCell>
                             </textField>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="CYR-Nv-8jk">
-                                <rect key="frame" x="30" y="479" width="473" height="148"/>
+                                <rect key="frame" x="30" y="479" width="730" height="148"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Oac-Ih-7uy">
                                         <rect key="frame" x="38" y="112" width="88" height="16"/>
@@ -824,7 +824,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <button verticalHuggingPriority="750" tag="12" translatesAutoresizingMaskIntoConstraints="NO" id="EHm-R1-Ay3">
-                                        <rect key="frame" x="413" y="111" width="22" height="18"/>
+                                        <rect key="frame" x="670" y="111" width="22" height="18"/>
                                         <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="hL8-OC-8uq">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -850,7 +850,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Cn0-Pn-vUD">
-                                        <rect key="frame" x="413" y="19" width="22" height="18"/>
+                                        <rect key="frame" x="670" y="19" width="22" height="18"/>
                                         <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="5wq-U8-PPe">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -860,7 +860,7 @@
                                         </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4Ca-td-HhY">
-                                        <rect key="frame" x="413" y="65" width="22" height="18"/>
+                                        <rect key="frame" x="670" y="65" width="22" height="18"/>
                                         <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="TSZ-Cw-Dq7">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -898,7 +898,7 @@
                                 </textFieldCell>
                             </textField>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="cf4-vW-LAT">
-                                <rect key="frame" x="30" y="246" width="473" height="164"/>
+                                <rect key="frame" x="30" y="246" width="730" height="164"/>
                                 <subviews>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BE1-j6-twg">
                                         <rect key="frame" x="38" y="128" width="96" height="16"/>
@@ -909,7 +909,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pKM-dx-KjW">
-                                        <rect key="frame" x="413" y="127" width="22" height="18"/>
+                                        <rect key="frame" x="670" y="127" width="22" height="18"/>
                                         <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" inset="2" id="KPb-bY-Bpq">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -927,7 +927,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6ac-fB-Cyc">
-                                        <rect key="frame" x="149" y="85" width="294" height="30"/>
+                                        <rect key="frame" x="149" y="85" width="551" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="jfI-6q-JY1"/>
                                         </constraints>
@@ -946,7 +946,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4N2-lf-lAi">
-                                        <rect key="frame" x="149" y="49" width="294" height="30"/>
+                                        <rect key="frame" x="149" y="49" width="551" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="p5V-3n-LYJ"/>
                                         </constraints>
@@ -965,7 +965,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="25V-Ky-0tb">
-                                        <rect key="frame" x="149" y="13" width="294" height="30"/>
+                                        <rect key="frame" x="149" y="13" width="551" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="cOL-bv-yfT"/>
                                         </constraints>
@@ -1024,7 +1024,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="FOi-zT-B7B">
-                                <rect key="frame" x="30" y="97" width="473" height="100"/>
+                                <rect key="frame" x="30" y="97" width="730" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="IB1-RE-c2F"/>
                                 </constraints>
@@ -1094,7 +1094,7 @@
                 </viewController>
                 <customObject id="2Tp-Fl-jBw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="101.5" y="1162.5"/>
+            <point key="canvasLocation" x="230" y="1162"/>
         </scene>
     </scenes>
 </document>
