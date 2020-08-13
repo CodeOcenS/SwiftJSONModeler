@@ -20,6 +20,8 @@ class YApiHelper {
     }
     /// 按照path解析
     var aimPath: String = ""
+    
+    /// 完整路径对象
     var compleObject: YApiObject? {
         return object(from: "", dic: originJOSN)
     }
