@@ -1018,7 +1018,7 @@
                                     <constraint firstAttribute="width" constant="80" id="H1x-4y-gS0"/>
                                 </constraints>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="备注" id="vRi-ca-vqg">
-                                    <font key="font" size="16" name=".PingFangSC-Regular"/>
+                                    <font key="font" metaFont="system" size="16"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
