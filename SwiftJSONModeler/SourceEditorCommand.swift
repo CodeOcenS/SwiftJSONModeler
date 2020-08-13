@@ -9,55 +9,66 @@
 import AppKit
 import XcodeKit
 
-private let configCommand = "config"
-private let structCommand = "struct"
-private let classCommand = "class"
-private let domain = "SwiftJSONModeler"
-private let keyImport = "import"
 
-private typealias CommandId = String
+
+
 
 class SourceEditorCommand: NSObject, XCSourceEditorCommand {
-    private lazy var parent: String = {
-        let config = ConfigUserDefault.shared.getConfig()
-        let confrom = config.confrom
-        if confrom.isEmpty {
+    let config = Config()
+    private var completionHandler: (Error?) -> Void = { _ in  }
+    /// 复制版内容
+    var pasteboardTest: String {
+        guard let paste = NSPasteboard.general.string(forType: .string) else {
             return ""
-        } else {
-            return confrom.joined(separator: ", ")
         }
-    }()
-    
-    /// 遵循
-    private lazy var importModule: [String] = {
-        ConfigUserDefault.shared.getConfig().module
-    }()
-    
+        guard !paste.isEmpty else {
+            return ""
+        }
+        return paste
+    }
     func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void) {
         print("启动插件")
-        
-        if invocation.commandIdentifier == configCommand {
+        self.completionHandler = completionHandler
+        addErrorNoti()
+        // TODO: json多层解析
+        let commandIdentifier = invocation.commandIdentifier
+        if commandIdentifier == configCommand {
             NSWorkspace.shared.open(URL(fileURLWithPath: "/Applications/SwiftJSONModeler For Xcode.app"))
-        } else {
+            completionHandler(nil)
+        } else if commandIdentifier == classFromRAWCommand || commandIdentifier == structFromRAWCommand {
+            handleInvocation(invocation, raw: pasteboardTest, completionHandler: completionHandler)
+            
+        } else if commandIdentifier == classFromJSONCommand || commandIdentifier == structFromJSONCommand {
             handleInvocation(invocation, handler: completionHandler)
+        } else if commandIdentifier == classFromYApiIdCommand || commandIdentifier == structFromYApiIdCommand {
+            YApiRequest.data(id: pasteboardTest) { [weak self](raw) in
+                if let raw = raw {
+                    self?.handleInvocation(invocation, raw: raw, completionHandler: completionHandler)
+                }else {
+                    completionHandler(nil)
+                }
+            }
         }
+    }
+    /// 通过 YApi RAW数据转模
+    private func handleInvocation(_ invocation: XCSourceEditorCommandInvocation, raw: String, completionHandler: @escaping (Error?) -> Void) {
+        let yapiCreator = YApiCreator(invocation: invocation, pasteText: raw)
+        let models = yapiCreator.getModels()
+        var lines = invocation.buffer.lines
+        lines.addObjects(from: models)
+        importModel(lines: &lines)
         completionHandler(nil)
     }
-    
+    /// 通过json 转模
     private func handleInvocation(_ invacation: XCSourceEditorCommandInvocation, handler: (Error?) -> Void) {
         let buffer = invacation.buffer
         var line = buffer.lines
         // importModel(lines: &line)
-        // 获取复制内容
-        guard let paste = NSPasteboard.general.string(forType: .string) else {
-            handler(error(msg: "复制内容异常"))
+        if pasteboardTest.isEmpty {
+            handler(error(msg: "复制文本不能为空"))
             return
         }
-        guard !paste.isEmpty else {
-            handler(error(msg: "复制内容为空"))
-            return
-        }
-        let lines = linesFrom(paste: paste)
+        let lines = linesFrom(paste: pasteboardTest)
         switch lines {
         case .failure(let error):
             handler(error)
@@ -70,7 +81,23 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
     }
 }
 
-// MARK: - Helper
+// MARK: - 添加通知
+
+private extension SourceEditorCommand {
+    func addErrorNoti() {
+        NotificationCenter.default.addObserver(self, selector: #selector(errorNoti(noti:)), name: NSNotification.Name.errorNotification, object: nil)
+    }
+    @objc
+    func errorNoti(noti: Notification) {
+        if ErrorCenter.shared.message.isEmpty {
+            completionHandler(nil)
+        }else {
+            completionHandler(error(msg: ErrorCenter.shared.message))
+        }
+    }
+}
+
+// MARK: - json Helper
 
 private extension SourceEditorCommand {
     func error(msg: String) -> Error {
@@ -105,7 +132,7 @@ private extension SourceEditorCommand {
     
     /// 过滤已添加的Modle
     func filterModle(lines: inout NSMutableArray) -> [String] {
-        let waitImport = importModule
+        let waitImport = config.moduleArr
         let imported: [String] = lines.filter { ($0 as! String).contains(keyImport) } as! [String]
         let needImport = waitImport.filter { (modle) -> Bool in
             for line in imported {
@@ -151,22 +178,25 @@ private extension SourceEditorCommand {
     
     /// 生成对象
     func objectLine(commandIdentifier: CommandId, line: [String]) -> [String] {
-        var keyword = "struct"
-        if commandIdentifier == classCommand {
-            keyword = classCommand
-        } else if commandIdentifier == structCommand {
-            keyword = structCommand
+        var keyword = keyStruct
+        if commandIdentifier == classFromJSONCommand {
+            keyword = keyClass
+        } else if commandIdentifier == structFromJSONCommand {
+            keyword = keyStruct
         }
         
         var objctLines: [String] = []
+        let parent = config.parent
+        var modelName = "<#Model#>"
+        modelName = config.prefix + modelName + config.subffix
         if parent.isEmpty {
-            objctLines.append("\(keyword)  <#Model#> {")
+            objctLines.append("\(keyword) \(modelName) {")
         } else {
-            objctLines.append("\(keyword) <#Model#>: \(parent) {")
+            objctLines.append("\(keyword) \(modelName): \(parent) {")
         }
         
         objctLines.append(contentsOf: line)
-        if commandIdentifier == classCommand, importModule.contains("HandyJSON") {
+        if commandIdentifier == classFromJSONCommand, parent.contains("HandyJSON") {
             objctLines.append("")
             objctLines.append("\trequired init() { }")
         }
@@ -221,7 +251,15 @@ extension SourceEditorCommand {
             for (label, value) in dic {
                 lines.append("\(label): \(typeOf(value: value))")
             }
-            lines = lines.map { "\tvar " + $0 + "?" }
+            if !config.isNotOptional {
+                if config.isImplicitlyOptional {
+                    lines = lines.map { "\tvar " + $0 + "!" }
+                } else {
+                    lines = lines.map { "\tvar " + $0 + "?" }
+                }
+            } else {
+                 lines = lines.map { "\tvar " + $0 }
+            }
             let aimLines = Array.init(lines.reversed())
             print("目标模板")
             print(aimLines)

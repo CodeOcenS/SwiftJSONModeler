@@ -11,42 +11,71 @@ import Cocoa
 
 
 class ConfigViewController: NSViewController {
+    
+    let config = Config()
+    
     @IBOutlet weak var confromTextField: NSTextField!
    
     @IBOutlet weak var moduleTextField: NSTextField!
-    
+    @IBOutlet weak var prefixTextField: NSTextField!
+    @IBOutlet weak var subffixTextField: NSTextField!
+    @IBOutlet weak var isAllowOptionalBtn: NSButton!
+    @IBOutlet weak var isShowOptionalBtn: NSButton!
+    @IBOutlet weak var isArrayEmptyBtn: NSButton!
+    @IBOutlet weak var isShowYApiMockBtn: NSButton!
+    @IBOutlet weak var pathTextField: NSTextField!
+    @IBOutlet weak var yapiTokenTextField: NSTextField!
+    @IBOutlet weak var yapiHostTextField: NSTextField!
+    @IBOutlet weak var remarkTextField: NSTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         updateFromUserDefault()
     }
     
     private func updateFromUserDefault() {
-        let config = ConfigUserDefault.shared.getConfig()
+        confromTextField.stringValue = config.conform
+        moduleTextField.stringValue = config.module
+        prefixTextField.stringValue = config.prefix
+        subffixTextField.stringValue = config.subffix
+        pathTextField.stringValue = config.yapiPath
+        yapiTokenTextField.stringValue = config.yapiToken
+        yapiHostTextField.stringValue = config.yapiHost
         
-        confromTextField.stringValue = config.confrom.isEmpty ? "" : config.confrom.joined(separator: ",")
-        moduleTextField.stringValue = config.module.isEmpty ? "" : config.module.joined(separator: ",")
-    }
-    
-    private func saveToUserDefault() {
-        var confrom: [String] = []
-        var module: [String] = []
-        let confromStr = confromTextField.stringValue
-        let moduleStr = moduleTextField.stringValue
-        if !confromStr.isEmpty, !confromStr.contains("，") {
-           confrom = confromStr.components(separatedBy: ",")
-        }
+        remarkTextField.stringValue = config.remark
         
-        if !moduleStr.isEmpty,!moduleStr.contains("，") {
-           module = moduleStr.components(separatedBy: ",")
-        }
-        
-        ConfigUserDefault.shared.set(confrom: confrom, module: module)
+        isAllowOptionalBtn.state = config.isNotOptional ? .off : .on
+        isShowOptionalBtn.state = config.isImplicitlyOptional ? .off : .on
+        isArrayEmptyBtn.state = config.arrayIsDefaultNotEmpty ? .off : .on
+        isShowYApiMockBtn.state = config.isShowYApiMock ? .on : .off
     }
     
     
     @IBAction func saveButtonTap(_ sender: NSButton) {
-        saveToUserDefault()
+        config.conform = confromTextField.stringValue
+        config.module = moduleTextField.stringValue
+        config.prefix = prefixTextField.stringValue
+        config.subffix = subffixTextField.stringValue
+        config.yapiPath = pathTextField.stringValue
+        config.yapiToken = yapiTokenTextField.stringValue
+        config.yapiHost = yapiHostTextField.stringValue
+        config.remark = remarkTextField.stringValue
         view.window?.close()
     }
+    
+    @IBAction func typeOptionalBtnTap(_ sender: NSButton) {
+        config.isNotOptional = !(sender.state == .on)
+    }
+    /// 是否为显示可选
+    @IBAction func isShowOptional(_ sender: NSButton) {
+        config.isImplicitlyOptional = !(sender.state == .on)
+    }
+    @IBAction func isEmptyArrayBtnTap(_ sender: NSButton) {
+        config.arrayIsDefaultNotEmpty = !(sender.state == .on)
+    }
+    @IBAction func isShowYApiMockBtnTap(_ sender: NSButton) {
+        config.isShowYApiMock = sender.state == .on
+    }
+    
+    
     
 }
