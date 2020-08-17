@@ -749,9 +749,9 @@
                                     <constraint firstAttribute="width" constant="80" id="IgU-pX-0Ab"/>
                                     <constraint firstAttribute="height" constant="40" id="L1E-c2-3gR"/>
                                 </constraints>
-                                <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IQP-yP-yrb">
+                                <buttonCell key="cell" type="push" title="保存" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IQP-yP-yrb">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system" size="15"/>
+                                    <font key="font" size="15" name=".PingFangSC-Regular"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="saveButtonTap:" target="5gI-5U-AMq" id="yhq-Ui-nvB"/>

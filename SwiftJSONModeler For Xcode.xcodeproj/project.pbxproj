@@ -15,6 +15,8 @@
 		C92A971824E513F900C87CCD /* ErrorCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CB247F241F559C00F4D5CE /* ErrorCenter.swift */; };
 		C92A971D24E514FB00C87CCD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A971C24E514FB00C87CCD /* Constants.swift */; };
 		C92A971E24E5150600C87CCD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A971C24E514FB00C87CCD /* Constants.swift */; };
+		C935B49C24EA24BE00E48231 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C935B49B24EA24BE00E48231 /* JSONHelper.swift */; };
+		C935B49E24EA56EF00E48231 /* JSONHelperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C935B49D24EA56EF00E48231 /* JSONHelperTest.swift */; };
 		C94AFC01241F4AE600389AF3 /* YApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94AFC00241F4AE600389AF3 /* YApiHelper.swift */; };
 		C94AFC04241F4E8A00389AF3 /* YApiObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94AFC03241F4E8A00389AF3 /* YApiObject.swift */; };
 		C961C1DE23D82A8D008D0DE6 /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C961C1DD23D82A8D008D0DE6 /* ConfigViewController.swift */; };
@@ -68,6 +70,8 @@
 /* Begin PBXFileReference section */
 		C92A970524E50D5900C87CCD /* YApiObjectTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YApiObjectTest.swift; sourceTree = "<group>"; };
 		C92A971C24E514FB00C87CCD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C935B49B24EA24BE00E48231 /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
+		C935B49D24EA56EF00E48231 /* JSONHelperTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelperTest.swift; sourceTree = "<group>"; };
 		C94AFC00241F4AE600389AF3 /* YApiHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YApiHelper.swift; sourceTree = "<group>"; };
 		C94AFC03241F4E8A00389AF3 /* YApiObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YApiObject.swift; sourceTree = "<group>"; };
 		C961C1DD23D82A8D008D0DE6 /* ConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
@@ -152,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				C92A970524E50D5900C87CCD /* YApiObjectTest.swift */,
+				C935B49D24EA56EF00E48231 /* JSONHelperTest.swift */,
 			);
 			path = SwiftJSONModelerTest;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 				C961C1DD23D82A8D008D0DE6 /* ConfigViewController.swift */,
 				C9DE045E242C8535008A0070 /* Config.swift */,
 				C9CB247F241F559C00F4D5CE /* ErrorCenter.swift */,
+				C935B49B24EA24BE00E48231 /* JSONHelper.swift */,
 			);
 			path = "SwiftJSONModeler For Xcode";
 			sourceTree = "<group>";
@@ -344,6 +350,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C935B49E24EA56EF00E48231 /* JSONHelperTest.swift in Sources */,
 				C9D04F2B242F218200843DC4 /* SwiftJSONModeler_For_XcodeTests.swift in Sources */,
 				C92A970A24E512BD00C87CCD /* YApiObjectTest.swift in Sources */,
 			);
@@ -361,6 +368,7 @@
 				C92A971D24E514FB00C87CCD /* Constants.swift in Sources */,
 				C92A971424E513EA00C87CCD /* YApiHelper.swift in Sources */,
 				C9ED9CCA23D7F9B3004567A1 /* Document.swift in Sources */,
+				C935B49C24EA24BE00E48231 /* JSONHelper.swift in Sources */,
 				C961C1DE23D82A8D008D0DE6 /* ConfigViewController.swift in Sources */,
 				C92A971524E513EA00C87CCD /* YApiObject.swift in Sources */,
 			);
