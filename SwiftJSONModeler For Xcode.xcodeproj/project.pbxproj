@@ -17,6 +17,7 @@
 		C92A971E24E5150600C87CCD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A971C24E514FB00C87CCD /* Constants.swift */; };
 		C935B49C24EA24BE00E48231 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C935B49B24EA24BE00E48231 /* JSONHelper.swift */; };
 		C935B49E24EA56EF00E48231 /* JSONHelperTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C935B49D24EA56EF00E48231 /* JSONHelperTest.swift */; };
+		C935B49F24EA664A00E48231 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C935B49B24EA24BE00E48231 /* JSONHelper.swift */; };
 		C94AFC01241F4AE600389AF3 /* YApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94AFC00241F4AE600389AF3 /* YApiHelper.swift */; };
 		C94AFC04241F4E8A00389AF3 /* YApiObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94AFC03241F4E8A00389AF3 /* YApiObject.swift */; };
 		C961C1DE23D82A8D008D0DE6 /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C961C1DD23D82A8D008D0DE6 /* ConfigViewController.swift */; };
@@ -387,6 +388,7 @@
 				C9ED9CE323D7F9D0004567A1 /* SourceEditorCommand.swift in Sources */,
 				C9CEE26D242B382900A04EA9 /* YApiCreator.swift in Sources */,
 				C92A971E24E5150600C87CCD /* Constants.swift in Sources */,
+				C935B49F24EA664A00E48231 /* JSONHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

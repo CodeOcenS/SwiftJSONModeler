@@ -46,6 +46,14 @@ class YApiCreator {
         getPathObject()
     }
     
+    init(invocation: XCSourceEditorCommandInvocation, yapiObject: YApiObject) {
+        self.invocation = invocation
+        self.creatObjects.insert(yapiObject)
+        let buffer = invocation.buffer
+        lines = buffer.lines
+        lineObject(self.creatObjects.first!)
+    }
+    
     private func getPathObject() -> Void {
         objectHelper.aimPath = Config().yapiPath //设置获取data下数据
         guard let object = objectHelper.pathObject else {

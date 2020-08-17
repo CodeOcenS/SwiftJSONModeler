@@ -39,7 +39,8 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
             handleInvocation(invocation, raw: pasteboardTest, completionHandler: completionHandler)
             
         } else if commandIdentifier == classFromJSONCommand || commandIdentifier == structFromJSONCommand {
-            handleInvocation(invocation, handler: completionHandler)
+            handleInvocation(invocation, json: pasteboardTest, completionHandler: completionHandler)
+            //handleInvocation(invocation, handler: completionHandler)
         } else if commandIdentifier == classFromYApiIdCommand || commandIdentifier == structFromYApiIdCommand {
             YApiRequest.data(id: pasteboardTest) { [weak self](raw) in
                 if let raw = raw {
@@ -60,7 +61,24 @@ class SourceEditorCommand: NSObject, XCSourceEditorCommand {
         completionHandler(nil)
     }
     /// 通过json 转模
+    private func handleInvocation(_ invocation: XCSourceEditorCommandInvocation, json: String, completionHandler: @escaping (Error?) -> Void) {
+        guard let transformObject = JSONHelper(paste: json).transform() else {
+            completionHandler(nil)
+            return
+        }
+        let yapiCreator = YApiCreator(invocation: invocation,
+                                      yapiObject: transformObject)
+        let models = yapiCreator.getModels()
+        var lines = invocation.buffer.lines
+        lines.addObjects(from: models)
+        importModel(lines: &lines)
+        completionHandler(nil)
+    }
+    
+    
     private func handleInvocation(_ invacation: XCSourceEditorCommandInvocation, handler: (Error?) -> Void) {
+       
+        
         let buffer = invacation.buffer
         var line = buffer.lines
         // importModel(lines: &line)

@@ -54,7 +54,7 @@ public struct JSONHelper {
             let arrObjct = YApiObject(parentKey: key, key: key, mock: "", type: type, typeRaw: "Array", des: nil, childs: [objct])
             return arrObjct
         }
-        let arrObjct = YApiObject(parentKey: nil, key: key, mock: "", type: type, typeRaw: "Array", des: nil, childs: [typeOf(nil, value: first)])
+        let arrObjct = YApiObject(parentKey: key, key: key, mock: "", type: type, typeRaw: "Array", des: nil, childs: [typeOf(key, value: first)])
         return arrObjct
     }
     /// 类型数据类型判断
@@ -63,7 +63,7 @@ public struct JSONHelper {
         if value is NSNull {
             print("存在null")
             let type = YApiType.undefined
-            let objct = YApiObject(parentKey: parentKey, key: key, mock: "", type: type, typeRaw: "<#NSNull#>", des: nil, childs: [])
+            let objct = YApiObject(parentKey: parentKey, key: key, mock: "", type: type, typeRaw: "NSNull", des: nil, childs: [])
             return objct
         } else if value is String {
             let type = YApiType.string
