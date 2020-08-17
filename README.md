@@ -1,15 +1,14 @@
-SwiftJSONModeler是一个Xcode插件，可以将json 转为Swfit模型
+SwiftJSONModeler是一个Xcode插件，一键转换json字符串Swfit模型，一键转化 YApi 平台接口为模型，并且自动引入注释。
 * 支持struct, class 
-* 支持单json转模
-* 支持YApi RAW或接口id解析转模，并且自动添加注释
+* 支持单json转模， 多层嵌套 json
+* 支持YApi RAW或接口id解析转模，并且自动引入 YApi 平台注释和兼容数据类型
 * 支持自定义遵循 和 import
 * 支持自定义模型前缀和后缀
-* 可设置是否类型可选，是否使用显示可选`?`(不使用则为隐式可选`!`)
-* YApi RWA支持按照路径解析模型，自动解析子类型
+* 可设置隐式和显示可选类型，默认显示可选`?`(不使用则为隐式可选`!`)
+* YApi 支持按照自定义路径解析模型，自动解析子类型
 
-## 效果图
 
-### 标准json 解析
+## json 转Swfit模型
 
 复制单json, 一步转为模型。
 
@@ -18,7 +17,79 @@ SwiftJSONModeler是一个Xcode插件，可以将json 转为Swfit模型
 
 如果无法预览查看[传输门](https://github.com/yumengqing/SwiftJSONModeler/blob/master/Sources/example.gif)或者[Sources/example.gif](./Sources/example.gif)
 
-### YApi RAW解析
+示例 json 数据：
+```javaScript
+{
+            "title": "第一层 json",
+            "stringValue": "字符串值",
+            "intValue": 58,
+            "doubleValue": 18.2,
+            "nullValue": null,
+            "boolValue": true,
+            "subJson": {
+                "title": "第二层 json",
+                "stringValue": "字符串值"
+            },
+            "arrayValue1": [
+                "value1",
+                "value2",
+                "value3"
+            ],
+            "arrayValue2": [{
+                "title": "数组包含子 json",
+                "intValue": 12,
+                "boolValue": false
+            }]
+        }
+```
+Swift模型
+```swift
+///
+struct HKModel: HandyJSON {
+    
+    var arrayValue2: [HKArrayValue2Model] = []
+    
+    var nullValue: NSNull?
+    
+    var intValue: Int?
+    
+    var arrayValue1: [String] = []
+    
+    var title: String?
+    
+    var stringValue: String?
+    ///
+    var subJson: HKSubJsonModel?
+    
+    var doubleValue: Double?
+    
+    var boolValue: Int?
+}
+
+///
+struct HKArrayValue2Model: HandyJSON {
+    
+    var title: String?
+    
+    var boolValue: Int?
+    
+    var intValue: Int?
+}
+
+///
+struct HKSubJsonModel: HandyJSON {
+    
+    var title: String?
+    
+    var stringValue: String?
+}
+
+```
+支持多层嵌套 josn， 高亮提示 json 中 `null`类型， 类型自动判断。
+
+## YApi 接口平台转模支持
+
+什么是 YApi，YApi 是一个可本地部署的、打通前后端及QA的、可视化的接口管理平台，[github 地址](https://github.com/YMFE/yapi)
 
 复制YApi接口RAW数据，一步解析带有注释的模型。
 解析效果如下()：
@@ -26,6 +97,37 @@ SwiftJSONModeler是一个Xcode插件，可以将json 转为Swfit模型
 ![解析YApi](./Sources/YApiRAW.gif)
 
 如果无法预览查看[Source/YApiRAW.gif](./Sources/YApiRAW.gif)
+
+如果你使用YApi接口平台，我们支持两种方式，通过接口 Id）和 Raw 数据转模。一键转为模型，并且自动根据YApi为模型引入注释。
+
+### 通过Id转模
+
+在配置了项目token和host基础下,简单复制Id即可实现转模和添加注释.
+
+**如何查看YApi接口中的id？**在YApi对应的接口中，查看浏览器网址，最后的数字就是Id。如下图：
+
+![接口Id](./Sources/yapiHostId.png)
+
+具体配置参考下面设置部分。
+
+### RAW数据
+
+**RAW数据**：即YApi接口平台提供的带有接口字段及注释的json数据，查看方式：选择接口 -> 编辑 -> 返回数据设置 -> RAW 如下图
+
+![Alt](./Sources/YApiRAWData.png)
+
+示例RAW数据：
+
+```javascript
+{"type":"object","title":"empty object","properties":{"message":{"type":"string"},"code":{"type":"string"},"response":{"type":"object","properties":{"teachers":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string","mock":{"mock":"Mrs Yang"},"description":"名字"},"subject":{"type":"string","mock":{"mock":"语文"},"description":"科目"},"phone":{"type":"string","mock":{"mock":"13459923098"},"description":"联系电话"}},"required":["name","subject","phone"]},"description":"老师"},"name":{"type":"string","description":"姓名"},"age":{"type":"integer","mock":{"mock":"18"},"description":"年龄"},"score":{"type":"number","mock":{"mock":"89.8"},"description":"综合成绩"},"likes":{"type":"array","items":{"type":"string","mock":{"mock":"英雄联盟"}},"description":"爱好"},"emergercyContact":{"type":"object","properties":{"name":{"type":"string"},"phone":{"type":"string","description":"联系电话"},"address":{"type":"string","description":"联系地址","mock":{"mock":"xx街道xx栋xx单元"}}},"description":"紧急联系人","required":["name","phone","address"]},"isBoy":{"type":"boolean","description":"是否为男孩"}},"required":["teachers","name","age","score","likes","emergercyContact","isBoy"]}},"required":["message","code","response"]}
+```
+
+> 完整示例可下载打开SwiftJSONModelerDemo查看
+
+### 解析指定路径模型
+
+如果你数据有多层json, 可以在设置中指定解析路线path来获取指定模型。比如我的目标数据在response字段下，则可以配置path为`response`.则直接解析response下的json模型。多路径使用 `.`
+
 
 ## 安装
 1.你可以选择[Release](https://github.com/yumengqing/SwiftJSONModeler/releases) 直接下载应用安装
@@ -71,82 +173,4 @@ SwiftJSONModeler提供多种自定义可选设置，可通过插件的Config选�
 ![](./Sources/keybinding.png)
 
 记得双击key下面那个区域才可以编辑，这里我使用的是alt + s 和alt + c 避免与系统的冲突
-## 标准JSON转模
 
-复制需要转换的json,选择插件的Struct JSON或者Class JSON功能，即可生成相应Swift模型。
-注意：目前只支持单层json
-
-示例json
-
-```javascript
-{
-  "orderName": "擦护理洗车",
-  "decription": "退还到原支付账户",
-  "refund": 58,
-  "total": 18.2,
-  "name": null,
-  "detail": {
-    "id": 1387329,
-    "date": "2018-08-08"
-  },
-  "tag": [
-    "美容洗车",
-    "活动",
-    "护理"
-  ]
-}
-```
-
-转模结果
-
-```swift
-struct <#Model#>: HandyJSON {
-    var name: <#NSNull#>?  // 字典为null 需要手动指定类型
-    var decription: String?
-    var orderName: String?
-    var refund: Int?
-    var tag: [String]?  // 自动识别数组（如果是基本类型）
-    var detail: <#SubModel#>? // 需要再次转子json 模型
-    var total: Double?
-}
-```
-
-![效果图](./Sources/result.png)
-
-## YApi 接口平台转模
-
-如果你使用YApi接口平台，可以通过复制接口返回的 RAW数据，或者复制Id，自动转为模型，并且自动根据YApi为模型添加注释。
-
-### 通过Id转模
-
-在配置了项目token和host基础下,简单复制Id即可实现转模和添加注释.
-
-**如何查看YApi接口中的id？**在YApi对应的接口中，查看浏览器网址，最后的数字就是Id。如下图：
-
-![接口Id](./Sources/yapiHostId.png)
-
-
-
-### RAW数据
-
-**RAW数据**：即YApi接口平台提供的带有接口字段及注释的json数据，查看方式：选择接口 -> 编辑 -> 返回数据设置 -> RAW 如下图
-
-![Alt](./Sources/YApiRAWData.png)
-
-示例RAW数据：
-
-```javascript
-{"type":"object","title":"empty object","properties":{"message":{"type":"string"},"code":{"type":"string"},"response":{"type":"object","properties":{"teachers":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string","mock":{"mock":"Mrs Yang"},"description":"名字"},"subject":{"type":"string","mock":{"mock":"语文"},"description":"科目"},"phone":{"type":"string","mock":{"mock":"13459923098"},"description":"联系电话"}},"required":["name","subject","phone"]},"description":"老师"},"name":{"type":"string","description":"姓名"},"age":{"type":"integer","mock":{"mock":"18"},"description":"年龄"},"score":{"type":"number","mock":{"mock":"89.8"},"description":"综合成绩"},"likes":{"type":"array","items":{"type":"string","mock":{"mock":"英雄联盟"}},"description":"爱好"},"emergercyContact":{"type":"object","properties":{"name":{"type":"string"},"phone":{"type":"string","description":"联系电话"},"address":{"type":"string","description":"联系地址","mock":{"mock":"xx街道xx栋xx单元"}}},"description":"紧急联系人","required":["name","phone","address"]},"isBoy":{"type":"boolean","description":"是否为男孩"}},"required":["teachers","name","age","score","likes","emergercyContact","isBoy"]}},"required":["message","code","response"]}
-```
-
-> 完整示例可下载打开SwiftJSONModelerDemo查看
-
-### 解析指定路径模型
-
-如果你数据有多层json, 可以在设置中指定解析路线path来获取指定模型。比如我的目标数据在response字段下，则可以配置path为response.则直接解析response下的json模型。多路径使用 `.`
-
- 
-
-## 待优化
-
-* 直接解析出子json 或者 数组内子json
