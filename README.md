@@ -14,8 +14,7 @@ SwiftJSONModeler是一个Xcode插件，一键转换json字符串Swfit模型，�
 
 ![运行效果](./Sources/example.gif)
 
-
-如果无法预览查看[传输门](https://github.com/yumengqing/SwiftJSONModeler/blob/master/Sources/example.gif)或者[Sources/example.gif](./Sources/example.gif)
+如果无法预览查看[传输门](https://github.com/yumengqing/SwiftJSONModeler/blob/master/Sources/example.gif)或者[Sources/example.gif](./Sources/example_hight.gif)
 
 示例 json 数据：
 ```javaScript
