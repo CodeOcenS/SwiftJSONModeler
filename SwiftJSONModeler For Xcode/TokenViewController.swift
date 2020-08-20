@@ -29,9 +29,14 @@ class TokenViewController: NSViewController {
     }
     
     /// 删除一行token 数据
-    private func remoçveOneRowToken(_ index: Int) {
-        dataSource.remove(at: index)
-        updateTokenView()
+    private func removeOneRowToken(_ index: Int) {
+        if index < dataSource.count  {
+            dataSource.remove(at: index)
+            updateTokenView()
+        } else {
+            
+        }
+        
     }
     
     private func updateTokenView() {
@@ -52,15 +57,20 @@ class TokenViewController: NSViewController {
         }
         // 需要删除
         if tokenCount < viewsCount {
-            let deleteNumber = viewsCount - tokenCount
-            tokenViews.removeLast(deleteNumber)
+            stackView.removeArrangedSubview(tokenViews.first!)
+            tokenViews.removeFirst()
+            
+           // let deleteNumber = viewsCount - tokenCount
+//            let willRemoveTokenView = tokenViews.dropFirst(deleteNumber)
+//            willRemoveTokenView.forEach {  stackView.removeArrangedSubview($0) }
         }
-        for (index, value) in dataSource.enumerated() {
-            let tokenView = tokenViews[index]
-            tokenView.titleTextField.stringValue = value.title
-            tokenView.tokenTextField.stringValue = value.token
+        for (index, tokenView) in tokenViews.enumerated() {
+            if index < dataSource.count {
+                let value = dataSource[index]
+                tokenView.titleTextField.stringValue = value.title
+                tokenView.tokenTextField.stringValue = value.token
+            }
             tokenView.buttonTag = index
-          // ??? 闭包没有回调
             tokenView.deleteClosure = {
                  index in
                 print("删除第\(index+1)行")
@@ -77,10 +87,7 @@ class TokenViewController: NSViewController {
     private func updateDataSource() {
          dataSource = []
         for (index, value) in tokenViews.enumerated() {
-            guard index != tokenViews.count - 1 else {
-                return
-            }
-            dataSource.append((title: value.titleTextField.stringValue, token: value.tokenTextField.stringValue))
+             dataSource.append((title: value.titleTextField.stringValue, token: value.tokenTextField.stringValue))
         }
     }
     

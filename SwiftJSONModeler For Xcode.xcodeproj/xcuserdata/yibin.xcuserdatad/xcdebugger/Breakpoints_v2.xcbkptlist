@@ -55,15 +55,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "259A2B1F-983C-476D-BC9E-B49703E339FF"
+            uuid = "EEBD5BA0-73FC-44D4-BF00-64B132D52219"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SwiftJSONModeler For Xcode/TokenViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "updateTokenView()"
             landmarkType = "7">
          </BreakpointContent>
@@ -71,15 +71,47 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F2320FE5-2A0C-435F-9D39-62CBD66F4025"
+            uuid = "FBC1388D-D304-4FC9-B718-C509DFF7A525"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SwiftJSONModeler For Xcode/TokenViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "updateDataSource()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4BDC3081-BAB1-449A-A5BE-59A954D74DC6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftJSONModeler For Xcode/TokenViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
+            landmarkName = "updateDataSource()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EDF7216D-B274-4CBA-A94F-C87B3066F5F2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftJSONModeler For Xcode/TokenViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "updateTokenView()"
             landmarkType = "7">
          </BreakpointContent>
@@ -87,32 +119,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5B59D30D-BD6C-4CAE-9A75-6122570FDD7E"
+            uuid = "D57F4346-297C-43BC-8CB1-A57817CDE04E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SwiftJSONModeler For Xcode/View/TokenView.swift"
+            filePath = "SwiftJSONModeler For Xcode/TokenViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "deleteButtonTap(_:)"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "updateTokenView()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B2F4B2F2-85B6-415D-BD88-B93B4D7377A9"
+            uuid = "C8B7AE06-DE18-4DBA-9A59-3E83A8C55E2F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SwiftJSONModeler For Xcode/View/TokenView.swift"
+            filePath = "SwiftJSONModeler For Xcode/TokenViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "addButtonTap(_:)"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "updateTokenView()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
