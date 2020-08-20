@@ -57,8 +57,8 @@ class TokenViewController: NSViewController {
         }
         // 需要删除
         if tokenCount < viewsCount {
-            stackView.removeArrangedSubview(tokenViews.first!)
-            tokenViews.removeFirst()
+            stackView.removeArrangedSubview(tokenViews.last!)
+            tokenViews.removeLast()
             
            // let deleteNumber = viewsCount - tokenCount
 //            let willRemoveTokenView = tokenViews.dropFirst(deleteNumber)
