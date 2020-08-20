@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="5gI-5U-AMq">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="dRj-c1-ovZ">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -751,7 +751,7 @@
                                 </constraints>
                                 <buttonCell key="cell" type="push" title="保存" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IQP-yP-yrb">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" size="15" name=".PingFangSC-Regular"/>
+                                    <font key="font" metaFont="system" size="15"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="saveButtonTap:" target="5gI-5U-AMq" id="yhq-Ui-nvB"/>
@@ -774,7 +774,7 @@
                                     <constraint firstAttribute="width" constant="80" id="cy3-XY-hR7"/>
                                 </constraints>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="前缀：" id="n9e-oo-TZ5">
-                                    <font key="font" metaFont="system" size="16"/>
+                                    <font key="font" metaFont="label" size="16"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -796,7 +796,7 @@
                                     <constraint firstAttribute="width" constant="80" id="dew-vC-605"/>
                                 </constraints>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="后缀：" id="pft-UG-a8v">
-                                    <font key="font" metaFont="system" size="16"/>
+                                    <font key="font" metaFont="label" size="16"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -892,7 +892,7 @@
                                     <constraint firstAttribute="width" constant="80" id="r76-oI-ssb"/>
                                 </constraints>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="其他设置" id="PMg-9i-jHB">
-                                    <font key="font" metaFont="system" size="16"/>
+                                    <font key="font" metaFont="label" size="16"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -1007,7 +1007,7 @@
                                     <constraint firstAttribute="width" constant="80" id="hqF-dk-Dsb"/>
                                 </constraints>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="YApi设置" id="Yyq-3e-wE2">
-                                    <font key="font" metaFont="system" size="16"/>
+                                    <font key="font" metaFont="label" size="16"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -1018,7 +1018,7 @@
                                     <constraint firstAttribute="width" constant="80" id="H1x-4y-gS0"/>
                                 </constraints>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="备注" id="vRi-ca-vqg">
-                                    <font key="font" metaFont="system" size="16"/>
+                                    <font key="font" metaFont="label" size="16"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -1034,6 +1034,19 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <comboBox verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e6x-Y0-QC6">
+                                <rect key="frame" x="81" y="33" width="99" height="25"/>
+                                <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="vqP-Tt-vqS">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <objectValues>
+                                        <string>Item 1</string>
+                                        <string>Item 2</string>
+                                        <string>Item 3</string>
+                                    </objectValues>
+                                </comboBoxCell>
+                            </comboBox>
                         </subviews>
                         <constraints>
                             <constraint firstItem="cf4-vW-LAT" firstAttribute="top" secondItem="iFK-rh-eoW" secondAttribute="bottom" constant="20" id="0Fy-Bq-4Hz"/>
@@ -1059,12 +1072,14 @@
                             <constraint firstItem="o35-tq-gm8" firstAttribute="leading" secondItem="bDa-kJ-Mhx" secondAttribute="leading" id="RYG-CM-3Sq"/>
                             <constraint firstItem="FOi-zT-B7B" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" constant="30" id="Vow-FC-0iL"/>
                             <constraint firstAttribute="trailing" secondItem="CYR-Nv-8jk" secondAttribute="trailing" constant="30" id="VuX-E7-Agq"/>
+                            <constraint firstItem="e6x-Y0-QC6" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" constant="81" id="XQC-5Q-Wf0"/>
                             <constraint firstItem="szC-Is-Jzs" firstAttribute="centerY" secondItem="cR5-nc-6qZ" secondAttribute="centerY" id="Xgl-rm-8Ns"/>
                             <constraint firstAttribute="trailing" secondItem="vSj-38-HG4" secondAttribute="trailing" constant="30" id="ZLc-N7-aTr"/>
                             <constraint firstItem="cR5-nc-6qZ" firstAttribute="leading" secondItem="bDa-kJ-Mhx" secondAttribute="leading" id="bVu-DC-XIX"/>
                             <constraint firstAttribute="trailing" secondItem="TgM-de-NPF" secondAttribute="trailing" constant="30" id="ccX-KR-uIA"/>
                             <constraint firstAttribute="bottom" secondItem="vSj-38-HG4" secondAttribute="bottom" constant="40" id="efW-1D-QSD"/>
                             <constraint firstItem="bDa-kJ-Mhx" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" constant="30" id="efd-GX-YfT"/>
+                            <constraint firstItem="e6x-Y0-QC6" firstAttribute="top" secondItem="FOi-zT-B7B" secondAttribute="bottom" constant="41" id="gV5-h7-cN7"/>
                             <constraint firstItem="iFK-rh-eoW" firstAttribute="top" secondItem="CYR-Nv-8jk" secondAttribute="bottom" constant="30" id="jDo-hs-jcy"/>
                             <constraint firstItem="n0v-j5-oIk" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" constant="30" id="jj4-ZX-MCz"/>
                             <constraint firstItem="S2C-lh-p4C" firstAttribute="top" secondItem="cR5-nc-6qZ" secondAttribute="bottom" constant="60" id="k0h-Gq-Hui"/>
@@ -1095,6 +1110,103 @@
                 <customObject id="2Tp-Fl-jBw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="230" y="1162"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="13E-62-dLk">
+            <objects>
+                <windowController id="bxC-4J-HfZ" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="LwN-eM-J4I">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="425" y="404" width="480" height="327"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
+                        <connections>
+                            <outlet property="delegate" destination="bxC-4J-HfZ" id="dZM-3x-KRL"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="dRj-c1-ovZ" kind="relationship" relationship="window.shadowedContentViewController" id="Qwx-xY-xfr"/>
+                    </connections>
+                </windowController>
+                <customObject id="TuE-O4-Q5g" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="979" y="180"/>
+        </scene>
+        <!--token设置-->
+        <scene sceneID="IW5-30-HXb">
+            <objects>
+                <viewController title="token设置" id="dRj-c1-ovZ" customClass="TokenViewController" customModule="SwiftJSONModeler_For_Xcode" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="xuc-OP-pKh">
+                        <rect key="frame" x="0.0" y="0.0" width="567" height="350"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="vzF-1s-O6P">
+                                <rect key="frame" x="0.0" y="0.0" width="567" height="350"/>
+                                <subviews>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="Dfr-yA-26T">
+                                        <rect key="frame" x="50" y="30" width="467" height="290"/>
+                                        <subviews>
+                                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Z2i-Lv-jye">
+                                                <rect key="frame" x="0.0" y="210" width="467" height="60"/>
+                                                <subviews>
+                                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="l7l-RJ-2Of">
+                                                        <rect key="frame" x="385" y="8" width="73" height="41"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="61" id="9Hb-xt-ogA"/>
+                                                            <constraint firstAttribute="height" constant="30" id="yuK-or-Tn0"/>
+                                                        </constraints>
+                                                        <buttonCell key="cell" type="push" title="添加" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="NWl-tG-Nvt">
+                                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                            <font key="font" size="16" name=".AppleSimplifiedChineseFont-Medium"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="AddButtonTap:" target="dRj-c1-ovZ" id="48I-uA-w0v"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="l7l-RJ-2Of" firstAttribute="centerY" secondItem="Z2i-Lv-jye" secondAttribute="centerY" id="0MT-bS-QNz"/>
+                                                    <constraint firstAttribute="trailing" secondItem="l7l-RJ-2Of" secondAttribute="trailing" constant="15" id="Mfh-A5-Ubd"/>
+                                                    <constraint firstAttribute="height" constant="60" id="hZx-If-hcP"/>
+                                                </constraints>
+                                            </customView>
+                                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hgT-F4-Ywd">
+                                                <rect key="frame" x="0.0" y="0.0" width="467" height="210"/>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="hgT-F4-Ywd" secondAttribute="bottom" id="G92-4h-kxs"/>
+                                            <constraint firstItem="hgT-F4-Ywd" firstAttribute="top" secondItem="Z2i-Lv-jye" secondAttribute="bottom" id="MSY-MH-0Pe"/>
+                                            <constraint firstItem="Z2i-Lv-jye" firstAttribute="leading" secondItem="Dfr-yA-26T" secondAttribute="leading" id="YOG-xA-3ea"/>
+                                            <constraint firstAttribute="trailing" secondItem="Z2i-Lv-jye" secondAttribute="trailing" id="ZTi-yZ-WzE"/>
+                                            <constraint firstAttribute="trailing" secondItem="hgT-F4-Ywd" secondAttribute="trailing" id="sgC-Hw-5pq"/>
+                                            <constraint firstItem="Z2i-Lv-jye" firstAttribute="top" secondItem="Dfr-yA-26T" secondAttribute="top" constant="20" id="wwH-Zf-aDn"/>
+                                            <constraint firstItem="hgT-F4-Ywd" firstAttribute="leading" secondItem="Dfr-yA-26T" secondAttribute="leading" id="xkQ-qV-eqg"/>
+                                        </constraints>
+                                    </customView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Dfr-yA-26T" firstAttribute="leading" secondItem="vzF-1s-O6P" secondAttribute="leading" constant="50" id="BnU-Cr-v0e"/>
+                                    <constraint firstItem="Dfr-yA-26T" firstAttribute="top" secondItem="vzF-1s-O6P" secondAttribute="top" constant="30" id="bdL-mL-dAv"/>
+                                    <constraint firstAttribute="bottom" secondItem="Dfr-yA-26T" secondAttribute="bottom" constant="30" id="fNQ-dV-tUn"/>
+                                    <constraint firstAttribute="trailing" secondItem="Dfr-yA-26T" secondAttribute="trailing" constant="50" id="r1G-Ox-WOn"/>
+                                </constraints>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="vzF-1s-O6P" secondAttribute="trailing" id="DTJ-hZ-BAL"/>
+                            <constraint firstItem="vzF-1s-O6P" firstAttribute="top" secondItem="xuc-OP-pKh" secondAttribute="top" id="HfD-ti-bgr"/>
+                            <constraint firstItem="vzF-1s-O6P" firstAttribute="leading" secondItem="xuc-OP-pKh" secondAttribute="leading" id="Z05-nH-B0u"/>
+                            <constraint firstAttribute="bottom" secondItem="vzF-1s-O6P" secondAttribute="bottom" id="a8c-Q4-ldO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="stackView" destination="hgT-F4-Ywd" id="rV5-aP-Wd4"/>
+                    </connections>
+                </viewController>
+                <customObject id="d6U-Sm-fOC" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1022.5" y="1413"/>
         </scene>
     </scenes>
 </document>

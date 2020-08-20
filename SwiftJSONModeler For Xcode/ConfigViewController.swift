@@ -30,7 +30,10 @@ class ConfigViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateFromUserDefault()
+        
     }
+    
+    
     
     private func updateFromUserDefault() {
         confromTextField.stringValue = config.conform
