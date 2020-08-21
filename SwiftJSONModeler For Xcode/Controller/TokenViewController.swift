@@ -8,6 +8,10 @@
 
 import Cocoa
 
+extension Notification.Name {
+    static let tokenSaved = Notification.Name(rawValue: "tokenSaved")
+}
+
 class TokenViewController: NSViewController {
 
     @IBOutlet weak var titleTextField: NSTextField!
@@ -38,11 +42,14 @@ class TokenViewController: NSViewController {
     }
     private func setupToken() {
         dataSource = getToken()
-        dataSource.forEach { addTokenView($0) }
+        for (index, value) in dataSource.enumerated() {
+            addTokenView(value, at: index)
+        }
     }
     
     @IBAction func AddButtonTap(_ sender: NSButton) {
         addToken()
+        NotificationCenter.default.post(name: .tokenSaved, object: nil)
     }
 }
 
@@ -58,11 +65,11 @@ private extension TokenViewController {
         let willAddToken = Token(title: title, token: token)
         dataSource.append(willAddToken)
         updateToken()
-        addTokenView(willAddToken)
+        addTokenView(willAddToken, at: dataSource.count - 1)
         titleTextField.stringValue = ""
         tokenTextField.stringValue = ""
     }
-    func addTokenView(_ token: Token) {
+    func addTokenView(_ token: Token, at index: Int) {
         let tokenView = TokenView()
         tokenView.heightAnchor.constraint(equalToConstant: rowHeight).isActive = true
         stackView.addArrangedSubview(tokenView)
@@ -72,6 +79,7 @@ private extension TokenViewController {
            [weak self] index in
             self?.deleteTokenAddView(at: index)
         }
+        tokenView.buttonTag = index
         tokenView.config(token: token)
     }
     func deleteTokenAddView(at index: Int) -> Void {

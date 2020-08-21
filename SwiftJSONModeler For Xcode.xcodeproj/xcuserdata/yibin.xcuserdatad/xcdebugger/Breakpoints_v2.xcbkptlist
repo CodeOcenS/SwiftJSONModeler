@@ -148,53 +148,5 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BB2236F1-C5FA-40C2-9773-8EA191AC6EAE"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SwiftJSONModeler For Xcode/Controller/TokenViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "setupToken()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "BB2236F1-C5FA-40C2-9773-8EA191AC6EAE - 7669a082ef3bd75a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SwiftJSONModeler_For_Xcode.TokenViewController.(setupToken in _CAA47979606C5E1A08E8780CD089187F)() -&gt; ()"
-                  moduleName = "SwiftJSONModeler For Xcode"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yibin/Desktop/SwiftJSONModeler/SwiftJSONModeler%20For%20Xcode/Controller/TokenViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "41"
-                  endingLineNumber = "41"
-                  offsetFromSymbolStart = "65">
-               </Location>
-               <Location
-                  uuid = "BB2236F1-C5FA-40C2-9773-8EA191AC6EAE - 3f77a0dd0ae2dde1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (SwiftJSONModeler_For_Xcode.Token) -&gt; () in SwiftJSONModeler_For_Xcode.TokenViewController.(setupToken in _CAA47979606C5E1A08E8780CD089187F)() -&gt; ()"
-                  moduleName = "SwiftJSONModeler For Xcode"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yibin/Desktop/SwiftJSONModeler/SwiftJSONModeler%20For%20Xcode/Controller/TokenViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "41"
-                  endingLineNumber = "41"
-                  offsetFromSymbolStart = "49">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
