@@ -30,6 +30,7 @@ class ConfigViewController: NSViewController {
     @IBOutlet weak var configTokenButton: NSButton!
     @IBOutlet weak var yapiHostTextField: NSTextField!
     @IBOutlet weak var remarkTextField: NSTextField!
+    @IBOutlet weak var guideButton: NSButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,6 +103,9 @@ class ConfigViewController: NSViewController {
         }
     }
     
+    @IBAction func guideButtonTap(_ sender: NSButton) {
+        NSWorkspace.shared.open(URL(string: "https://gitee.com/Sven001/JSONSwfitModel")!)
+    }
     
     @IBAction func saveButtonTap(_ sender: NSButton) {
         config.conform = confromTextField.stringValue

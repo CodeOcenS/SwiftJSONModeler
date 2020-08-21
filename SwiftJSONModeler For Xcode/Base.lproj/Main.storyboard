@@ -1045,6 +1045,16 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tHc-az-ITJ">
+                                <rect key="frame" x="24" y="43" width="94" height="32"/>
+                                <buttonCell key="cell" type="push" title="使用指南" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0tb-VI-0xc">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="guideButtonTap:" target="5gI-5U-AMq" id="ut3-46-pbJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="cf4-vW-LAT" firstAttribute="top" secondItem="iFK-rh-eoW" secondAttribute="bottom" constant="20" id="0Fy-Bq-4Hz"/>
@@ -1063,6 +1073,7 @@
                             <constraint firstItem="S2C-lh-p4C" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" constant="30" id="EYW-7r-aet"/>
                             <constraint firstItem="TgM-de-NPF" firstAttribute="leading" secondItem="bDa-kJ-Mhx" secondAttribute="trailing" constant="8" id="F1p-jz-aRa"/>
                             <constraint firstItem="KDI-lJ-ln3" firstAttribute="centerY" secondItem="o35-tq-gm8" secondAttribute="centerY" id="Fz0-5m-ZNX"/>
+                            <constraint firstItem="tHc-az-ITJ" firstAttribute="leading" secondItem="FOi-zT-B7B" secondAttribute="leading" id="KTC-Ty-T0u"/>
                             <constraint firstItem="TgM-de-NPF" firstAttribute="centerY" secondItem="bDa-kJ-Mhx" secondAttribute="centerY" id="KeH-C1-gk2"/>
                             <constraint firstItem="n0v-j5-oIk" firstAttribute="top" secondItem="cf4-vW-LAT" secondAttribute="bottom" constant="20" id="L37-4q-ULx"/>
                             <constraint firstItem="a5h-sk-bjS" firstAttribute="centerY" secondItem="wf5-gB-SJa" secondAttribute="centerY" id="NfI-lb-pf1"/>
@@ -1082,6 +1093,7 @@
                             <constraint firstAttribute="trailing" secondItem="cf4-vW-LAT" secondAttribute="trailing" constant="30" id="o7Q-Xd-TsJ"/>
                             <constraint firstItem="a5h-sk-bjS" firstAttribute="leading" secondItem="wf5-gB-SJa" secondAttribute="trailing" constant="8" id="qGF-9f-JRO"/>
                             <constraint firstAttribute="trailing" secondItem="FOi-zT-B7B" secondAttribute="trailing" constant="30" id="rPH-o2-TBh"/>
+                            <constraint firstItem="vSj-38-HG4" firstAttribute="centerY" secondItem="tHc-az-ITJ" secondAttribute="centerY" id="sOs-BC-B9c"/>
                             <constraint firstItem="wf5-gB-SJa" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" constant="30" id="tWd-eT-x7t"/>
                             <constraint firstItem="szC-Is-Jzs" firstAttribute="trailing" secondItem="KDI-lJ-ln3" secondAttribute="trailing" id="uJj-V6-xvc"/>
                             <constraint firstItem="cR5-nc-6qZ" firstAttribute="top" secondItem="o35-tq-gm8" secondAttribute="bottom" constant="40" id="zjR-Nn-pvG"/>
@@ -1090,6 +1102,7 @@
                     <connections>
                         <outlet property="configTokenButton" destination="Mih-Hn-oxm" id="nRJ-G9-2TX"/>
                         <outlet property="confromTextField" destination="a5h-sk-bjS" id="pka-iP-L8P"/>
+                        <outlet property="guideButton" destination="tHc-az-ITJ" id="vmU-k2-1vj"/>
                         <outlet property="isAllowOptionalBtn" destination="EHm-R1-Ay3" id="Za1-zF-4TA"/>
                         <outlet property="isArrayEmptyBtn" destination="Cn0-Pn-vUD" id="Krz-HD-8fv"/>
                         <outlet property="isShowOptionalBtn" destination="4Ca-td-HhY" id="b6i-Hc-wLp"/>

@@ -163,6 +163,12 @@ SwiftJSONModeler提供多种自定义可选设置，可通过插件的Config选�
 
 ![host](./Sources/yapiHostId.png)
 
+**多 token配置**
+
+在开发中可能团队同时开发多个项目，就会存在多个token，可以通过配置，转模时切换 token
+
+![](./Sources/mutilToken.png)
+
 ## 设置快捷键
 
 可以给插件设置快捷键，快速转换模型
