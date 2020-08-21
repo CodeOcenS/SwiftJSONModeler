@@ -15,13 +15,14 @@ class TokenViewController: NSViewController {
     @IBOutlet weak var stackView: NSStackView!
     @IBOutlet weak var tokenContentView: NSView!
     private let tokenContentLayer = CALayer()
-    private let rowHeight: CGFloat = 60
+    private let rowHeight: CGFloat = 40
     private var dataSource: [Token] = []
     
     private var tokenViews: [TokenView] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        setupToken()
     }
     
     override func viewWillLayout() {
@@ -35,6 +36,10 @@ class TokenViewController: NSViewController {
         tokenContentLayer.cornerRadius = 10
         tokenContentView.layer = tokenContentLayer
     }
+    private func setupToken() {
+        dataSource = getToken()
+        dataSource.forEach { addTokenView($0) }
+    }
     
     @IBAction func AddButtonTap(_ sender: NSButton) {
         addToken()
@@ -44,10 +49,20 @@ class TokenViewController: NSViewController {
 // MARK: - 数据处理
 private extension TokenViewController {
     func addToken() {
-        let willAddToken = Token(title: titleTextField.stringValue, token: tokenTextField.stringValue)
+        let title = titleTextField.stringValue
+        let token = tokenTextField.stringValue
+        guard !title.isEmpty && !token.isEmpty else {
+            showAlert()
+            return
+        }
+        let willAddToken = Token(title: title, token: token)
         dataSource.append(willAddToken)
+        updateToken()
+        addTokenView(willAddToken)
         titleTextField.stringValue = ""
         tokenTextField.stringValue = ""
+    }
+    func addTokenView(_ token: Token) {
         let tokenView = TokenView()
         tokenView.heightAnchor.constraint(equalToConstant: rowHeight).isActive = true
         stackView.addArrangedSubview(tokenView)
@@ -55,22 +70,44 @@ private extension TokenViewController {
         tokenViews.append(tokenView)
         tokenView.deleteClosure = {
            [weak self] index in
-            self?.deleteToken(at: index)
+            self?.deleteTokenAddView(at: index)
         }
-        tokenView.config(token: willAddToken)
+        tokenView.config(token: token)
     }
-    func deleteToken(at index: Int) -> Void {
+    func deleteTokenAddView(at index: Int) -> Void {
         dataSource.remove(at: index)
+        updateToken()
         let willDeleteView = tokenViews[index]
         tokenViews.remove(at: index)
         stackView.removeArrangedSubview(willDeleteView)
         willDeleteView.removeFromSuperview()
+
+    }
+    
+    func showAlert() -> Void {
+        let alert = NSAlert()
+        alert.messageText = "错误"
+        alert.informativeText = "项目名和 token不能为空"
+        alert.alertStyle = .warning
+        alert.addButton(withTitle: "确定")
+        alert.beginSheetModal(for: NSApplication.shared.keyWindow!) { (modal) in
+            
+        }
+        
     }
 }
-
+extension UserDefaults {
+    enum Key: String {
+        case tokens
+    }
+}
 // MARK: - 数据持久化
 private extension TokenViewController {
-//    func (<#parameters#>) -> <#return type#> {
-//        <#function body#>
-//    }
+    func updateToken() -> Void {
+        Token.updateUserDefault(for: dataSource)
+    }
+    
+    func getToken() -> [Token] {
+        return Token.getTokenFormUserDefault()
+    }
 }

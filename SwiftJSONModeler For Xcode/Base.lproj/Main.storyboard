@@ -774,7 +774,7 @@
                                     <constraint firstAttribute="width" constant="80" id="cy3-XY-hR7"/>
                                 </constraints>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="前缀：" id="n9e-oo-TZ5">
-                                    <font key="font" metaFont="system" size="16"/>
+                                    <font key="font" metaFont="label" size="16"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -796,7 +796,7 @@
                                     <constraint firstAttribute="width" constant="80" id="dew-vC-605"/>
                                 </constraints>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="后缀：" id="pft-UG-a8v">
-                                    <font key="font" metaFont="system" size="16"/>
+                                    <font key="font" metaFont="label" size="16"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -892,7 +892,7 @@
                                     <constraint firstAttribute="width" constant="80" id="r76-oI-ssb"/>
                                 </constraints>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="其他设置" id="PMg-9i-jHB">
-                                    <font key="font" metaFont="system" size="16"/>
+                                    <font key="font" metaFont="label" size="16"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -1007,7 +1007,7 @@
                                     <constraint firstAttribute="width" constant="80" id="hqF-dk-Dsb"/>
                                 </constraints>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="YApi设置" id="Yyq-3e-wE2">
-                                    <font key="font" metaFont="system" size="16"/>
+                                    <font key="font" metaFont="label" size="16"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -1018,7 +1018,7 @@
                                     <constraint firstAttribute="width" constant="80" id="H1x-4y-gS0"/>
                                 </constraints>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="备注" id="vRi-ca-vqg">
-                                    <font key="font" metaFont="system" size="16"/>
+                                    <font key="font" metaFont="label" size="16"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -1157,7 +1157,7 @@
                                                         </constraints>
                                                         <buttonCell key="cell" type="push" title="添加" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="NWl-tG-Nvt">
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                            <font key="font" metaFont="system" size="16"/>
+                                                            <font key="font" metaFont="label" size="16"/>
                                                         </buttonCell>
                                                         <connections>
                                                             <action selector="AddButtonTap:" target="dRj-c1-ovZ" id="48I-uA-w0v"/>
@@ -1222,7 +1222,7 @@
                                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="glB-I7-NIu">
                                                 <rect key="frame" x="0.0" y="0.0" width="698" height="359"/>
                                             </customView>
-                                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hgT-F4-Ywd">
+                                            <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hgT-F4-Ywd">
                                                 <rect key="frame" x="0.0" y="0.0" width="698" height="359"/>
                                             </stackView>
                                         </subviews>

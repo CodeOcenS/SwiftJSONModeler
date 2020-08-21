@@ -8,11 +8,6 @@
 
 import Cocoa
 
-struct Token {
-    var title: String
-    var token: String
-}
-
 class TokenView: NSView {
     
     var buttonTag: Int {
