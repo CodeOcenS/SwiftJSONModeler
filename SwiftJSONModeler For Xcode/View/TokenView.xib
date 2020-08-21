@@ -8,11 +8,10 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="TokenView" customModule="SwiftJSONModeler_For_Xcode" customModuleProvider="target">
             <connections>
-                <outlet property="addButton" destination="klr-9f-I34" id="FxH-Hx-1dc"/>
                 <outlet property="contentView" destination="BBH-3G-lJZ" id="PXt-g9-L57"/>
                 <outlet property="deleteButton" destination="VBt-xJ-29C" id="W1g-Ez-zYO"/>
-                <outlet property="titleTextField" destination="pGd-dX-39L" id="ivd-qk-hhx"/>
-                <outlet property="tokenTextField" destination="hcY-gq-eny" id="ga0-X3-CO5"/>
+                <outlet property="titleLabel" destination="FnZ-St-Em8" id="JY4-QB-mRq"/>
+                <outlet property="tokenLabel" destination="Kv6-OL-lf6" id="81q-yA-EhW"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
@@ -21,19 +20,7 @@
             <rect key="frame" x="0.0" y="0.0" width="601" height="69"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField horizontalHuggingPriority="1000" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pGd-dX-39L">
-                    <rect key="frame" x="15" y="20" width="100" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="T94-0i-9oC"/>
-                        <constraint firstAttribute="width" constant="100" id="zTl-Qy-MUK"/>
-                    </constraints>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="项目名" drawsBackground="YES" id="FPf-eR-ojU">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VBt-xJ-29C">
+                <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VBt-xJ-29C">
                     <rect key="frame" x="520" y="13" width="72" height="41"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="5Pg-yE-7Dj"/>
@@ -47,42 +34,33 @@
                         <action selector="deleteButtonTap:" target="-2" id="hES-s7-Qez"/>
                     </connections>
                 </button>
-                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="klr-9f-I34">
-                    <rect key="frame" x="445" y="13" width="72" height="41"/>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FnZ-St-Em8">
+                    <rect key="frame" x="18" y="27" width="124" height="16"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="60" id="0zZ-uS-jp7"/>
-                        <constraint firstAttribute="height" constant="30" id="DvG-RN-RVc"/>
+                        <constraint firstAttribute="width" constant="120" id="evs-5F-D1u"/>
                     </constraints>
-                    <buttonCell key="cell" type="push" title="添加" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ZfU-Lx-zOw">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" usesAppearanceFont="YES"/>
-                    </buttonCell>
-                    <connections>
-                        <action selector="addButtonTap:" target="-2" id="lna-ij-p9V"/>
-                    </connections>
-                </button>
-                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hcY-gq-eny">
-                    <rect key="frame" x="135" y="20" width="301" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="pNd-be-FhX"/>
-                    </constraints>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="token值" drawsBackground="YES" id="2GC-iW-QaV">
-                        <font key="font" usesAppearanceFont="YES"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="3f7-vd-1dp">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Kv6-OL-lf6">
+                    <rect key="frame" x="168" y="27" width="330" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="pD1-Du-AsE">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
             </subviews>
             <constraints>
-                <constraint firstItem="pGd-dX-39L" firstAttribute="leading" secondItem="BBH-3G-lJZ" secondAttribute="leading" constant="15" id="2HE-X0-IZM"/>
-                <constraint firstItem="VBt-xJ-29C" firstAttribute="leading" secondItem="klr-9f-I34" secondAttribute="trailing" constant="15" id="4Vy-EG-pWa"/>
-                <constraint firstItem="VBt-xJ-29C" firstAttribute="centerY" secondItem="pGd-dX-39L" secondAttribute="centerY" id="7td-ol-qcw"/>
+                <constraint firstItem="Kv6-OL-lf6" firstAttribute="leading" secondItem="FnZ-St-Em8" secondAttribute="trailing" constant="30" id="7u5-AB-wKU"/>
+                <constraint firstItem="VBt-xJ-29C" firstAttribute="leading" secondItem="Kv6-OL-lf6" secondAttribute="trailing" constant="30" id="9uq-9K-Xxu"/>
+                <constraint firstItem="FnZ-St-Em8" firstAttribute="centerY" secondItem="BBH-3G-lJZ" secondAttribute="centerY" id="AAB-kt-rsz"/>
                 <constraint firstAttribute="trailing" secondItem="VBt-xJ-29C" secondAttribute="trailing" constant="15" id="DOD-qj-VwL"/>
-                <constraint firstItem="klr-9f-I34" firstAttribute="leading" secondItem="hcY-gq-eny" secondAttribute="trailing" constant="15" id="LZs-mT-O6F"/>
-                <constraint firstItem="hcY-gq-eny" firstAttribute="centerY" secondItem="pGd-dX-39L" secondAttribute="centerY" id="clW-8Z-zix"/>
-                <constraint firstItem="pGd-dX-39L" firstAttribute="centerY" secondItem="BBH-3G-lJZ" secondAttribute="centerY" id="clW-i8-sjp"/>
-                <constraint firstItem="klr-9f-I34" firstAttribute="centerY" secondItem="BBH-3G-lJZ" secondAttribute="centerY" id="pmb-KT-8qY"/>
-                <constraint firstItem="hcY-gq-eny" firstAttribute="leading" secondItem="pGd-dX-39L" secondAttribute="trailing" constant="20" id="wmC-dI-d2b"/>
+                <constraint firstItem="FnZ-St-Em8" firstAttribute="leading" secondItem="BBH-3G-lJZ" secondAttribute="leading" constant="20" id="XhK-i0-6eM"/>
+                <constraint firstItem="Kv6-OL-lf6" firstAttribute="centerY" secondItem="BBH-3G-lJZ" secondAttribute="centerY" id="t9C-gX-YKY"/>
             </constraints>
             <point key="canvasLocation" x="-126.5" y="154.5"/>
         </customView>

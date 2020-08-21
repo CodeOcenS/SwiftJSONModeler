@@ -65,6 +65,8 @@ class TokenViewController: NSViewController {
 //            willRemoveTokenView.forEach {  stackView.removeArrangedSubview($0) }
         }
         for (index, tokenView) in tokenViews.enumerated() {
+            tokenView.titleTextField.stringValue = ""
+            tokenView.tokenTextField.stringValue = ""
             if index < dataSource.count {
                 let value = dataSource[index]
                 tokenView.titleTextField.stringValue = value.title

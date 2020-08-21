@@ -177,6 +177,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		C9E393EB24EF68E900D80B28 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C961C1DD23D82A8D008D0DE6 /* ConfigViewController.swift */,
+				C9E393E924EE47D300D80B28 /* TokenViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		C9ED9CB923D7F9B3004567A1 = {
 			isa = PBXGroup;
 			children = (
@@ -201,6 +210,7 @@
 		C9ED9CC423D7F9B3004567A1 /* SwiftJSONModeler For Xcode */ = {
 			isa = PBXGroup;
 			children = (
+				C9E393EB24EF68E900D80B28 /* Controller */,
 				C9E393E224EE245D00D80B28 /* View */,
 				C92A971B24E514D700C87CCD /* Constants */,
 				C94AFC02241F4E6D00389AF3 /* YApi */,
@@ -210,11 +220,9 @@
 				C9ED9CCD23D7F9B4004567A1 /* Main.storyboard */,
 				C9ED9CD023D7F9B4004567A1 /* Info.plist */,
 				C9ED9CD123D7F9B4004567A1 /* SwiftJSONModeler For Xcode.entitlements */,
-				C961C1DD23D82A8D008D0DE6 /* ConfigViewController.swift */,
 				C9DE045E242C8535008A0070 /* Config.swift */,
 				C9CB247F241F559C00F4D5CE /* ErrorCenter.swift */,
 				C935B49B24EA24BE00E48231 /* JSONHelper.swift */,
-				C9E393E924EE47D300D80B28 /* TokenViewController.swift */,
 			);
 			path = "SwiftJSONModeler For Xcode";
 			sourceTree = "<group>";
