@@ -78,6 +78,7 @@ private extension TokenViewController {
         tokenView.deleteClosure = {
            [weak self] index in
             self?.deleteTokenAddView(at: index)
+            NotificationCenter.default.post(name: .tokenSaved, object: nil)
         }
         tokenView.buttonTag = index
         tokenView.config(token: token)
@@ -85,10 +86,15 @@ private extension TokenViewController {
     func deleteTokenAddView(at index: Int) -> Void {
         dataSource.remove(at: index)
         updateToken()
+        
         let willDeleteView = tokenViews[index]
         tokenViews.remove(at: index)
         stackView.removeArrangedSubview(willDeleteView)
         willDeleteView.removeFromSuperview()
+        // 重置 tag 防止越界
+        for (index, view) in tokenViews.enumerated() {
+            view.buttonTag = index
+        }
 
     }
     
