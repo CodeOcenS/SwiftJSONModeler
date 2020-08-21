@@ -1258,7 +1258,9 @@
                     </view>
                     <connections>
                         <outlet property="stackView" destination="hgT-F4-Ywd" id="rV5-aP-Wd4"/>
+                        <outlet property="titleTextField" destination="u2F-7R-G6v" id="u5g-zP-GLy"/>
                         <outlet property="tokenContentView" destination="glB-I7-NIu" id="pJ5-fO-Jas"/>
+                        <outlet property="tokenTextField" destination="cmb-gd-KcC" id="uFT-0w-gKh"/>
                     </connections>
                 </viewController>
                 <customObject id="d6U-Sm-fOC" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

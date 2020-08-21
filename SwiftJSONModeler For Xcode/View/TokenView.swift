@@ -8,6 +8,11 @@
 
 import Cocoa
 
+struct Token {
+    var title: String
+    var token: String
+}
+
 class TokenView: NSView {
     
     var buttonTag: Int {
@@ -49,6 +54,12 @@ class TokenView: NSView {
         contentView.frame = bounds
         deleteButton.attributedTitle = NSAttributedString(string: "删除", attributes: [NSAttributedString.Key.foregroundColor : NSColor.red])
     }
+    
+    func config(token: Token) -> Void {
+        tokenLabel.stringValue = token.token
+        titleLabel.stringValue = token.title
+    }
+    
     @IBAction func deleteButtonTap(_ sender: NSButton) {
         deleteClosure(sender.tag)
     }
