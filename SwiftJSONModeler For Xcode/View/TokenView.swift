@@ -19,12 +19,10 @@ class TokenView: NSView {
     }
     
     var deleteClosure: (_ index: Int) -> Void = { _ in }
-    var addClosure: (_ index: Int) -> Void = { _ in }
-
+   
+    @IBOutlet weak var titleLabel: NSTextField!
     @IBOutlet private var contentView: NSView!
-    @IBOutlet weak var titleTextField: NSTextField!
-    @IBOutlet weak var tokenTextField: NSTextField!
-    @IBOutlet weak var addButton: NSButton!
+    @IBOutlet weak var tokenLabel: NSTextField!
     @IBOutlet  private weak var deleteButton: NSButton!
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -49,15 +47,11 @@ class TokenView: NSView {
         addSubview(contentView)
         contentView.layer?.backgroundColor = NSColor.orange.cgColor
         contentView.frame = bounds
-        
-        addButton.attributedTitle = NSAttributedString(string: "添加", attributes: [NSAttributedString.Key.foregroundColor : NSColor.blue])
         deleteButton.attributedTitle = NSAttributedString(string: "删除", attributes: [NSAttributedString.Key.foregroundColor : NSColor.red])
     }
     @IBAction func deleteButtonTap(_ sender: NSButton) {
         deleteClosure(sender.tag)
     }
     
-    @IBAction func addButtonTap(_ sender: NSButton) {
-        addClosure(sender.tag)
-    }
+   
 }

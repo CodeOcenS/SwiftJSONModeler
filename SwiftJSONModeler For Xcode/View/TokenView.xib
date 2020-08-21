@@ -20,7 +20,7 @@
             <rect key="frame" x="0.0" y="0.0" width="601" height="69"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VBt-xJ-29C">
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VBt-xJ-29C">
                     <rect key="frame" x="520" y="13" width="72" height="41"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="5Pg-yE-7Dj"/>
@@ -35,10 +35,7 @@
                     </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="FnZ-St-Em8">
-                    <rect key="frame" x="18" y="27" width="124" height="16"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="120" id="evs-5F-D1u"/>
-                    </constraints>
+                    <rect key="frame" x="18" y="27" width="178" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="3f7-vd-1dp">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -46,7 +43,7 @@
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Kv6-OL-lf6">
-                    <rect key="frame" x="168" y="27" width="330" height="16"/>
+                    <rect key="frame" x="222" y="27" width="276" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="pD1-Du-AsE">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -55,11 +52,13 @@
                 </textField>
             </subviews>
             <constraints>
-                <constraint firstItem="Kv6-OL-lf6" firstAttribute="leading" secondItem="FnZ-St-Em8" secondAttribute="trailing" constant="30" id="7u5-AB-wKU"/>
+                <constraint firstItem="Kv6-OL-lf6" firstAttribute="leading" secondItem="FnZ-St-Em8" secondAttribute="trailing" constant="30" id="8he-1z-hTO"/>
                 <constraint firstItem="VBt-xJ-29C" firstAttribute="leading" secondItem="Kv6-OL-lf6" secondAttribute="trailing" constant="30" id="9uq-9K-Xxu"/>
                 <constraint firstItem="FnZ-St-Em8" firstAttribute="centerY" secondItem="BBH-3G-lJZ" secondAttribute="centerY" id="AAB-kt-rsz"/>
                 <constraint firstAttribute="trailing" secondItem="VBt-xJ-29C" secondAttribute="trailing" constant="15" id="DOD-qj-VwL"/>
+                <constraint firstItem="Kv6-OL-lf6" firstAttribute="leading" secondItem="BBH-3G-lJZ" secondAttribute="leading" constant="224" id="SYq-0H-eFv"/>
                 <constraint firstItem="FnZ-St-Em8" firstAttribute="leading" secondItem="BBH-3G-lJZ" secondAttribute="leading" constant="20" id="XhK-i0-6eM"/>
+                <constraint firstItem="VBt-xJ-29C" firstAttribute="centerY" secondItem="BBH-3G-lJZ" secondAttribute="centerY" id="YBs-wK-WKZ"/>
                 <constraint firstItem="Kv6-OL-lf6" firstAttribute="centerY" secondItem="BBH-3G-lJZ" secondAttribute="centerY" id="t9C-gX-YKY"/>
             </constraints>
             <point key="canvasLocation" x="-126.5" y="154.5"/>

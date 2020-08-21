@@ -1219,13 +1219,20 @@
                                                     <constraint firstItem="u2F-7R-G6v" firstAttribute="centerY" secondItem="Z2i-Lv-jye" secondAttribute="centerY" id="y3K-49-SU9"/>
                                                 </constraints>
                                             </customView>
+                                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="glB-I7-NIu">
+                                                <rect key="frame" x="0.0" y="0.0" width="698" height="359"/>
+                                            </customView>
                                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hgT-F4-Ywd">
                                                 <rect key="frame" x="0.0" y="0.0" width="698" height="359"/>
                                             </stackView>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="glB-I7-NIu" firstAttribute="leading" secondItem="hgT-F4-Ywd" secondAttribute="leading" id="9fs-4o-Prp"/>
                                             <constraint firstAttribute="bottom" secondItem="hgT-F4-Ywd" secondAttribute="bottom" id="G92-4h-kxs"/>
+                                            <constraint firstItem="glB-I7-NIu" firstAttribute="bottom" secondItem="hgT-F4-Ywd" secondAttribute="bottom" id="Ipq-CR-qmd"/>
                                             <constraint firstItem="hgT-F4-Ywd" firstAttribute="top" secondItem="Z2i-Lv-jye" secondAttribute="bottom" id="MSY-MH-0Pe"/>
+                                            <constraint firstItem="glB-I7-NIu" firstAttribute="trailing" secondItem="hgT-F4-Ywd" secondAttribute="trailing" id="VbB-Mh-aXH"/>
+                                            <constraint firstItem="glB-I7-NIu" firstAttribute="top" secondItem="hgT-F4-Ywd" secondAttribute="top" id="Vra-gl-ywe"/>
                                             <constraint firstItem="Z2i-Lv-jye" firstAttribute="leading" secondItem="Dfr-yA-26T" secondAttribute="leading" id="YOG-xA-3ea"/>
                                             <constraint firstAttribute="trailing" secondItem="Z2i-Lv-jye" secondAttribute="trailing" id="ZTi-yZ-WzE"/>
                                             <constraint firstAttribute="trailing" secondItem="hgT-F4-Ywd" secondAttribute="trailing" id="sgC-Hw-5pq"/>
@@ -1251,6 +1258,7 @@
                     </view>
                     <connections>
                         <outlet property="stackView" destination="hgT-F4-Ywd" id="rV5-aP-Wd4"/>
+                        <outlet property="tokenContentView" destination="glB-I7-NIu" id="pJ5-fO-Jas"/>
                     </connections>
                 </viewController>
                 <customObject id="d6U-Sm-fOC" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
