@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C90EFE0C257E172E0008632B /* XcodeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C90EFE0B257E172E0008632B /* XcodeKit.framework */; };
+		C90EFE0D257E172E0008632B /* XcodeKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C90EFE0B257E172E0008632B /* XcodeKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C92A970A24E512BD00C87CCD /* YApiObjectTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C92A970524E50D5900C87CCD /* YApiObjectTest.swift */; };
 		C92A971424E513EA00C87CCD /* YApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94AFC00241F4AE600389AF3 /* YApiHelper.swift */; };
 		C92A971524E513EA00C87CCD /* YApiObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94AFC03241F4E8A00389AF3 /* YApiObject.swift */; };
@@ -59,6 +61,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		C90EFE0E257E172E0008632B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C90EFE0D257E172E0008632B /* XcodeKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C9ED9CEC23D7F9D0004567A1 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -73,6 +86,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C90EFE0B257E172E0008632B /* XcodeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XcodeKit.framework; path = Library/Frameworks/XcodeKit.framework; sourceTree = DEVELOPER_DIR; };
 		C92A970524E50D5900C87CCD /* YApiObjectTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YApiObjectTest.swift; sourceTree = "<group>"; };
 		C92A971C24E514FB00C87CCD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C935B49B24EA24BE00E48231 /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
@@ -126,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9ED9CDE23D7F9D0004567A1 /* Cocoa.framework in Frameworks */,
+				C90EFE0C257E172E0008632B /* XcodeKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +248,7 @@
 		C9ED9CDC23D7F9D0004567A1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C90EFE0B257E172E0008632B /* XcodeKit.framework */,
 				C9ED9CDD23D7F9D0004567A1 /* Cocoa.framework */,
 			);
 			name = Frameworks;
@@ -296,6 +312,7 @@
 				C9ED9CD723D7F9D0004567A1 /* Sources */,
 				C9ED9CD823D7F9D0004567A1 /* Frameworks */,
 				C9ED9CD923D7F9D0004567A1 /* Resources */,
+				C90EFE0E257E172E0008632B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -665,7 +682,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 2.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lifu.SwiftJSONModeler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -688,7 +705,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 2.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lifu.SwiftJSONModeler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
