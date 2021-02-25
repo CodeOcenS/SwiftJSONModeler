@@ -9,8 +9,8 @@
 import Cocoa
 
 class ConfigViewController: NSViewController {
-    
-    private let config = Config()
+    private var configCenter = ConfigCenter.default
+    private var config = ConfigCenter.default.config
     private var tokens: [Token] = []
     private var token: String = ""
     
@@ -54,9 +54,9 @@ class ConfigViewController: NSViewController {
         setupBox()
         remarkTextField.stringValue = config.remark
         
-        isAllowOptionalBtn.state = config.isNotOptional ? .off : .on
-        isShowOptionalBtn.state = config.isImplicitlyOptional ? .off : .on
-        isArrayEmptyBtn.state = config.arrayIsDefaultNotEmpty ? .off : .on
+        isAllowOptionalBtn.state = config.isOptional ? .on : .off
+        isShowOptionalBtn.state = config.isImplicitlyOptional ? .on : .off
+        isArrayEmptyBtn.state = config.isArrayDefaultEmpty ? .on : .off
         isShowYApiMockBtn.state = config.isShowYApiMock ? .on : .off
     }
     
@@ -106,35 +106,37 @@ class ConfigViewController: NSViewController {
     }
     
     @IBAction func saveButtonTap(_ sender: NSButton) {
-        let config = ConfigCenter.default
-        var c = config.config
-        c.appVersion = "2.1.0"
-        config.config = c
-//        config.conform = confromTextField.stringValue
-//        config.module = moduleTextField.stringValue
-//        config.prefix = prefixTextField.stringValue
-//        config.subffix = subffixTextField.stringValue
-//        config.yapiPath = pathTextField.stringValue
-//        config.yapiToken = tokenForSave()
-//        config.yapiHost = yapiHostTextField.stringValue
-//        config.remark = remarkTextField.stringValue
-//        view.window?.close()
+//        let panel = OpenSavePanel()
+//        panel.importFile { (error) in
+//            print(error)
+//        }
+        config.conform = confromTextField.stringValue
+        config.module = moduleTextField.stringValue
+        config.prefix = prefixTextField.stringValue
+        config.subffix = subffixTextField.stringValue
+        config.yapiPath = pathTextField.stringValue
+        config.yapiToken = tokenForSave()
+        config.yapiHost = yapiHostTextField.stringValue
+        config.remark = remarkTextField.stringValue
+        ConfigCenter.default.save()
+        view.window?.close()
     }
     
     @IBAction func typeOptionalBtnTap(_ sender: NSButton) {
-        config.isNotOptional = !(sender.state == .on)
+        config.isOptional = (sender.state == .on)
+        configCenter.save()
     }
     /// 是否为显示可选
     @IBAction func isShowOptional(_ sender: NSButton) {
-        config.isImplicitlyOptional = !(sender.state == .on)
+        config.isImplicitlyOptional = (sender.state == .on)
+        configCenter.save()
     }
     @IBAction func isEmptyArrayBtnTap(_ sender: NSButton) {
-        config.arrayIsDefaultNotEmpty = !(sender.state == .on)
+        config.isArrayDefaultEmpty = (sender.state == .on)
+        configCenter.save()
     }
     @IBAction func isShowYApiMockBtnTap(_ sender: NSButton) {
         config.isShowYApiMock = sender.state == .on
+        configCenter.save()
     }
-    
-    
-    
 }

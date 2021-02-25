@@ -13,14 +13,14 @@ let configPath =  (NSHomeDirectory() as NSString).appendingPathComponent("Config
 
 class ConfigCenter {
     static let `default` = ConfigCenter()
-    var config: ConfigModel {
-        didSet { // 类赋值调用， 结构体直接改变属性也会调用
-            Self.writeConfig(config)
-        }
-    }
+    var config: ConfigModel
     
     init() {
         config = Self.readConfig()
+    }
+    @discardableResult
+    func save() -> Bool {
+       return Self.writeConfig(config)
     }
 
     
@@ -34,11 +34,15 @@ private extension ConfigCenter {
             return writeDefaultConfig()
         }
         
-        let decoder = CleanJSONDecoder()
-        guard let model = try? decoder.decode(ConfigModel.self, from: data) else {
+        let decoder = PropertyListDecoder()//CleanJSONDecoder()
+        do {
+            let model = try decoder.decode(ConfigModel.self, from: data)
+            return model
+        } catch let error {
+            print("读取 plist 转 model 失败")
+            print(error)
             return writeDefaultConfig()
         }
-        return model
     }
     
     static func writeDefaultConfig() -> ConfigModel {
@@ -48,11 +52,17 @@ private extension ConfigCenter {
     }
     @discardableResult
     static func writeConfig(_ config: ConfigModel) -> Bool {
-        let propertyListEncoder = PropertyListEncoder()
-        propertyListEncoder.outputFormat = .xml
-        
-        let plistData = try? propertyListEncoder.encode(config)
-        let isSuccess = FileManager.default.createFile(atPath: configPath, contents: plistData, attributes: nil)
+//        let propertyListEncoder = PropertyListEncoder()
+//        propertyListEncoder.outputFormat = .xml
+//        let plistData = try? propertyListEncoder.encode(config)
+        guard let data = try? config.toJSON() else {
+            return false
+        }
+        guard let dic = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary else {
+            return false
+        }
+        let isSuccess =  dic.write(toFile: configPath, atomically: true)
+        //let isSuccess = FileManager.default.createFile(atPath: configPath, contents: data, attributes: nil)
         return isSuccess
     }
 }

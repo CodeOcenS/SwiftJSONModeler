@@ -8,6 +8,7 @@
 /// 文件导入和导出
 
 import AppKit
+import CleanJSON
 
 struct OpenSavePanel {
     /// 导入文件
@@ -63,35 +64,20 @@ struct OpenSavePanel {
     }
     /// 导入保存
     private func read(url: URL) -> Bool {
-//        guard let url = url else {
-//            return
-//        }
-//        let plistFile = NSDictionary.init(contentsOf: url)
-//        print(plistFile)
-//        let data = try? Data(contentsOf: url) // 可能 datameiyou
-//        let decoder = PropertyListDecoder()
-//        do {
-//            let config = try decoder.decode(ConfigModel.self, from: data!)
-//        } catch let error {
-//            print(error)
-//        }
-       
-        
-//        let configModel = ConfigModel()
-//        let propertyListEncoder = PropertyListEncoder()
-//        propertyListEncoder.outputFormat = .xml
-//
-//        let plistData = try? propertyListEncoder.encode(configModel)
-    
-        let fileManager = FileManager.default
-        let configData = fileManager.contents(atPath: url.path)
-        let isSuccess = fileManager.createFile(atPath: configPath, contents: configData, attributes: nil)  // 全覆盖写入
-        if isSuccess {
-            print("保存成功:\(configPath)")
-        } else {
-            print("保存失败")
+        let configCenter = ConfigCenter.default
+        guard  let dic = NSDictionary(contentsOfFile:url.path), JSONSerialization.isValidJSONObject(dic) else {
+            return false
         }
-        return isSuccess
+        guard let dicData = try? JSONSerialization.data(withJSONObject: dic, options: .fragmentsAllowed) else {
+            return false
+        }
+        
+        let decoder = CleanJSONDecoder()
+        guard let model = try? decoder.decode(ConfigModel.self, from: dicData) else {
+            return false
+        }
+        configCenter.config = model
+        return configCenter.save()
     }
     
     /// 导出保存文件

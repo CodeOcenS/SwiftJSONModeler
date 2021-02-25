@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ConfigModel: Codable {
+class ConfigModel: Codable {
     var appVersion: String = ""
     var conform: String = ""
     var module: String = ""
@@ -26,7 +26,7 @@ struct ConfigModel: Codable {
     var yapiToken = ""
     var yapiHost = ""
     /// 备注
-    var remark: String?
+    var remark: String = ""
     /// 配置的多个 token
     var yapiTokenList: [YApiTokenModel] = []
 }
@@ -52,7 +52,7 @@ extension ConfigModel {
     
 }
 
-struct YApiTokenModel: Codable {
+class YApiTokenModel: Codable {
     /// 项目名称
     var name: String = ""
     /// 项目 token
