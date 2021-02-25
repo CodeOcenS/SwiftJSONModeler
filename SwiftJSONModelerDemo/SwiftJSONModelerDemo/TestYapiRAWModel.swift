@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import Codable
+import HandJSON
 import HandyJSON
 
 /// YApi RAW类型json数据
@@ -17,41 +19,53 @@ let yapiRAWData = """
 // 通过 YApi RAW数据转换Swift模型
 
 
+
 /// <#描述#>
-struct HKResponseModel: HandyJSON {
-    /// 爱好
-    var likes: [String] = []
-    /// 是否为男孩
-    var isBoy: Bool?
-    /// 年龄
-    var age: Int?
-    /// 综合成绩
-    var score: Double?
-    /// 紧急联系人
-    var emergercyContact: HKEmergercyContactModel?
+struct HKModel: HandJSON {
+    
+    var code: String = ""
+    
+    var response: HKResponseModel?
+    
+    var message: String = ""
+}
+
+/// <#描述#>
+struct HKResponseModel: HandJSON {
     /// 老师
     var teachers: [HKTeachersModel] = []
+    /// 爱好
+    var likes: [String] = []
+    /// 年龄
+    var age: Int?
+    /// 是否为男孩
+    var isBoy: Bool?
+    /// 紧急联系人
+    var emergercyContact: HKEmergercyContactModel?
+    /// 综合成绩
+    var score: Double?
     /// 姓名
-    var name: String?
+    var name: String = ""
+}
+
+/// <#描述#>
+struct HKTeachersModel: HandJSON {
+    /// 科目
+    var subject: String = ""
+    /// 名字
+    var name: String = ""
+    /// 联系电话
+    var phone: String = ""
 }
 
 /// 紧急联系人
-struct HKEmergercyContactModel: HandyJSON {
+struct HKEmergercyContactModel: HandJSON {
     /// 联系地址
-    var address: String?
+    var address: String = ""
     /// 联系电话
-    var phone: String?
+    var phone: String = ""
     
-    var name: String?
+    var name: String = ""
 }
 
-/// <#描述#>
-struct HKTeachersModel: HandyJSON {
-    /// 名字
-    var name: String?
-    /// 科目
-    var subject: String?
-    /// 联系电话
-    var phone: String?
-}
 

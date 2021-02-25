@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import Codable
+import HandJSON
 import HandyJSON
 
 /// 普通json 数据
@@ -77,4 +79,3 @@ struct HKSubJsonModel: HandyJSON {
     
     var stringValue: String?
 }
-
