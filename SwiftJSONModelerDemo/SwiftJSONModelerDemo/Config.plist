@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Base</key>
+	<dict/>
+	<key>Conform</key>
+	<string></string>
+	<key>Import module</key>
+	<string></string>
+	<key>Model  prefix</key>
+	<string></string>
+	<key>Model suffix</key>
+	<string></string>
+	<key>Option</key>
+	<dict>
+		<key>Is array empty</key>
+		<true/>
+		<key>Is option</key>
+		<true/>
+		<key>Is wrapped option</key>
+		<true/>
+	</dict>
+	<key>YApi</key>
+	<dict>
+		<key>Is show mock</key>
+		<false/>
+		<key>Path</key>
+		<string></string>
+		<key>Token</key>
+		<string></string>
+		<key>Host</key>
+		<string></string>
+	</dict>
+	<key>Comment</key>
+	<string></string>
+	<key>YApi list</key>
+	<array>
+		<dict>
+			<key>name</key>
+			<string></string>
+			<key>token</key>
+			<string></string>
+		</dict>
+	</array>
+</dict>
+</plist>

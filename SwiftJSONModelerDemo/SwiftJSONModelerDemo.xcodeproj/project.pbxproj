@@ -15,6 +15,7 @@
 		C964811F242D8FB900EFFCB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C964811D242D8FB900EFFCB6 /* LaunchScreen.storyboard */; };
 		C964812B242D9B0D00EFFCB6 /* TestJSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C964812A242D9B0D00EFFCB6 /* TestJSONModel.swift */; };
 		C964812D242D9B2700EFFCB6 /* TestYapiRAWModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C964812C242D9B2700EFFCB6 /* TestYapiRAWModel.swift */; };
+		C9E9C08225CF81E900CD767D /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = C9E9C08125CF81E900CD767D /* Config.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		C9648120242D8FB900EFFCB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C964812A242D9B0D00EFFCB6 /* TestJSONModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestJSONModel.swift; sourceTree = "<group>"; };
 		C964812C242D9B2700EFFCB6 /* TestYapiRAWModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestYapiRAWModel.swift; sourceTree = "<group>"; };
+		C9E9C08125CF81E900CD767D /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				C9648120242D8FB900EFFCB6 /* Info.plist */,
 				C964812A242D9B0D00EFFCB6 /* TestJSONModel.swift */,
 				C964812C242D9B2700EFFCB6 /* TestYapiRAWModel.swift */,
+				C9E9C08125CF81E900CD767D /* Config.plist */,
 			);
 			path = SwiftJSONModelerDemo;
 			sourceTree = "<group>";
@@ -131,6 +134,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9E9C08225CF81E900CD767D /* Config.plist in Resources */,
 				C964811F242D8FB900EFFCB6 /* LaunchScreen.storyboard in Resources */,
 				C964811C242D8FB900EFFCB6 /* Assets.xcassets in Resources */,
 				C964811A242D8FB800EFFCB6 /* Main.storyboard in Resources */,

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -27,12 +27,15 @@
 		C9CB2480241F559C00F4D5CE /* ErrorCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CB247F241F559C00F4D5CE /* ErrorCenter.swift */; };
 		C9CEE26D242B382900A04EA9 /* YApiCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEE26C242B382900A04EA9 /* YApiCreator.swift */; };
 		C9D04F2B242F218200843DC4 /* SwiftJSONModeler_For_XcodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D04F2A242F218200843DC4 /* SwiftJSONModeler_For_XcodeTests.swift */; };
+		C9D9905325E742D800258865 /* CleanJSON in Frameworks */ = {isa = PBXBuildFile; productRef = C9D9905225E742D800258865 /* CleanJSON */; };
 		C9DD88322431C630004E420F /* YApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D04F20242EF99F00843DC4 /* YApiRequest.swift */; };
 		C9DE045F242C8535008A0070 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE045E242C8535008A0070 /* Config.swift */; };
 		C9DE0460242C853F008A0070 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9DE045E242C8535008A0070 /* Config.swift */; };
 		C9E393E424EE248500D80B28 /* TokenView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9E393E324EE248500D80B28 /* TokenView.xib */; };
 		C9E393E824EE255900D80B28 /* TokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E393E724EE255900D80B28 /* TokenView.swift */; };
 		C9E393EA24EE47D300D80B28 /* TokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E393E924EE47D300D80B28 /* TokenViewController.swift */; };
+		C9E9C08925CF907A00CD767D /* PanelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E9C08825CF907A00CD767D /* PanelManager.swift */; };
+		C9E9C09225CFD94E00CD767D /* ConfigModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E9C09125CFD94E00CD767D /* ConfigModel.swift */; };
 		C9ED9CC623D7F9B3004567A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED9CC523D7F9B3004567A1 /* AppDelegate.swift */; };
 		C9ED9CCA23D7F9B3004567A1 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9ED9CC923D7F9B3004567A1 /* Document.swift */; };
 		C9ED9CCC23D7F9B4004567A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9ED9CCB23D7F9B4004567A1 /* Assets.xcassets */; };
@@ -105,6 +108,8 @@
 		C9E393E324EE248500D80B28 /* TokenView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TokenView.xib; sourceTree = "<group>"; };
 		C9E393E724EE255900D80B28 /* TokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenView.swift; sourceTree = "<group>"; };
 		C9E393E924EE47D300D80B28 /* TokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenViewController.swift; sourceTree = "<group>"; };
+		C9E9C08825CF907A00CD767D /* PanelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelManager.swift; sourceTree = "<group>"; };
+		C9E9C09125CFD94E00CD767D /* ConfigModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigModel.swift; sourceTree = "<group>"; };
 		C9ED9CC223D7F9B3004567A1 /* SwiftJSONModeler For Xcode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftJSONModeler For Xcode.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9ED9CC523D7F9B3004567A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9ED9CC923D7F9B3004567A1 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
@@ -132,6 +137,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9D9905325E742D800258865 /* CleanJSON in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +209,22 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		C9E9C08725CF905400CD767D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C9E9C08825CF907A00CD767D /* PanelManager.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C9E9C09025CFD93900CD767D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C9E9C09125CFD94E00CD767D /* ConfigModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		C9ED9CB923D7F9B3004567A1 = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +249,8 @@
 		C9ED9CC423D7F9B3004567A1 /* SwiftJSONModeler For Xcode */ = {
 			isa = PBXGroup;
 			children = (
+				C9E9C09025CFD93900CD767D /* Model */,
+				C9E9C08725CF905400CD767D /* Utils */,
 				C9E393EB24EF68E900D80B28 /* Controller */,
 				C9E393E224EE245D00D80B28 /* View */,
 				C92A971B24E514D700C87CCD /* Constants */,
@@ -301,6 +325,9 @@
 				C9ED9CE723D7F9D0004567A1 /* PBXTargetDependency */,
 			);
 			name = "SwiftJSONModeler For Xcode";
+			packageProductDependencies = (
+				C9D9905225E742D800258865 /* CleanJSON */,
+			);
 			productName = JSONSwiftModelApp;
 			productReference = C9ED9CC223D7F9B3004567A1 /* SwiftJSONModeler For Xcode.app */;
 			productType = "com.apple.product-type.application";
@@ -354,6 +381,9 @@
 				Base,
 			);
 			mainGroup = C9ED9CB923D7F9B3004567A1;
+			packageReferences = (
+				C9D9905125E742D800258865 /* XCRemoteSwiftPackageReference "CleanJSON" */,
+			);
 			productRefGroup = C9ED9CC323D7F9B3004567A1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -410,6 +440,7 @@
 				C92A971724E513EA00C87CCD /* YApiRequest.swift in Sources */,
 				C97A431324EF7954002F6065 /* Token.swift in Sources */,
 				C92A971824E513F900C87CCD /* ErrorCenter.swift in Sources */,
+				C9E9C09225CFD94E00CD767D /* ConfigModel.swift in Sources */,
 				C9E393E824EE255900D80B28 /* TokenView.swift in Sources */,
 				C9ED9CC623D7F9B3004567A1 /* AppDelegate.swift in Sources */,
 				C9E393EA24EE47D300D80B28 /* TokenViewController.swift in Sources */,
@@ -418,6 +449,7 @@
 				C92A971D24E514FB00C87CCD /* Constants.swift in Sources */,
 				C92A971424E513EA00C87CCD /* YApiHelper.swift in Sources */,
 				C9ED9CCA23D7F9B3004567A1 /* Document.swift in Sources */,
+				C9E9C08925CF907A00CD767D /* PanelManager.swift in Sources */,
 				C935B49C24EA24BE00E48231 /* JSONHelper.swift in Sources */,
 				C961C1DE23D82A8D008D0DE6 /* ConfigViewController.swift in Sources */,
 				C92A971524E513EA00C87CCD /* YApiObject.swift in Sources */,
@@ -753,6 +785,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C9D9905125E742D800258865 /* XCRemoteSwiftPackageReference "CleanJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Pircate/CleanJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.8;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C9D9905225E742D800258865 /* CleanJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C9D9905125E742D800258865 /* XCRemoteSwiftPackageReference "CleanJSON" */;
+			productName = CleanJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C9ED9CBA23D7F9B3004567A1 /* Project object */;
 }
