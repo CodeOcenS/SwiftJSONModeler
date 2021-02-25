@@ -31,6 +31,27 @@ struct ConfigModel: Codable {
     var yapiTokenList: [YApiTokenModel] = []
 }
 
+extension ConfigModel {
+    var parent: String {
+        let confroms = stringToArray(conform)
+        if confroms.isEmpty {
+            return ""
+        } else {
+            return confroms.joined(separator: ", ")
+        }
+    }
+    
+    var moduleArr: [String] {
+        return stringToArray(module)
+    }
+    
+    private func stringToArray(_ str: String) -> [String] {
+        guard !str.isEmpty else { return [] }
+        return  str.components(separatedBy: ",")
+    }
+    
+}
+
 struct YApiTokenModel: Codable {
     /// 项目名称
     var name: String = ""
