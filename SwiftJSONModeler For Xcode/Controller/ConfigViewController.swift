@@ -11,7 +11,7 @@ import Cocoa
 class ConfigViewController: NSViewController {
     private var configCenter = ConfigCenter.default
     private var config = ConfigCenter.default.config
-    private var tokens: [Token] = []
+    private var tokens: [YApiTokenModel] = []
     private var token: String = ""
     
     @IBOutlet weak var confromTextField: NSTextField!
@@ -32,6 +32,7 @@ class ConfigViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Model 设置"
         updateFromUserDefault()
         NotificationCenter.default.addObserver(forName: .tokenSaved, object: nil, queue: nil) { [weak self] (noti) in
             self?.setupBox()
@@ -64,8 +65,8 @@ class ConfigViewController: NSViewController {
         tokenBox.removeAllItems()
         tokenBox.usesDataSource = false
         let historyToken = config.yapiToken
-        tokens = Token.getTokenFormUserDefault() // token配置中的 token
-        let tokensTitle = tokens.map { $0.title }
+        tokens = ConfigCenter.default.config.yapiTokenList // token配置中的 token
+        let tokensTitle = tokens.map { $0.name }
         tokenBox.addItems(withObjectValues: tokensTitle)
         
         if !historyToken.isEmpty {
@@ -75,7 +76,7 @@ class ConfigViewController: NSViewController {
             } else {
                 let filter = tokens.filter { $0.token == historyToken }
                 if filter.count > 0 {
-                    tokenBox.selectItem(withObjectValue: filter.first!.title)
+                    tokenBox.selectItem(withObjectValue: filter.first!.name)
                     token = filter.first!.token
                 } else {
                     tokenBox.stringValue = historyToken
@@ -91,7 +92,7 @@ class ConfigViewController: NSViewController {
             return ""
         }
         // 判断是否为选中的
-        let filter = tokens.filter { $0.title == boxValue }
+        let filter = tokens.filter { $0.name == boxValue }
         if filter.count > 0 {
             // 是选中的
             return filter.first!.token

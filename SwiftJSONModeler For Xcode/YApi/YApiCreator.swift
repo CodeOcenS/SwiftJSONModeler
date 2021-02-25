@@ -31,7 +31,7 @@ class YApiCreator {
     var objectHelper: YApiHelper!
     var lines: NSMutableArray!
     var isShowMock: Bool = false
-    
+    private var config = ConfigCenter.default.config
     private var errorCenter = ErrorCenter.shared
     private var pasteText: String = ""
     private var creatObjects: Set<YApiObject> = []
@@ -55,7 +55,7 @@ class YApiCreator {
     }
     
     private func getPathObject() -> Void {
-        objectHelper.aimPath = Config().yapiPath //设置获取data下数据
+        objectHelper.aimPath = ConfigCenter.default.config.yapiPath //设置获取data下数据
         guard let object = objectHelper.pathObject else {
             return
         }
@@ -93,7 +93,6 @@ class YApiCreator {
     /// 返回注释和每个对象的行内容(处理非 array 和 object类型)
     private func lineRow(from object: YApiObject) -> [String]? {
         let type = object.type!
-        let config = Config()
         var swiftType = type.swiftType()
         switch type {
         case .array:
@@ -129,18 +128,22 @@ class YApiCreator {
             swiftType = "<#\(object.typeRaw)#>"
         }
         var line = "var \(object.key!): \(swiftType)"
-        let isOptional = !config.isNotOptional
+        let isOptional = config.isOptional
         if isOptional {
-            if type == .array, !config.arrayIsDefaultNotEmpty {
+            if type == .array, config.isArrayDefaultEmpty {
                 line.append(contentsOf: " = []")
             } else {
                 let optionalStr = config.isImplicitlyOptional ? "!" : "?"
                 line.append(contentsOf: optionalStr)
             }
         } else {
-            if !config.arrayIsDefaultNotEmpty {
+            if type == .array, config.isArrayDefaultEmpty {
                 line.append(contentsOf: " = []")
             }
+        }
+        let isStringdefaultEmpty = config.isStringDefaultEmpty
+        if type == .string, isStringdefaultEmpty {
+            line.append(contentsOf: #" = """#)
         }
         return [comment,line]
     }
@@ -164,7 +167,6 @@ class YApiCreator {
         } else if commandIdentifier.contains(keyClass) {
             keyword = keyClass
         }
-        let config = Config()
         name = config.prefix + name + config.subffix
         let parent = config.parent
         var objctLines: [String] = []

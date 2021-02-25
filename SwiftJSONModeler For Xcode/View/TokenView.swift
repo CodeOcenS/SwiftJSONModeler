@@ -50,9 +50,9 @@ class TokenView: NSView {
         deleteButton.attributedTitle = NSAttributedString(string: "删除", attributes: [NSAttributedString.Key.foregroundColor : NSColor.red])
     }
     
-    func config(token: Token) -> Void {
+    func config(token: YApiTokenModel) -> Void {
         tokenLabel.stringValue = token.token
-        titleLabel.stringValue = token.title
+        titleLabel.stringValue = token.name
     }
     
     @IBAction func deleteButtonTap(_ sender: NSButton) {

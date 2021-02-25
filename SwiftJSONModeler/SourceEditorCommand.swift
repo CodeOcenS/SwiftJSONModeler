@@ -10,7 +10,7 @@ import AppKit
 import XcodeKit
 
 class SourceEditorCommand: NSObject, XCSourceEditorCommand {
-    let config = Config()
+    let config = ConfigCenter.default.config
     private var completionHandler: (Error?) -> Void = { _ in  }
     /// 复制版内容
     var pasteboardTest: String {

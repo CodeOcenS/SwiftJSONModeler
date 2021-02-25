@@ -57,4 +57,8 @@ class YApiTokenModel: Codable {
     var name: String = ""
     /// 项目 token
     var token: String = ""
+    init(name: String, token: String) {
+        self.name = name
+        self.token = token
+    }
 }

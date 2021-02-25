@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CleanJSON",
+        "repositoryURL": "https://github.com/Pircate/CleanJSON.git",
+        "state": {
+          "branch": null,
+          "revision": "a60e181ec93e492af97a8ae4e444c2b7bf51149f",
+          "version": "1.0.8"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

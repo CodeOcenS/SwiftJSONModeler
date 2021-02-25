@@ -20,11 +20,12 @@ class TokenViewController: NSViewController {
     @IBOutlet weak var tokenContentView: NSView!
     private let tokenContentLayer = CALayer()
     private let rowHeight: CGFloat = 40
-    private var dataSource: [Token] = []
+    private var dataSource: [YApiTokenModel] = []
     
     private var tokenViews: [TokenView] = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "配置 token"
         setupView()
         setupToken()
     }
@@ -62,14 +63,14 @@ private extension TokenViewController {
             showAlert()
             return
         }
-        let willAddToken = Token(title: title, token: token)
+        let willAddToken = YApiTokenModel(name: title, token: token)
         dataSource.append(willAddToken)
         updateToken()
         addTokenView(willAddToken, at: dataSource.count - 1)
         titleTextField.stringValue = ""
         tokenTextField.stringValue = ""
     }
-    func addTokenView(_ token: Token, at index: Int) {
+    func addTokenView(_ token: YApiTokenModel, at index: Int) {
         let tokenView = TokenView()
         tokenView.heightAnchor.constraint(equalToConstant: rowHeight).isActive = true
         stackView.addArrangedSubview(tokenView)
@@ -118,10 +119,11 @@ extension UserDefaults {
 // MARK: - 数据持久化
 private extension TokenViewController {
     func updateToken() -> Void {
-        Token.updateUserDefault(for: dataSource)
+        ConfigCenter.default.config.yapiTokenList = dataSource
+        ConfigCenter.default.save()
     }
     
-    func getToken() -> [Token] {
-        return Token.getTokenFormUserDefault()
+    func getToken() -> [YApiTokenModel] {
+        return  ConfigCenter.default.config.yapiTokenList
     }
 }

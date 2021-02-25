@@ -15,7 +15,7 @@ class ConfigCenter {
     static let `default` = ConfigCenter()
     var config: ConfigModel
     
-    init() {
+    private init() {
         config = Self.readConfig()
     }
     @discardableResult
