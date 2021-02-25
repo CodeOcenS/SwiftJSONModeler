@@ -1,5 +1,5 @@
 //
-//  Panel.swift
+//  OpenSavePanel.swift
 //  SwiftJSONModeler For Xcode
 //
 //  Created by Sven on 2021/2/7.
@@ -8,13 +8,10 @@
 /// 文件导入和导出
 
 import AppKit
-/// 配置存在路径
-let configPath =  (NSHomeDirectory() as NSString).appendingPathComponent("Config.plist")
-struct PanelManager {
-//    static let `default` = PanelManager()
-//    private init() {}
+
+struct OpenSavePanel {
     /// 导入文件
-    func openPanelImportFile(completion: @escaping (_ url: URL?) -> Void) -> Void {
+    func importFile(completion: @escaping (_ error: Error?) -> Void) -> Void {
         let panel = NSOpenPanel()
         panel.prompt = "确定"
         panel.message = "选择配置"
@@ -25,18 +22,24 @@ struct PanelManager {
         //panel.directoryURL =
         panel.beginSheetModal(for: NSApp.mainWindow ?? NSWindow() ) { (response) in
             if response == .OK {
-                let url = panel.url
-                read(url: url)
-                completion(url)
+                if let url = panel.url {
+                    let isSuccess = read(url: url)
+                    let error = NSError(domain: "swiftjsonmodeler.error", code: 5000, userInfo: [NSLocalizedDescriptionKey: "导入保存失败"])
+                    completion(isSuccess ? nil : error )
+                } else {
+                   let error = NSError(domain: "swiftjsonmodeler.error", code: 5000, userInfo: [NSLocalizedDescriptionKey: "导入文件 url不存在"])
+                    completion(error)
+                }
+                
             } else {
                 //取消
-                completion(nil)
+                completion(NSError(domain: "swiftjsonmodeler.error", code: 5000, userInfo: [NSLocalizedDescriptionKey: "取消选择"]))
             }
         }
     }
     
     /// 导出文件
-    func openPanelExportFile() -> Void {
+    func exportFile(completion: @escaping (_ error: Error?) -> Void) -> Void {
         let savePanel = NSSavePanel()
         savePanel.nameFieldStringValue = "Config.plist"
         savePanel.message = "请选择路径保存配置"
@@ -47,15 +50,19 @@ struct PanelManager {
         savePanel.beginSheetModal(for: NSApp.mainWindow ?? NSWindow()) { (response) in
             if response == .OK {
                 if let path = savePanel.url {
-                    saveFile(url: path)
+                    let isSuccess = saveFile(url: path)
+                    let error = NSError(domain: "swiftjsonmodeler.error", code: 5000, userInfo: [NSLocalizedDescriptionKey: "导入保存失败"])
+                    completion(isSuccess ? nil : error )
+                } else {
+                    completion(NSError(domain: "swiftjsonmodeler.error", code: 5000, userInfo: [NSLocalizedDescriptionKey: "导入文件 url不存在"]))
                 }
             } else {
-                
+                completion(NSError(domain: "swiftjsonmodeler.error", code: 5000, userInfo: [NSLocalizedDescriptionKey: "取消选择"]))
             }
         }
     }
-    
-    private func read(url: URL?) {
+    /// 导入保存
+    private func read(url: URL) -> Bool {
 //        guard let url = url else {
 //            return
 //        }
@@ -70,22 +77,25 @@ struct PanelManager {
 //        }
        
         
-        let configModel = ConfigModel()
-        let propertyListEncoder = PropertyListEncoder()
-        propertyListEncoder.outputFormat = .xml
-        
-        let plistData = try? propertyListEncoder.encode(configModel)
+//        let configModel = ConfigModel()
+//        let propertyListEncoder = PropertyListEncoder()
+//        propertyListEncoder.outputFormat = .xml
+//
+//        let plistData = try? propertyListEncoder.encode(configModel)
+    
         let fileManager = FileManager.default
-        let isSuccess = fileManager.createFile(atPath: configPath, contents: plistData, attributes: nil)  // 全覆盖写入
+        let configData = fileManager.contents(atPath: url.path)
+        let isSuccess = fileManager.createFile(atPath: configPath, contents: configData, attributes: nil)  // 全覆盖写入
         if isSuccess {
-            print("保存成功")
+            print("保存成功:\(configPath)")
         } else {
             print("保存失败")
         }
+        return isSuccess
     }
     
-    /// 保存文件
-    func saveFile( url: URL) -> Void {
+    /// 导出保存文件
+    func saveFile( url: URL) -> Bool {
         let fileManager = FileManager.default
         let contents = fileManager.contents(atPath: configPath)
         let isSuccess = fileManager.createFile(atPath: url.path, contents: contents, attributes: [FileAttributeKey.appendOnly : false, FileAttributeKey.extensionHidden: false])
@@ -94,5 +104,6 @@ struct PanelManager {
         } else {
             print("保存失败")
         }
+        return isSuccess
     }
 }

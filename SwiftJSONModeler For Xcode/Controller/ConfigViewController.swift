@@ -108,15 +108,16 @@ class ConfigViewController: NSViewController {
     }
     
     @IBAction func saveButtonTap(_ sender: NSButton) {
-        config.conform = confromTextField.stringValue
-        config.module = moduleTextField.stringValue
-        config.prefix = prefixTextField.stringValue
-        config.subffix = subffixTextField.stringValue
-        config.yapiPath = pathTextField.stringValue
-        config.yapiToken = tokenForSave()
-        config.yapiHost = yapiHostTextField.stringValue
-        config.remark = remarkTextField.stringValue
-        view.window?.close()
+
+//        config.conform = confromTextField.stringValue
+//        config.module = moduleTextField.stringValue
+//        config.prefix = prefixTextField.stringValue
+//        config.subffix = subffixTextField.stringValue
+//        config.yapiPath = pathTextField.stringValue
+//        config.yapiToken = tokenForSave()
+//        config.yapiHost = yapiHostTextField.stringValue
+//        config.remark = remarkTextField.stringValue
+//        view.window?.close()
     }
     
     @IBAction func typeOptionalBtnTap(_ sender: NSButton) {
