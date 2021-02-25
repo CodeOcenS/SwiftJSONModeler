@@ -8,8 +8,6 @@
 
 import Cocoa
 
-
-
 class ConfigViewController: NSViewController {
     
     private let config = Config()
@@ -108,7 +106,10 @@ class ConfigViewController: NSViewController {
     }
     
     @IBAction func saveButtonTap(_ sender: NSButton) {
-
+        let config = ConfigCenter.default
+        var c = config.config
+        c.appVersion = "2.1.0"
+        config.config = c
 //        config.conform = confromTextField.stringValue
 //        config.module = moduleTextField.stringValue
 //        config.prefix = prefixTextField.stringValue
