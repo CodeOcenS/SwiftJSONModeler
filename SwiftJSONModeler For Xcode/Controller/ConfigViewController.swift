@@ -107,10 +107,7 @@ class ConfigViewController: NSViewController {
     }
     
     @IBAction func saveButtonTap(_ sender: NSButton) {
-//        let panel = OpenSavePanel()
-//        panel.importFile { (error) in
-//            print(error)
-//        }
+//
         config.conform = confromTextField.stringValue
         config.module = moduleTextField.stringValue
         config.prefix = prefixTextField.stringValue
@@ -139,5 +136,19 @@ class ConfigViewController: NSViewController {
     @IBAction func isShowYApiMockBtnTap(_ sender: NSButton) {
         config.isShowYApiMock = sender.state == .on
         configCenter.save()
+    }
+    @IBAction func importConfig(_ sender: NSButton) {
+        let panel = OpenSavePanel()
+        panel.importFile { (error) in
+            if error == nil {
+                self.updateFromUserDefault()
+            }
+        }
+    }
+    @IBAction func exportConfig(_ sender: NSButton) {
+        let panel = OpenSavePanel()
+        panel.exportFile { (error) in
+            print(error)
+        }
     }
 }

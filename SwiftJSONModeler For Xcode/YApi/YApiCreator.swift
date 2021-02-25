@@ -129,9 +129,12 @@ class YApiCreator {
         }
         var line = "var \(object.key!): \(swiftType)"
         let isOptional = config.isOptional
+        let isStringdefaultEmpty = config.isStringDefaultEmpty
         if isOptional {
             if type == .array, config.isArrayDefaultEmpty {
                 line.append(contentsOf: " = []")
+            } else if type == .string, isStringdefaultEmpty {
+                line.append(contentsOf: #" = """#)
             } else {
                 let optionalStr = config.isImplicitlyOptional ? "!" : "?"
                 line.append(contentsOf: optionalStr)
@@ -140,11 +143,12 @@ class YApiCreator {
             if type == .array, config.isArrayDefaultEmpty {
                 line.append(contentsOf: " = []")
             }
+            if type == .string, isStringdefaultEmpty {
+                line.append(contentsOf: #" = """#)
+            }
         }
-        let isStringdefaultEmpty = config.isStringDefaultEmpty
-        if type == .string, isStringdefaultEmpty {
-            line.append(contentsOf: #" = """#)
-        }
+        
+        
         return [comment,line]
     }
     func getModels() -> [String] {
