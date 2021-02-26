@@ -953,7 +953,7 @@
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="25V-Ky-0tb">
+                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="25V-Ky-0tb">
                                         <rect key="frame" x="149" y="13" width="551" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="cOL-bv-yfT"/>
@@ -988,6 +988,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Mih-Hn-oxm" firstAttribute="centerY" secondItem="e6x-Y0-QC6" secondAttribute="centerY" id="4VG-B6-PwO"/>
+                                    <constraint firstAttribute="trailing" secondItem="25V-Ky-0tb" secondAttribute="trailing" constant="30" id="5eX-Yo-r1i"/>
                                     <constraint firstAttribute="trailing" secondItem="6ac-fB-Cyc" secondAttribute="trailing" constant="30" id="762-cT-OPI"/>
                                     <constraint firstItem="Mih-Hn-oxm" firstAttribute="trailing" secondItem="6ac-fB-Cyc" secondAttribute="trailing" id="AGz-lh-PoQ"/>
                                     <constraint firstItem="33u-sp-CUS" firstAttribute="leading" secondItem="lMe-2A-rbQ" secondAttribute="leading" id="Dqm-Hw-W91"/>
