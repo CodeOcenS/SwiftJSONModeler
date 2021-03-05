@@ -164,7 +164,7 @@ class YApiCreator {
         if yapiObject.key != nil {
             name = yapiObject.key!.upperCaseFirst()
         }
-        let des: String = yapiObject.des ?? "<#描述#>"
+        let des: String = yapiObject.des ?? ""
         var keyword = keyStruct
         if commandIdentifier.contains(keyStruct) {
             keyword = keyStruct
@@ -174,7 +174,9 @@ class YApiCreator {
         name = config.prefix + name + config.subffix
         let parent = config.parent
         var objctLines: [String] = []
-        objctLines.append("/// \(des)")
+        if !des.isEmpty {
+            objctLines.append("/// \(des)")
+        }
         if parent.isEmpty {
             objctLines.append("\(keyword)  \(name) {")
         } else {

@@ -1,4 +1,4 @@
-SwiftJSONModeler是一个Xcode插件，一键转换json字符串Swfit模型，一键转化 YApi 平台接口为模型，并且自动引入注释。
+SwiftJSONModeler是一个Xcode插件，一键转换json字符串为Swfit模型，一键转化 YApi 平台接口为模型，并且自动引入注释。
 * 支持struct, class 
 * 支持单json转模， 多层嵌套 json
 * 支持YApi RAW或接口id解析转模，并且自动引入 YApi 平台注释和兼容数据类型
@@ -6,11 +6,12 @@ SwiftJSONModeler是一个Xcode插件，一键转换json字符串Swfit模型，�
 * 支持自定义模型前缀和后缀
 * 可设置隐式和显示可选类型，默认显示可选`?`(不使用则为隐式可选`!`)
 * YApi 支持按照自定义路径解析模型，自动解析子类型
+* 导入导出配置plist配置，以便团队共享。
 
 
 ## json 转Swfit模型
 
-复制单json, 一步转为模型。
+复制json字符串, 一步转为Swift模型,支持多层嵌套自动识别。
 
 ![运行效果](./Sources/example.gif)
 
@@ -97,7 +98,7 @@ struct HKSubJsonModel: HandyJSON {
 
 如果无法预览查看[Source/YApiRAW.gif](./Sources/YApiRAW.gif)
 
-如果你使用YApi接口平台，我们支持两种方式，通过接口 Id）和 Raw 数据转模。一键转为模型，并且自动根据YApi为模型引入注释。
+如果你使用YApi接口平台，我们支持两种方式，通过接口 Id和 Raw 数据转模。一键转为模型，并且自动根据YApi为模型引入注释。
 
 ### 通过Id转模
 
@@ -144,7 +145,10 @@ struct HKSubJsonModel: HandyJSON {
 
 再将应用移动到应用程序, 重启Xcode即可使用。
 
-> Tip:如果重启Xcode之后在Editor中还没看见插件选项，请选择系统设置-> 扩展->Xcode Source Editor中对应插件是否导入
+### 注意事项
+
+1.  安装弹出安全提示，选择系统设置 -> 安全性与隐私 -> 通用 点击允许打开该软件即可。
+2. 如果重启Xcode之后在Editor中还没看见插件选项，请选择系统设置-> 扩展->Xcode Source Editor中对应插件是否勾选
 
 ## 设置
 SwiftJSONModeler提供多种自定义可选设置，可通过插件的Config选项进行设置。
@@ -168,6 +172,16 @@ SwiftJSONModeler提供多种自定义可选设置，可通过插件的Config选�
 在开发中可能团队同时开发多个项目，就会存在多个token，可以通过配置，转模时切换 token
 
 ![](./Sources/mutilToken.png)
+
+> 多 token 接口无法转模问题
+>
+> 通过 id 转模，配置多个 token 项目，可能会存在某个项目无法通过 id 砖模型，原因 YApi 平台的 token 无法获取到相应的json数据.
+>
+> 解决办法： 使用其他项目 token 尝试
+
+设置通过 plist 文件保存，可以导入导出。
+
+> Tips: plist 文件还有其他未展示的设置， 比如默认设置 String 类型为空字符串等
 
 ## 设置快捷键
 

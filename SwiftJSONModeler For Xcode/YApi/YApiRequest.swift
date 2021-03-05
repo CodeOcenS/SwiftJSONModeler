@@ -55,7 +55,7 @@ class YApiRequest {
         var request = URLRequest(url: URL(string: url)!, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 30)
         request.httpMethod = "GET"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
+        print(request)
         let session = URLSession(configuration: .default)
         let task = session.dataTask(with: request) { (data, response, error) in
             if error != nil {
@@ -74,7 +74,16 @@ class YApiRequest {
         let dataStr = String(data: data, encoding: .utf8)
         print("____dataStr")
         print(dataStr)
-        guard let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any], let code = json["errcode"] as? Int,  code == 0, let dataDic = json["data"] as? [String: Any], let resBody = dataDic["res_body"] as? String else   {
+        guard let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] else {
+            errorCenter.message = "获取数据 json 解析异常"
+            return nil
+        }
+        guard  let code = json["errcode"] as? Int,  code == 0, let dataDic = json["data"] as? [String: Any], let resBody = dataDic["res_body"] as? String else   {
+            var error = "获取接口数据异常"
+            if let message = json["errmsg"] as? String {
+                error = message
+            }
+            errorCenter.message = error
             return nil
         }
         let raw = resBody.replacingOccurrences(of: #"\""#, with: "\"")
