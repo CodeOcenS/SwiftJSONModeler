@@ -20,7 +20,7 @@ extension String {
 
 class YApiRequest {
     private static let errorCenter = ErrorCenter.shared
-    private static let config = ConfigCenter.default.config
+    private static var config: ConfigModel { return ConfigCenter.default.latest() }//
     private static func isAvailable(id: String) -> Bool {
         guard !id.isEmpty else {
             errorCenter.message = "YApi接口id不能为空"

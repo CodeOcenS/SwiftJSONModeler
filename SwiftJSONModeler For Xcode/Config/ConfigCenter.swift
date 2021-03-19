@@ -22,6 +22,12 @@ class ConfigCenter {
     func save() -> Bool {
        return Self.writeConfig(config)
     }
+    /// 获取最新配置
+    func latest() -> ConfigModel {
+        let model = Self.readConfig()
+        config = model
+        return model
+    }
 
     
 }
