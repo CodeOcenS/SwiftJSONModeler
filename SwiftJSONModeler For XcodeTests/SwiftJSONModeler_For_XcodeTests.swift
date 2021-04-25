@@ -10,7 +10,10 @@ import XCTest
 @testable import SwiftJSONModeler_For_Xcode
 
 class SwiftJSONModeler_For_XcodeTests: XCTestCase {
-
+    private let baseTypeRaw =
+    """
+    {"type":"object","title":"empty object","properties":{"data":{"type":"object","properties":{"stringValue":{"type":"string","description":"字符串类型","mock":{"mock":"字符串"}},"integerValue":{"type":"integer","description":"整型数据类型","mock":{"mock":"20"}},"numberValue":{"type":"number","description":"浮点数据类型","mock":{"mock":"15.5"}},"booleanValue":{"type":"boolean","description":"布尔类型","mock":{"mock":"true"}},"arrayValue":{"type":"array","items":{"type":"string","mock":{"mock":"数组字符串"}},"description":"数组类型"}},"required":["stringValue","integerValue","numberValue","booleanValue","arrayValue"]},"code":{"type":"string","mock":{"mock":"200"}}},"required":["data","code"]}
+    """
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -38,5 +41,7 @@ class SwiftJSONModeler_For_XcodeTests: XCTestCase {
 //        XCTAssert(config.conform == "AnyConform")
 //        config.conform = conform
     }
+    
+    
 
 }

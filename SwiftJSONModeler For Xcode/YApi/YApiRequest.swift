@@ -74,11 +74,23 @@ class YApiRequest {
         let dataStr = String(data: data, encoding: .utf8)
         print("____dataStr")
         print(dataStr)
-        
-        guard let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] else {
-            errorCenter.message = "获取数据 json 解析异常"
+        guard let temp = dataStr else {
+            errorCenter.message = "获取数据 json 解析异常, data 字符串为空"
             return nil
         }
+        var json: [String: Any] = [:]
+        let orderJson = OrderJSON(temp)
+        if let dic = orderJson.dictionary(){
+            json = dic
+        } else {
+            if let jsonObject = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+                json = jsonObject
+            } else {
+                errorCenter.message = "获取数据 json 解析异常"
+                return nil
+            }
+        }
+        
         guard  let code = json["errcode"] as? Int,  code == 0, let dataDic = json["data"] as? [String: Any], let resBody = dataDic["res_body"] as? String else   {
             var error = "获取接口数据异常"
             if let message = json["errmsg"] as? String {
