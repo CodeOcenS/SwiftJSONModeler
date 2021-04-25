@@ -74,6 +74,7 @@ class YApiRequest {
         let dataStr = String(data: data, encoding: .utf8)
         print("____dataStr")
         print(dataStr)
+        
         guard let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] else {
             errorCenter.message = "获取数据 json 解析异常"
             return nil
