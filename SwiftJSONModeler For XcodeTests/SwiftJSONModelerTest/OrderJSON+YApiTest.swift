@@ -7,7 +7,9 @@
 //
 
 import XCTest
+@testable import OrderJSON
 @testable import SwiftJSONModeler_For_Xcode
+
 class OrderJSONYApiTest: XCTestCase {
     private let testStr = """
             {\"type\":\"object\",\"title\":\"empty object\",\"properties\":{\"data\":{\"type\":\"object\",\"properties\":{\"stringValue\":{\"type\":\"string\",\"description\":\"字符串类型\",\"mock\":{\"mock\":\"字符串\"}},\"integerValue\":{\"type\":\"integer\",\"description\":\"整型数据类型\",\"mock\":{\"mock\":\"20\"}},\"numberValue\":{\"type\":\"number\",\"description\":\"浮点数据类型\",\"mock\":{\"mock\":\"15.5\"}},\"booleanValue\":{\"type\":\"boolean\",\"description\":\"布尔类型\",\"mock\":{\"mock\":\"true\"}},\"arrayValue\":{\"type\":\"array\",\"items\":{\"type\":\"string\",\"mock\":{\"mock\":\"数组字符串\"}},\"description\":\"数组类型\"}},\"required\":[\"stringValue\",\"integerValue\",\"numberValue\",\"booleanValue\",\"arrayValue\"]},\"code\":{\"type\":\"string\",\"mock\":{\"mock\":\"200\"}}},\"required\":[\"data\",\"code\"]}
