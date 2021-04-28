@@ -5,13 +5,20 @@
 //  Created by Sven on 2020/8/17.
 //  Copyright © 2020 Sven. All rights reserved.
 //
-/// 将 josn 转化为 YapiObject
+/// 将普通josn 转化为 YapiObject
 
 import Foundation
 
-public struct JSONHelper {
+public class JSONHelper {
     /// 复制的文本
-    var paste: String
+    var paste: String = ""
+    private var currentPath: [String] = []
+    private var orderJSON: OrderJSON? {
+        return try? JsonParser.parse(text: paste)
+    }
+    init(paste: String) {
+        self.paste = paste
+    }
     /// 将复制的文本 转化为 YApiObject 对象。
     func transform() -> YApiObject? {
         do {
@@ -33,16 +40,33 @@ public struct JSONHelper {
     
     /// 字典转对象
     /// - Parameter dic: 字典数据
-    private func objectOf(_ dic: [String: Any], key: String) -> YApiObject {
+    private  func objectOf(_ dic: [String: Any], key: String) -> YApiObject {
         var childs: [YApiObject] = []
-        for (label, value) in dic {
-            let child = typeOf(label, value: value, parentKey: key)
-            childs.append(child)
+        currentPath.append(key)
+        let subKeys = orderJSONSubKeysFor(path: currentPath)
+        if subKeys.isEmpty {
+            for (label, value) in dic {
+                let child = typeOf(label, value: value, parentKey: key)
+                childs.append(child)
+            }
+        } else {
+            for key in subKeys {
+                if let value = dic[key] {
+                    let child = typeOf(key, value: value, parentKey: key)
+                    childs.append(child)
+                }
+            }
         }
-         let object = YApiObject(parentKey: nil, key: key, mock: "", type: YApiType.object, typeRaw: "Object", des: "", childs: childs)
+        currentPath.dropLast()
+        let object = YApiObject(parentKey: nil, key: key, mock: "", type: YApiType.object, typeRaw: "Object", des: "", childs: childs)
         return object
     }
-    
+    private  func orderJSONSubKeysFor(path current:[String]) -> [String] {
+        guard let json = orderJSON else {
+            return []
+        }
+        return json.subKeysFor(keyPath: current)
+    }
     /// 数组转对象
     /// - Parameter arry: 数据数组
     private func objectOf(_ arry: [Any], key:String) -> YApiObject {
@@ -59,7 +83,7 @@ public struct JSONHelper {
     }
     /// 类型数据类型判断
     /// - Parameter value: 值
-    private func typeOf(_ key: String?, value: Any, parentKey: String? = nil) -> YApiObject {
+    private  func typeOf(_ key: String?, value: Any, parentKey: String? = nil) -> YApiObject {
         if value is NSNull {
             print("存在null")
             let type = YApiType.undefined

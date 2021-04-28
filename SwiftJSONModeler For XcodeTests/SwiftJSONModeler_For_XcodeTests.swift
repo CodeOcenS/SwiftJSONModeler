@@ -42,6 +42,11 @@ class SwiftJSONModeler_For_XcodeTests: XCTestCase {
 //        config.conform = conform
     }
     
+    func testOrderJSON() {
+        let data = baseTypeRaw.data(using: .utf8)
+        
+    }
+    
     
 
 }

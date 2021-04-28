@@ -10,7 +10,31 @@ import XCTest
 @testable import SwiftJSONModeler_For_Xcode
 
 class JSONHelperTest: XCTestCase {
-
+    private let multiJson =
+        """
+        {
+            "title": "第一层 json",
+            "stringValue": "字符串值",
+            "intValue": 58,
+            "doubleValue": 18.2,
+            "nullValue": null,
+            "boolValue": true,
+            "subJson": {
+                "title": "第二层 json",
+                "stringValue": "字符串值"
+            },
+            "arrayValue1": [
+                "value1",
+                "value2",
+                "value3"
+            ],
+            "arrayValue2": [{
+                "title": "数组包含子 json",
+                "intValue": 12,
+                "boolValue": false
+            }]
+        }
+        """
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -104,45 +128,29 @@ class JSONHelperTest: XCTestCase {
     
     /// 测试多层嵌套 json
     func testMultiLevelJSON() -> Void {
-        let json =
-        """
-        {
-            "title": "第一层 json",
-            "stringValue": "字符串值",
-            "intValue": 58,
-            "doubleValue": 18.2,
-            "nullValue": null,
-            "boolValue": true,
-            "subJson": {
-                "title": "第二层 json",
-                "stringValue": "字符串值"
-            },
-            "arrayValue1": [
-                "value1",
-                "value2",
-                "value3"
-            ],
-            "arrayValue2": [{
-                "title": "数组包含子 json",
-                "intValue": 12,
-                "boolValue": false
-            }]
-        }
-        """
+        let json = multiJson
+        
         let helper = JSONHelper(paste: json)
-        let object = helper.transform()
-        XCTAssertNotNil(object)
-        guard object != nil else {
+        let transformObject = helper.transform()
+        XCTAssertNotNil(transformObject)
+        guard let object = transformObject else {
             return
         }
-        let subJsonArr = object!.childs.filter{ $0.key == "subJson" }
+        let subJsonArr = object.childs.filter{ $0.key == "subJson" }
         XCTAssertNotNil(subJsonArr.first)
         guard let subJson = subJsonArr.first else {
             return
         }
         XCTAssert(subJson.childs.count == 2, "subJson 属性数量为2")
-        XCTAssert(object!.childs.filter { $0.key == "arrayValue1" }.first!.childs.first!.type == YApiType.string, "arrayValue1 数组类型应该为 String")
-        XCTAssert(object!.childs.filter { $0.key == "arrayValue2" }.first!.childs.first!.type == YApiType.object, "arrayValue2 数组类型应该为 object")
+        XCTAssert(object.childs.filter { $0.key == "arrayValue1" }.first!.childs.first!.type == YApiType.string, "arrayValue1 数组类型应该为 String")
+        XCTAssert(object.childs.filter { $0.key == "arrayValue2" }.first!.childs.first!.type == YApiType.object, "arrayValue2 数组类型应该为 object")
+        
+        // key 顺序测试
+        let orderKeys = ["title", "stringValue", "intValue", "doubleValue", "nullValue", "boolValue", "arrayValue1", "arrayValue2"]
+        
+        let currentKeys = object.childs.compactMap {$0.parentKey}
+        XCTAssertTrue(orderKeys == currentKeys, "json key 顺序应该一致")
+        
     }
 
 }

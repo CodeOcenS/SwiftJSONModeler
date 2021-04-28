@@ -38,8 +38,8 @@ class YApiObjectTest: XCTestCase {
 
         """
         let helper = YApiHelper(paste: rawStr)
-        helper.aimPath = "person"
-        let yapiObject =  helper.compleObject
+        helper.aimPath = ""
+        let yapiObject =  helper.pathObject
         XCTAssertNotNil(yapiObject)
     }
     

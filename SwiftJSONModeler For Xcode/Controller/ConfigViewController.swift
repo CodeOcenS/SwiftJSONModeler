@@ -148,7 +148,7 @@ class ConfigViewController: NSViewController {
     @IBAction func exportConfig(_ sender: NSButton) {
         let panel = OpenSavePanel()
         panel.exportFile { (error) in
-            print(error)
+            print(error ?? "导出失败")
         }
     }
 }
