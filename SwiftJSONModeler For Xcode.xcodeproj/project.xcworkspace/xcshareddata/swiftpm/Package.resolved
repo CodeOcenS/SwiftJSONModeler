@@ -9,6 +9,15 @@
           "revision": "a60e181ec93e492af97a8ae4e444c2b7bf51149f",
           "version": "1.0.8"
         }
+      },
+      {
+        "package": "OrderJSON",
+        "repositoryURL": "https://gitee.com/Sven001/order-json.git",
+        "state": {
+          "branch": null,
+          "revision": "5d592f04d15c4283b8eb880ee7b2df3ce01388c5",
+          "version": "1.0.1"
+        }
       }
     ]
   },

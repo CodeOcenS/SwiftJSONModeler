@@ -8,6 +8,7 @@
 /// 将普通josn 转化为 YapiObject
 
 import Foundation
+import OrderJSON
 
 public class JSONHelper {
     /// 复制的文本
@@ -73,7 +74,7 @@ public class JSONHelper {
     private func objectOf(_ arry: [Any], key:String) -> YApiObject {
         let type = YApiType.array
         guard  let first = arry.first  else {
-            ErrorCenter.shared.message = "json 序列化 数组第一个元素类型判断异常"
+            //ErrorCenter.shared.message = "json 序列化 数组第一个元素类型判断异常"
             let childType = YApiType.undefined
             let objct = YApiObject(parentKey: key, key: key, mock: "", type: childType, typeRaw: "<#Undefined#>", des: nil, childs: [])
             let arrObjct = YApiObject(parentKey: key, key: key, mock: "", type: type, typeRaw: "Array", des: nil, childs: [objct])

@@ -26,14 +26,8 @@
 		C9AB1D312637B211008256ED /* OrderJSON+Yapi.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AB1D302637B211008256ED /* OrderJSON+Yapi.swift */; };
 		C9AB1D322637B211008256ED /* OrderJSON+Yapi.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AB1D302637B211008256ED /* OrderJSON+Yapi.swift */; };
 		C9AB1D362637C34B008256ED /* OrderJSON+YApiTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AB1D352637C34B008256ED /* OrderJSON+YApiTest.swift */; };
-		C9AB1D4A2637EF1C008256ED /* ParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AB1D472637EF1C008256ED /* ParserError.swift */; };
-		C9AB1D4B2637EF1C008256ED /* ParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AB1D472637EF1C008256ED /* ParserError.swift */; };
-		C9AB1D4C2637EF1C008256ED /* OrderJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AB1D482637EF1C008256ED /* OrderJSON.swift */; };
-		C9AB1D4D2637EF1C008256ED /* OrderJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AB1D482637EF1C008256ED /* OrderJSON.swift */; };
-		C9AB1D4E2637EF1C008256ED /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AB1D492637EF1C008256ED /* JsonParser.swift */; };
-		C9AB1D4F2637EF1C008256ED /* JsonParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AB1D492637EF1C008256ED /* JsonParser.swift */; };
-		C9AB1D5C2638FADD008256ED /* OrderJSON+NormalJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AB1D5B2638FADD008256ED /* OrderJSON+NormalJSON.swift */; };
-		C9AB1D5D2638FADD008256ED /* OrderJSON+NormalJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9AB1D5B2638FADD008256ED /* OrderJSON+NormalJSON.swift */; };
+		C9AB1D6826395F82008256ED /* OrderJSON in Frameworks */ = {isa = PBXBuildFile; productRef = C9AB1D6726395F82008256ED /* OrderJSON */; };
+		C9AB1D6C26395F8E008256ED /* OrderJSON in Frameworks */ = {isa = PBXBuildFile; productRef = C9AB1D6B26395F8E008256ED /* OrderJSON */; };
 		C9CB2480241F559C00F4D5CE /* ErrorCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CB247F241F559C00F4D5CE /* ErrorCenter.swift */; };
 		C9CEE26D242B382900A04EA9 /* YApiCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CEE26C242B382900A04EA9 /* YApiCreator.swift */; };
 		C9D04F2B242F218200843DC4 /* SwiftJSONModeler_For_XcodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D04F2A242F218200843DC4 /* SwiftJSONModeler_For_XcodeTests.swift */; };
@@ -111,10 +105,6 @@
 		C961C1DD23D82A8D008D0DE6 /* ConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
 		C9AB1D302637B211008256ED /* OrderJSON+Yapi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OrderJSON+Yapi.swift"; sourceTree = "<group>"; };
 		C9AB1D352637C34B008256ED /* OrderJSON+YApiTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OrderJSON+YApiTest.swift"; sourceTree = "<group>"; };
-		C9AB1D472637EF1C008256ED /* ParserError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParserError.swift; sourceTree = "<group>"; };
-		C9AB1D482637EF1C008256ED /* OrderJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderJSON.swift; sourceTree = "<group>"; };
-		C9AB1D492637EF1C008256ED /* JsonParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonParser.swift; sourceTree = "<group>"; };
-		C9AB1D5B2638FADD008256ED /* OrderJSON+NormalJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "OrderJSON+NormalJSON.swift"; sourceTree = "<group>"; };
 		C9CB247F241F559C00F4D5CE /* ErrorCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCenter.swift; sourceTree = "<group>"; };
 		C9CEE26C242B382900A04EA9 /* YApiCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YApiCreator.swift; sourceTree = "<group>"; };
 		C9D04F20242EF99F00843DC4 /* YApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YApiRequest.swift; sourceTree = "<group>"; };
@@ -155,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9D9906725E7807300258865 /* CleanJSON in Frameworks */,
+				C9AB1D6826395F82008256ED /* OrderJSON in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +156,7 @@
 				C9ED9CDE23D7F9D0004567A1 /* Cocoa.framework in Frameworks */,
 				C9D9906D25E7815F00258865 /* CleanJSON in Frameworks */,
 				C90EFE0C257E172E0008632B /* XcodeKit.framework in Frameworks */,
+				C9AB1D6C26395F8E008256ED /* OrderJSON in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,21 +191,10 @@
 			path = "OrderJSON+YApi";
 			sourceTree = "<group>";
 		};
-		C9AB1D462637EF1C008256ED /* OrderJSON */ = {
-			isa = PBXGroup;
-			children = (
-				C9AB1D472637EF1C008256ED /* ParserError.swift */,
-				C9AB1D482637EF1C008256ED /* OrderJSON.swift */,
-				C9AB1D492637EF1C008256ED /* JsonParser.swift */,
-			);
-			path = OrderJSON;
-			sourceTree = "<group>";
-		};
 		C9AB1D5A2638FA9A008256ED /* NormalJSON */ = {
 			isa = PBXGroup;
 			children = (
 				C935B49B24EA24BE00E48231 /* JSONHelper.swift */,
-				C9AB1D5B2638FADD008256ED /* OrderJSON+NormalJSON.swift */,
 			);
 			path = NormalJSON;
 			sourceTree = "<group>";
@@ -268,7 +249,6 @@
 		C9E9C08725CF905400CD767D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				C9AB1D462637EF1C008256ED /* OrderJSON */,
 				C9E9C08825CF907A00CD767D /* OpenSavePanel.swift */,
 			);
 			path = Utils;
@@ -382,6 +362,7 @@
 			name = "SwiftJSONModeler For Xcode";
 			packageProductDependencies = (
 				C9D9906625E7807300258865 /* CleanJSON */,
+				C9AB1D6726395F82008256ED /* OrderJSON */,
 			);
 			productName = JSONSwiftModelApp;
 			productReference = C9ED9CC223D7F9B3004567A1 /* SwiftJSONModeler For Xcode.app */;
@@ -403,6 +384,7 @@
 			name = SwiftJSONModeler;
 			packageProductDependencies = (
 				C9D9906C25E7815F00258865 /* CleanJSON */,
+				C9AB1D6B26395F8E008256ED /* OrderJSON */,
 			);
 			productName = JSONSwiftModel;
 			productReference = C9ED9CDB23D7F9D0004567A1 /* SwiftJSONModeler.appex */;
@@ -441,6 +423,7 @@
 			mainGroup = C9ED9CB923D7F9B3004567A1;
 			packageReferences = (
 				C9D9906525E7807300258865 /* XCRemoteSwiftPackageReference "CleanJSON" */,
+				C9AB1D6626395F82008256ED /* XCRemoteSwiftPackageReference "order-json" */,
 			);
 			productRefGroup = C9ED9CC323D7F9B3004567A1 /* Products */;
 			projectDirPath = "";
@@ -500,19 +483,15 @@
 				C92A971824E513F900C87CCD /* ErrorCenter.swift in Sources */,
 				C9E9C09225CFD94E00CD767D /* ConfigModel.swift in Sources */,
 				C9E393E824EE255900D80B28 /* TokenView.swift in Sources */,
-				C9AB1D4C2637EF1C008256ED /* OrderJSON.swift in Sources */,
-				C9AB1D5C2638FADD008256ED /* OrderJSON+NormalJSON.swift in Sources */,
 				C9ED9CC623D7F9B3004567A1 /* AppDelegate.swift in Sources */,
 				C9AB1D312637B211008256ED /* OrderJSON+Yapi.swift in Sources */,
 				C9E393EA24EE47D300D80B28 /* TokenViewController.swift in Sources */,
 				C92A971624E513EA00C87CCD /* YApiCreator.swift in Sources */,
 				C92A971D24E514FB00C87CCD /* Constants.swift in Sources */,
 				C92A971424E513EA00C87CCD /* YApiHelper.swift in Sources */,
-				C9AB1D4A2637EF1C008256ED /* ParserError.swift in Sources */,
 				C9ED9CCA23D7F9B3004567A1 /* Document.swift in Sources */,
 				C9E9C08925CF907A00CD767D /* OpenSavePanel.swift in Sources */,
 				C935B49C24EA24BE00E48231 /* JSONHelper.swift in Sources */,
-				C9AB1D4E2637EF1C008256ED /* JsonParser.swift in Sources */,
 				C9D9905825E776A900258865 /* ConfigCenter.swift in Sources */,
 				C961C1DE23D82A8D008D0DE6 /* ConfigViewController.swift in Sources */,
 				C92A971524E513EA00C87CCD /* YApiObject.swift in Sources */,
@@ -525,14 +504,10 @@
 			files = (
 				C9DD88322431C630004E420F /* YApiRequest.swift in Sources */,
 				C9CB2480241F559C00F4D5CE /* ErrorCenter.swift in Sources */,
-				C9AB1D4F2637EF1C008256ED /* JsonParser.swift in Sources */,
-				C9AB1D4B2637EF1C008256ED /* ParserError.swift in Sources */,
 				C9ED9CE123D7F9D0004567A1 /* SourceEditorExtension.swift in Sources */,
-				C9AB1D4D2637EF1C008256ED /* OrderJSON.swift in Sources */,
 				C94AFC01241F4AE600389AF3 /* YApiHelper.swift in Sources */,
 				C94AFC04241F4E8A00389AF3 /* YApiObject.swift in Sources */,
 				C9ED9CE323D7F9D0004567A1 /* SourceEditorCommand.swift in Sources */,
-				C9AB1D5D2638FADD008256ED /* OrderJSON+NormalJSON.swift in Sources */,
 				C9D9905C25E776EF00258865 /* ConfigModel.swift in Sources */,
 				C9D9906E25E7816600258865 /* ConfigCenter.swift in Sources */,
 				C9CEE26D242B382900A04EA9 /* YApiCreator.swift in Sources */,
@@ -858,6 +833,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C9AB1D6626395F82008256ED /* XCRemoteSwiftPackageReference "order-json" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://gitee.com/Sven001/order-json.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.1;
+			};
+		};
 		C9D9906525E7807300258865 /* XCRemoteSwiftPackageReference "CleanJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Pircate/CleanJSON.git";
@@ -869,6 +852,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C9AB1D6726395F82008256ED /* OrderJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C9AB1D6626395F82008256ED /* XCRemoteSwiftPackageReference "order-json" */;
+			productName = OrderJSON;
+		};
+		C9AB1D6B26395F8E008256ED /* OrderJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C9AB1D6626395F82008256ED /* XCRemoteSwiftPackageReference "order-json" */;
+			productName = OrderJSON;
+		};
 		C9D9906625E7807300258865 /* CleanJSON */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C9D9906525E7807300258865 /* XCRemoteSwiftPackageReference "CleanJSON" */;

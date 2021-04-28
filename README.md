@@ -1,6 +1,7 @@
 SwiftJSONModeler是一个Xcode插件，一键转换json字符串为Swfit模型，一键转化 YApi 平台接口为模型，并且自动引入注释。
 * 支持struct, class 
 * 支持单json转模， 多层嵌套 json
+* 模型字段顺序与 json 一致
 * 支持YApi RAW或接口id解析转模，并且自动引入 YApi 平台注释和兼容数据类型
 * 支持自定义遵循 和 import
 * 支持自定义模型前缀和后缀
@@ -20,68 +21,74 @@ SwiftJSONModeler是一个Xcode插件，一键转换json字符串为Swfit模型�
 示例 json 数据：
 ```javaScript
 {
-            "title": "第一层 json",
-            "stringValue": "字符串值",
-            "intValue": 58,
-            "doubleValue": 18.2,
-            "nullValue": null,
-            "boolValue": true,
-            "subJson": {
-                "title": "第二层 json",
-                "stringValue": "字符串值"
-            },
-            "arrayValue1": [
-                "value1",
-                "value2",
-                "value3"
-            ],
-            "arrayValue2": [{
-                "title": "数组包含子 json",
-                "intValue": 12,
-                "boolValue": false
-            }]
-        }
+	"stringValue": "字符串",
+	"intValue": 20,
+	"doubleValue": 12.8,
+	"boolValue": false,
+	"objectValue": {
+		"objectKey1": "value1",
+		"objectKey2": 2,
+		"objectKey3": {
+			"key": "value"
+		}
+	},
+	"arrayValue1": [1, 2, 3],
+	"arrayValue2": [{
+		"name": "小明",
+		"age": 18
+	}],
+	"emptyArray": [],
+	"emptyObject": {},
+	"nullValue": null
+}
 ```
 Swift模型
 ```swift
-///
-struct HKModel: HandyJSON {
+struct Model: HandyJSON {
     
-    var arrayValue2: [HKArrayValue2Model] = []
-    
-    var nullValue: NSNull?
+    var stringValue: String = ""
     
     var intValue: Int?
-    
-    var arrayValue1: [String] = []
-    
-    var title: String?
-    
-    var stringValue: String?
-    ///
-    var subJson: HKSubJsonModel?
     
     var doubleValue: Double?
     
     var boolValue: Int?
+    ///
+    var objectValue: ObjectValueModel?
+    
+    var arrayValue1: [Int] = []
+    
+    var arrayValue2: [ArrayValue2Model] = []
+    
+    var emptyArray: [<#Undefined#>] = [] // 空数组 需要手动指定类型
+    ///
+    var emptyObject: EmptyObjectModel?
+    
+    var nullValue: <#NSNull#>?  // null值，需要手动指定类型
 }
 
-///
-struct HKArrayValue2Model: HandyJSON {
+struct ObjectValueModel: HandyJSON {
     
-    var title: String?
+    var objectKey1: String = ""
     
-    var boolValue: Int?
-    
-    var intValue: Int?
+    var objectKey2: Int?
+    ///
+    var objectKey3: ObjectKey3Model?
 }
 
-///
-struct HKSubJsonModel: HandyJSON {
+struct ArrayValue2Model: HandyJSON {
     
-    var title: String?
+    var name: String = ""
     
-    var stringValue: String?
+    var age: Int?
+}
+
+struct EmptyObjectModel: HandyJSON {
+}
+
+struct ObjectKey3Model: HandyJSON {
+    
+    var key: String = ""
 }
 
 ```
