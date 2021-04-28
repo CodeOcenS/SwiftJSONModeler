@@ -64,16 +64,48 @@ public extension OrderJSON {
             return nil
         }
         guard let keyObject = orderJSONFor(key: key, in: aim) else {
-            logError("\(key)下 properties 不存在该 key 对象")
+            logError("\(key)下 properties 不存在该OrderJSON对象")
             return nil
         }
         return keyObject
     }
     private func searchKeysIn(_ json: OrderJSON) -> [String] {
-        guard case .object(let objc) = json else {
+        if case .object(let subKeys) = json {
+            if let type = orderJSONFor(key: YApiKeys.type.rawValue, in: subKeys), case .string(let typeValue) = type, typeValue == "array" {
+                // 该 key 为数组
+                return searchKeysForArray(json)
+            }
+            return searchKeysForObject(subKeys)
+        }
+        return []
+        
+    }
+    /// 取object 类型的 keys
+    private func searchKeysForObject(_ json: [[String: OrderJSON]]) -> [String] {
+        guard let properties = orderJSONFor(key: YApiKeys.properties.rawValue, in: json) else {
             return []
         }
-        guard let properties = orderJSONFor(key: YApiKeys.properties.rawValue, in: objc) else {
+        guard case .object(let aim) = properties else {
+            return []
+        }
+        var keys: [String] = []
+        aim.forEach { (value) in
+            keys.append(value.keys.first!)
+        }
+        return keys
+    }
+    /// 取 array 类型下为 object 的 keys
+    private func searchKeysForArray(_ json: OrderJSON) -> [String] {
+        guard case .object(let arrayObjects) = json else {
+            return []
+        }
+        guard let items = orderJSONFor(key: "items", in: arrayObjects)  else {
+            return []
+        }
+        guard case .object(let itemObj) = items else {
+            return []
+        }
+        guard let properties = orderJSONFor(key: YApiKeys.properties.rawValue, in: itemObj) else {
             return []
         }
         guard case .object(let aim) = properties else {

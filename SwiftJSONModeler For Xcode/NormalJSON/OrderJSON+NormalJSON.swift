@@ -56,11 +56,22 @@ extension OrderJSON {
         return keyObject
     }
     private func searchKeysIn(_ json: OrderJSON) -> [String] {
-        guard case .object(let objc) = json else {
-            return []
+        if case .object(let objc) = json  {
+            // json 对象
+           return searchKeysInObject(objc)
         }
+        if case .array(let objc) = json, let first = objc.first {
+            // 数组
+            if case .object(let items) = first {
+                return searchKeysInObject(items)
+            }
+        }
+        return []
+    }
+    
+    private func searchKeysInObject(_ keyObjects:[[String: Any]]) -> [String] {
         var keys: [String] = []
-        objc.forEach { (value) in
+        keyObjects.forEach { (value) in
             keys.append(value.keys.first!)
         }
         return keys

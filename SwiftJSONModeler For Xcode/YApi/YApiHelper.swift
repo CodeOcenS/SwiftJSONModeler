@@ -80,10 +80,12 @@ class YApiHelper {
 
     private func objectsOf(key parent: String, properties: [String: Any]) -> [YApiObject] {
         currentPath.append(parent)
+        print("当前路径:\(currentPath)")
         let subKeys = customJSON?.yapiSubKeysFor(keyPath: currentPath) ?? []
+        print("子健:\(subKeys)")
         var objectArr: [YApiObject] = []
         if subKeys.isEmpty {
-            logError("无法使用 OrderJSON 解析 json")
+            logError("无法通过 OrderJSON 解析获取 subkey")
             print("\(pasteJSON)")
             // 直接解析
             for item in properties {
@@ -111,7 +113,7 @@ class YApiHelper {
                 }
             }
         }
-
+        currentPath.removeLast()
         return objectArr
     }
 

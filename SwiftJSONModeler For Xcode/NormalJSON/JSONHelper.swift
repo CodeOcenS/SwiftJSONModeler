@@ -33,6 +33,7 @@ public class JSONHelper {
         } catch let e {
             print(e)
             ErrorCenter.shared.message = "json 序列化失败，请检查 json 数据"
+            print(paste)
             return nil
     
         }
@@ -57,7 +58,7 @@ public class JSONHelper {
                 }
             }
         }
-        currentPath.dropLast()
+        currentPath.removeLast()
         let object = YApiObject(parentKey: nil, key: key, mock: "", type: YApiType.object, typeRaw: "Object", des: "", childs: childs)
         return object
     }
