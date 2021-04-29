@@ -707,7 +707,7 @@
 				CODE_SIGN_ENTITLEMENTS = "SwiftJSONModeler For Xcode/SwiftJSONModeler For Xcode.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2021.03.19;
+				CURRENT_PROJECT_VERSION = 2021.04.29;
 				DEVELOPMENT_TEAM = K9DS6XKGWL;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "SwiftJSONModeler For Xcode/Info.plist";
@@ -715,7 +715,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 2.1.3;
+				MARKETING_VERSION = 3.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lifu.SwiftJSONModeler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -730,7 +730,7 @@
 				CODE_SIGN_ENTITLEMENTS = "SwiftJSONModeler For Xcode/SwiftJSONModeler For Xcode.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2021.03.19;
+				CURRENT_PROJECT_VERSION = 2021.04.29;
 				DEVELOPMENT_TEAM = K9DS6XKGWL;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "SwiftJSONModeler For Xcode/Info.plist";
@@ -738,7 +738,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 2.1.3;
+				MARKETING_VERSION = 3.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lifu.SwiftJSONModeler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -752,6 +752,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2021.04.29;
 				DEVELOPMENT_TEAM = K9DS6XKGWL;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SwiftJSONModeler/Info.plist;
@@ -760,7 +761,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MARKETING_VERSION = 2.1.2;
+				MARKETING_VERSION = 3.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lifu.SwiftJSONModeler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -775,6 +776,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2021.04.29;
 				DEVELOPMENT_TEAM = K9DS6XKGWL;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SwiftJSONModeler/Info.plist;
@@ -783,7 +785,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MARKETING_VERSION = 2.1.2;
+				MARKETING_VERSION = 3.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lifu.SwiftJSONModeler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
